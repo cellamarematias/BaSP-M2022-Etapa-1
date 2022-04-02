@@ -1,0 +1,161 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    width: 1440pt;
+}
+header {
+    width: 1440pt;
+    height: 116pt;
+    background-color: #AACE9B;
+    position: relative;
+}
+header h1 {
+    position: absolute;
+    left: 1001pt;
+    top: -3pt;
+    margin-right: 7pt;
+    width: 427pt;
+    height: 83pt;
+    font-weight: bold;
+    font-size: 86pt;
+    text-align: end;
+    color: #373867;   
+}
+header p {
+    position: absolute;
+    right: 20pt;
+    top: 86pt;
+    height: 32pt;
+    font-weight: bold;
+    font-size: 27pt;
+    text-align: end;
+    margin: 0;
+    color: #69A362;
+}
+
+nav {
+    position: absolute;
+    left: 0;
+    top: 116pt;
+    height: 6022pt;
+    width: 231pt;
+    background-color: #373867;
+    text-align: center;
+    border-radius: 0 0 10pt 0;
+}
+.barra-nav {
+    left: 0;
+    top: 116pt;
+    height: 6022pt;
+    width: 27pt;
+    background-color:#AACE9B;
+}
+.nav-separador-uno {
+    position: absolute;
+    top: 61pt;
+    left: 50pt;
+    width: 181pt;
+    height: 1pt;
+    background-color: #69A362;
+}
+.nav-separador-dos {
+    position: absolute;
+    top: 357pt;
+    left: 82pt;
+    width: 149pt;
+    height: 1pt;
+    background-color: #69A362;
+}
+nav button {   
+    width: 162pt;
+    height: 42pt;
+    border-radius: 10pt;
+    border: none;
+    background-color: #AACE9B;
+    position: absolute;
+}
+#btn-home {
+    top: 120pt;
+    left: 48pt;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20pt;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 40pt;
+}
+#btn-sign-up {
+    top: 197pt;
+    left: 48pt;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20pt;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 40pt;
+}
+#btn-log-in {
+    top: 274pt;
+    left: 48pt;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20pt;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 40pt;
+}
+nav h2 {
+    position: absolute;
+    top: 506pt;
+    left: 40pt;
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+}
+#nav-p-uno {
+    position: absolute;
+    top: 534pt;
+    left: 40pt;
+    color: white;
+    font-size: 13pt;
+    text-align: start;
+    font-weight: 400;
+}
+#nav-img-uno {
+    position: absolute;
+    top: 764pt;
+    left: 122pt;
+}
+#nav-img-dos {
+    position: absolute;
+    top: 825pt;
+    left: 122pt;
+}
+#nav-img-tres {
+    position: absolute;
+    top: 881pt;
+    left: 122pt;
+}
+#nav-a-uno {
+    position: absolute;
+    top: 784pt;
+    left: 52pt;
+    width: 155pt;
+    color: white;
+    text-decoration: none;
+}
+#nav-a-dos {
+    position: absolute;
+    top: 849pt;
+    left: 58pt;
+    width: 143pt;
+    color: white;
+    text-decoration: none;
+}
+#nav-p-dos {
+    position: absolute;
+    top: 904pt;
+    left: 44pt;
+    width: 175pt;
+    color: white;
+    font-size: 12pt;
+}
