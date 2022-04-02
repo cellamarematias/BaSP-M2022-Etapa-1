@@ -122,16 +122,22 @@ nav h2 {
     font-weight: 400;
 }
 #nav-img-uno {
+    width: 23px;
+    height: 23px;
     position: absolute;
     top: 1018.6px;
     left: 162.6px;
 }
 #nav-img-dos {
+    width: 23px;
+    height: 23px;
     position: absolute;
     top: 1100px;
     left: 162.6px;
 }
 #nav-img-tres {
+    width: 23px;
+    height: 23px;
     position: absolute;
     top: 1174.6px;
     left: 162.6px;
