@@ -1,33 +1,34 @@
 body {
     font-family: 'Roboto', sans-serif;
-    width: 1440pt;
+    width: 1920px;
     height: 100%;
+    background-color: #FFF8F8;
 }
 header {
-    width: 1440pt;
-    height: 116pt;
+    width: 1920px;
+    height: 154.6px;
     background-color: #AACE9B;
     position: relative;
 }
 header h1 {
     position: absolute;
-    left: 1001pt;
-    top: -3pt;
-    margin-right: 7pt;
-    width: 427pt;
-    height: 83pt;
+    left: 1334.7px;
+    top: -4px;
+    margin-right: 9.3px;
+    width: 569.3px;
+    height: 110.6px;
     font-weight: bold;
-    font-size: 86pt;
+    font-size: 114.6px;
     text-align: end;
     color: #373867;   
 }
 header p {
     position: absolute;
-    right: 20pt;
-    top: 86pt;
-    height: 32pt;
+    right: 26.6px;
+    top: 114.6px;
+    height: 42.6px;
     font-weight: bold;
-    font-size: 27pt;
+    font-size: 36px;
     text-align: end;
     margin: 0;
     color: #69A362;
@@ -37,197 +38,193 @@ nav {
     left: 0;
     top: 0;
     height: 100%;
-    width: 231pt;
+    width: 308px;
     background-color: #373867;
     text-align: center;
-    border-radius: 0 0 10pt 0;
+    border-radius: 0 0 13px 0;
 }
 .barra-nav {
     left: 0;
-    top: 116pt;
-    height: 6022pt;
-    width: 27pt;
+    top: 154.6px;
+    height: 8029px;
+    width: 36px;
     background-color:#AACE9B;
 }
 .nav-separador-uno {
     position: absolute;
-    top: 61pt;
-    left: 50pt;
-    width: 181pt;
-    height: 1pt;
+    top: 91.3px;
+    left: 66.6px;
+    width: 241px;
+    height: 1.3px;
     background-color: #69A362;
 }
 .nav-separador-dos {
     position: absolute;
-    top: 357pt;
-    left: 82pt;
-    width: 149pt;
-    height: 1pt;
+    top: 476px;
+    left: 109.3px;
+    width: 198px;
+    height: 1.3px;
     background-color: #69A362;
 }
 nav button {   
-    width: 162pt;
-    height: 42pt;
-    border-radius: 10pt;
+    width: 216px;
+    height: 56px;
+    border-radius: 13px;
     border: none;
     background-color: #AACE9B;
     position: absolute;
 }
 #btn-home {
-    top: 120pt;
-    left: 48pt;
+    top: 160px;
+    left: 64px;
     text-align: center;
     vertical-align: middle;
-    font-size: 20pt;
+    font-size: 26.6px;
     text-decoration: none;
     vertical-align: middle;
-    line-height: 40pt;
+    line-height: 53.3px;
 }
 #btn-sign-up {
-    top: 197pt;
-    left: 48pt;
+    top: 263px;
+    left: 64px;
     text-align: center;
     vertical-align: middle;
-    font-size: 20pt;
+    font-size: 26.6px;
     text-decoration: none;
     vertical-align: middle;
-    line-height: 40pt;
+    line-height: 53.3px;
 }
 #btn-log-in {
-    top: 274pt;
-    left: 48pt;
+    top: 365px;
+    left: 64px;
     text-align: center;
     vertical-align: middle;
-    font-size: 20pt;
+    font-size: 26.6px;
     text-decoration: none;
     vertical-align: middle;
-    line-height: 40pt;
+    line-height: 53.3px;
 }
 nav h2 {
     position: absolute;
-    top: 506pt;
-    left: 40pt;
+    top: 674.6px;
+    left: 53.3px;
     color: white;
-    font-size: 20pt;
+    font-size: 26.6px;
     font-weight: bold;
 }
 #nav-p-uno {
     position: absolute;
-    top: 534pt;
-    left: 40pt;
+    top: 712px;
+    left: 53.3px;
     color: white;
-    font-size: 13pt;
+    font-size: 17.3px;
     text-align: start;
     font-weight: 400;
 }
 #nav-img-uno {
     position: absolute;
-    top: 764pt;
-    left: 122pt;
+    top: 1018.6px;
+    left: 162.6px;
 }
 #nav-img-dos {
     position: absolute;
-    top: 825pt;
-    left: 122pt;
+    top: 1100px;
+    left: 162.6px;
 }
 #nav-img-tres {
     position: absolute;
-    top: 881pt;
-    left: 122pt;
+    top: 1174.6px;
+    left: 162.6px;
 }
 #nav-a-uno {
     position: absolute;
-    top: 784pt;
-    left: 52pt;
-    width: 155pt;
+    top: 1045.3px;
+    left: 69.3px;
+    width: 206.6px;
     color: white;
     text-decoration: none;
 }
 #nav-a-dos {
     position: absolute;
-    top: 849pt;
-    left: 58pt;
-    width: 143pt;
+    top: 1132px;
+    left: 77px;
+    width: 191px;
     color: white;
     text-decoration: none;
 }
 #nav-p-dos {
     position: absolute;
-    top: 904pt;
-    left: 44pt;
-    width: 175pt;
+    top: 1205.3px;
+    left: 58.6px;
+    width: 233.3px;
     color: white;
-    font-size: 12pt;
-}
-footer {
-    position: absolute;
-    top: 5985pt;
+    font-size: 16px;
 }
 .main-inicial h2 {
     position: absolute;
-    top: 216pt;
-    left: 80pt;
-    width: 1112pt;
-    height: 85pt;
-    font-size: 72pt;
+    top: 288px;
+    left: 106.6px;
+    width: 1482.6px;
+    height: 113.33px;
+    font-size: 96px;
     font-weight: bold;
     color: #373867;
     text-align: center;
 }
 #main-inicial-h3 {
     position: absolute;
-    top: 323pt;
-    left: 215pt;
-    width: 421pt;
-    height: 52pt;
-    font-size: 36pt;
+    top: 430.6px;
+    left: 286.6px;
+    width: 561px;
+    height: 69.3px;
+    font-size: 48px;
     font-weight: bold;
     color: #373867;
     text-align: center;
 }
 #main-inicial-p {
     position: absolute;
-    top: 516pt;
-    left: 257pt;
-    width: 484pt;
-    height: 339pt;
-    font-size: 24pt;
+    top: 688px;
+    left: 342.6px;
+    width: 645.3px;
+    height: 452px;
+    font-size: 32px;
     color: #373867;
     text-align: center;
 }
 #main-inicial-main-img {
     position: absolute;
-    top: 410pt;
-    left: 760pt;
-    width: 680pt;
-    height: 501pt;
+    top: 546.6px;
+    left: 1013.3px;
+    width: 906.6px;
+    height: 668px;
 }
 .main-barra-uno {
     position: absolute;
-    top: 1006pt;
-    left: 307pt;
-    width: 1133pt;
-    height: 12pt;
+    top: 1341.3px;
+    left: 409.33px;
+    width: 1510.66px;
+    height: 16px;
     background-color: #EBFAE3;
 }
 #main-inicial-h3-features {
     position: absolute;
-    top: 1031pt;
-    left: 199pt;
-    width: 510pt;
-    height: 95pt;
-    font-size: 48pt;
+    top: 1374.66px;
+    left: 265.33px;
+    width: 680px;
+    height: 126.66px;
+    font-size: 64px;
     font-weight: bold;
     color: #373867;
     text-align: center;
 }
 #main-inicial-h4-record {
     position: absolute;
-    top: 1219pt;
-    left: 458pt;
-    width: 326pt;
-    height: 49pt;
-    font-size: 30pt;
+    top: 1625px;
+    left: 611px;
+    width: 435px;
+    height: 65px;
+    font-size: 40px;
     font-weight: bold;
     color: #373867;
     text-align: center;
@@ -235,28 +232,28 @@ footer {
 }
 #main-inicial-img-clock {
     position: absolute;
-    top: 1230pt;
-    left: 261pt;
-    width: 210pt;
-    height: 198pt;
+    top: 1640px;
+    left: 348px;
+    width: 280px;
+    height: 264px;
 }
 #main-inicial-p-record {
     position: absolute;
-    top: 1295pt;
-    left: 491pt;
-    width: 261pt;
-    height: 110pt;
-    font-size: 14pt;
+    top: 1727px;
+    left: 655px;
+    width: 348px;
+    height: 147px;
+    font-size: 18.66px;
     color: #373867;
     text-align: center;
 }
 #main-inicial-h4-resource {
     position: absolute;
-    top: 1219pt;
-    left: 1024pt;
-    width: 369pt;
-    height: 28pt;
-    font-size: 30pt;
+    top: 1625px;
+    left: 1365px;
+    width: 492px;
+    height: 37px;
+    font-size: 40px;
     font-weight: bold;
     color: #373867;
     text-align: center;
@@ -264,28 +261,28 @@ footer {
 }
 #main-inicial-img-resource {
     position: absolute;
-    top: 1266pt;
-    left: 814pt;
-    width: 210pt;
-    height: 138pt;
+    top: 1688px;
+    left: 1085px;
+    width: 280px;
+    height: 184px;
 }
 #main-inicial-p-resource {
     position: absolute;
-    top: 1310pt;
-    left: 1069pt;
-    width: 275pt;
-    height: 91pt;
-    font-size: 14pt;
+    top: 1747px;
+    left: 1425px;
+    width: 367px;
+    height: 121px;
+    font-size: 18.66px;
     color: #373867;
     text-align: center;
 }
 #main-inicial-h4-reports {
     position: absolute;
-    top: 1668pt;
-    left: 504pt;
-    width: 201pt;
-    height: 52pt;
-    font-size: 30pt;
+    top: 2224px;
+    left: 672px;
+    width: 268px;
+    height: 69.3px;
+    font-size: 40px;
     font-weight: bold;
     color: #373867;
     text-align: center;
@@ -293,28 +290,28 @@ footer {
 }
 #main-inicial-img-reports {
     position: absolute;
-    top: 1672pt;
-    left: 261pt;
-    width: 210pt;
-    height: 210pt;
+    top: 2229.33px;
+    left: 348px;
+    width: 280px;
+    height: 280px;
 }
 #main-inicial-p-reports {
     position: absolute;
-    top: 1739pt;
-    left: 483pt;
-    width: 243pt;
-    height: 115pt;
-    font-size: 14pt;
+    top: 2318.66px;
+    left: 644px;
+    width: 324px;
+    height: 153.33px;
+    font-size: 18.66px;
     color: #373867;
     text-align: center;
 }
 #main-inicial-h4-roles {
     position: absolute;
-    top: 1668pt;
-    left: 1087pt;
-    width: 238pt;
-    height: 40pt;
-    font-size: 30pt;
+    top: 2224px;
+    left: 1449.33px;
+    width: 317px;
+    height: 53.3px;
+    font-size: 40px;
     font-weight: bold;
     color: #373867;
     text-align: center;
@@ -322,134 +319,134 @@ footer {
 }
 #main-inicial-img-roles {
     position: absolute;
-    top: 1675pt;
-    left: 814pt;
-    width: 210pt;
-    height: 166pt;
+    top: 2233.3px;
+    left: 1085px;
+    width: 280px;
+    height: 221px;
 }
 #main-inicial-p-roles {
     position: absolute;
-    top: 1739pt;
-    left: 1074pt;
-    width: 265pt;
-    height: 96pt;
-    font-size: 14pt;
+    top: 2318.66px;
+    left: 1432px;
+    width: 353px;
+    height: 128px;
+    font-size: 18.66px;
     color: #373867;
     text-align: center;
 }
 .main-barra-dos {
     position: absolute;
-    top: 2033pt;
-    left: 307pt;
-    width: 1133pt;
-    height: 12pt;
+    top: 2710px;
+    left: 409.33px;
+    width: 1510.66px;
+    height: 16px;
     background-color: #EBFAE3;
 }
 .main-middle-section h3 {
     position: absolute;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 36pt;
+    font-size: 48px;
     color: #AACE9B;
     text-align: center;
 }
 .main-middle-section div {
     position: absolute;
-    width: 470pt;
-    height: 400pt;
-    border: 5pt solid #9AB593;
+    width: 626px;
+    height: 533px;
+    border: 7px solid #9AB593;
 }
 .main-middle-section p {
     position: absolute;
-    width: 322pt;
-    height: 111pt;
+    width: 429px;
+    height: 148px;
     color: #373867;
     text-align: center;
-    font-size: 18pt;
+    font-size: 24px;
     font-weight: bold;
 }
 #productivity-border {
-    top: 2114pt;
-    left: 307pt;    
+    top: 2819px;
+    left: 409.33px;    
 }
 #productivity-h3 {
-    top: 2183pt;
-    left: 349pt;
-    width: 390pt;
-    height: 84pt;
+    top: 2919px;
+    left: 465px;
+    width: 520px;
+    height: 112px;
 }
 #productivity-p {
-    left: 383pt;
-    top: 2297pt;
+    left: 511px;
+    top: 3063px;
 }
 #traceability-border {
-    top: 2114pt;
-    left: 873pt;    
+    top: 2819px;
+    left: 1164px;    
 }
 #traceability-h3 {
-    top: 2183pt;
-    left: 931pt;
-    width: 354pt;
-    height: 106pt;
+    top: 2919px;
+    left: 1241px;
+    width: 472px;
+    height: 141px;
 }
 #traceability-p {
-    left: 956pt;
-    top: 2297pt;
+    left: 1275px;
+    top: 3063px;
 }
 #leadership-border {
-    top: 2589pt;
-    left: 307pt;    
+    top: 3452px;
+    left: 409.33px;    
 }
 #leadership-h3 {
-    top: 2669pt;
-    left: 349pt;
-    width: 390pt;
-    height: 84pt;
+    top: 3559px;
+    left: 465px;
+    width: 520px;
+    height: 112px;
 }
 #leadership-p {
-    left: 383pt;
-    top: 2789pt;
+    left: 511px;
+    top: 3719px;
 }
 #decision-border {
-    top: 2589pt;
-    left: 873pt;    
+    top: 3452px;
+    left: 1164px;    
 }
 #decision-h3 {
-    top: 2712pt;
-    left: 940pt;
-    width: 354pt;
-    height: 106pt;
+    top: 3616px;
+    left: 1253px;
+    width: 472px;
+    height: 141px;
 }
 #decision-p {
-    left: 956pt;
-    top: 2789pt;
+    left: 1275px;
+    top: 3719px;
 }
 #main-barra-tres {
     position: absolute;
-    top: 3057pt;
-    left: 307pt;
-    width: 1133pt;
-    height: 12pt;
+    top: 4076px;
+    left: 409.33px;
+    width: 1510.66px;
+    height: 16px;
     background-color: #EBFAE3;
     border: none;
 }
 .form h3{
     position: absolute;
-    top: 3094pt;
-    left: 291pt;
-    width: 288pt;
-    height: 69pt;
-    font-size: 48pt;
+    top: 4125px;
+    left: 388px;
+    width: 384px;
+    height: 92px;
+    font-size: 64px;
     font-weight: bold;
     color: #373867;
 }
 #label-name {
     position: absolute;
-    top: 3188pt;
-    left: 330pt;
-    width: 171pt;
-    height: 32pt;
-    font-size: 18pt;
+    top: 4251px;
+    left: 440px;
+    width: 228px;
+    height: 43px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
     text-transform: uppercase;
@@ -457,21 +454,21 @@ footer {
 }
 #input-name {
     position: absolute;
-    top: 3222pt;
-    left: 330pt;
-    width: 1011pt;
-    height: 59pt;
+    top: 4296px;
+    left: 440px;
+    width: 1348px;
+    height: 79px;
     border: none;
-    border-radius: 20pt;
+    border-radius: 26.6px;
     background-color: #37386740;
 }
 #label-email {
     position: absolute;
-    top: 3340pt;
-    left: 330pt;
-    width: 61pt;
-    height: 31pt;
-    font-size: 18pt;
+    top: 4453px;
+    left: 440px;
+    width: 81px;
+    height: 41px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
     text-transform: uppercase;
@@ -479,35 +476,35 @@ footer {
 }
 #input-email {
     position: absolute;
-    top: 3371pt;
-    left: 330pt;
-    width: 1011pt;
-    height: 59pt;
+    top: 4495px;
+    left: 440px;
+    width: 1348px;
+    height: 79px;
     border: none;
-    border-radius: 20pt;
+    border-radius: 26.6px;
     background-color: #37386745;
 }
 .form h4{
     position: absolute;
-    top: 3491pt;
-    left: 330pt;
-    width: 97pt;
-    height: 29pt;
-    font-size: 18pt;
+    top: 4655px;
+    left: 440px;
+    width: 129px;
+    height: 39px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
     text-align: center;
 }
 .form-check-rrhh {
     position: absolute;
-    width: 32pt;
-    height: 32pt;
-    top: 3536pt;
-    left: 330pt;
+    width: 43px;
+    height: 43px;
+    top: 4715px;
+    left: 440px;
 }
 .form-check-rrhh label {
-    width: 32pt;
-    height: 32pt;
+    width: 43px;
+    height: 43px;
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -541,24 +538,24 @@ footer {
 }
 #form-p-rrhh {
     position: absolute;
-    top: 10pt;
-    left: 38pt;
-    width: 158pt;
-    height: 17pt;
-    font-size: 18pt;
+    top: 13px;
+    left: 51px;
+    width: 211px;
+    height: 23px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
 }  
 .form-check-sistem {
     position: absolute;
-    width: 32pt;
-    height: 32pt;
-    top: 3536pt;
-    left: 701pt;
+    width: 43px;
+    height: 43px;
+    top: 4715px;
+    left: 935px;
 }
 .form-check-sistem label {
-    width: 32pt;
-    height: 32pt;
+    width: 43px;
+    height: 43px;
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -592,24 +589,24 @@ footer {
 }
 #form-p-sistem {
     position: absolute;
-    top: 10pt;
-    left: 38pt;
-    width: 158pt;
-    height: 17pt;
-    font-size: 18pt;
+    top: 13px;
+    left: 51px;
+    width: 211px;
+    height: 23px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
 }  
 .form-check-comercialization {
     position: absolute;
-    width: 32pt;
-    height: 32pt;
-    top: 3536pt;
-    left: 1066pt;
+    width: 43px;
+    height: 43px;
+    top: 4715px;
+    left: 1421px;
 }
 .form-check-comercialization label {
-    width: 32pt;
-    height: 32pt;
+    width: 43px;
+    height: 43px;
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -643,21 +640,21 @@ footer {
 }
 #form-p-comercialization {
     position: absolute;
-    top: 10pt;
-    left: 38pt;
-    width: 158pt;
-    height: 17pt;
-    font-size: 18pt;
+    top: 13px;
+    left: 51px;
+    width: 211px;
+    height: 23px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
 }
 #form-label-message {
     position: absolute;
-    top: 3637pt;
-    left: 298pt;
-    width: 172pt;
-    height: 32pt;
-    font-size: 18pt;
+    top: 4849px;
+    left: 397px;
+    width: 229px;
+    height: 43px;
+    font-size: 24px;
     font-weight: bold;
     color: #373867;
     text-transform: uppercase;
@@ -665,32 +662,142 @@ footer {
 }
 #form-input-message {
     position: absolute;
-    top: 3669pt;
-    left: 330pt;
-    width: 1011pt;
-    height: 315pt;
+    top: 4892px;
+    left: 440px;
+    width: 1348px;
+    height: 420px;
     border: none;
-    border-radius: 20pt;
+    border-radius: 26.6px;
     background-color: #37386745;
 }
 #main-barra-cuatro {
     position: absolute;
-    top: 4080pt;
-    left: 330pt;
-    width: 1133pt;
-    height: 12pt;
+    top: 5440px;
+    left: 440px;
+    width: 1510.66px;
+    height: 16px;
     background-color: #EBFAE3;
     border: none;
 }
 .main-history h2 {
     position: absolute;
-    top: 4154pt;
-    left: 445pt;
-    width: 744pt;
-    height: 107pt;
-    font-size: 64pt;
+    top: 5539px;
+    left: 593px;
+    width: 992px;
+    height: 143px;
+    font-size: 85px;
     font-weight: bold;
     color: #373867;
     text-transform: uppercase;
     text-align: center;
+}
+.main-history-p1 {
+    position: absolute;
+    top: 5728px;
+    left: 344px;
+    width: 1528px;
+    height: 196px;
+    font-size: 32px;
+    font-weight: 500;
+    color: #373867;
+    text-align: center;
+}
+.main-history-p2 {
+    position: absolute;
+    top: 6015px;
+    left: 437px;
+    width: 1356px;
+    height: 156px;
+    font-size: 24px;
+    color: #373867;
+    text-align: center;
+}
+.main-history-p3 {
+    position: absolute;
+    top: 6188px;
+    left: 437px;
+    width: 1356px;
+    height: 156px;
+    font-size: 24px;
+    color: #373867;
+    text-align: center;
+}
+.main-history-p4 {
+    position: absolute;
+    top: 6355px;
+    left: 437px;
+    width: 1356px;
+    height: 156px;
+    font-size: 24px;
+    color: #373867;
+    text-align: center;
+}
+#main-barra-cinco {
+    position: absolute;
+    top: 6816px;
+    left: 440px;
+    width: 1510.66px;
+    height: 16px;
+    background-color: #EBFAE3;
+    border: none;
+}
+.main-end h3 {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #AACE9B;
+    position: absolute;
+    top: 7123px;
+}
+.main-end-h3-products {
+    left: 504px;
+}
+.main-end-h3-company {
+    left: 983px;
+}
+.main-end-h3-support {
+    left: 1495px;
+}
+.main-end ul {
+    font-size: 32px;
+    font-weight: bold;
+    color: #373867;
+    position: absolute;
+    width: 261px;
+    height: 237px;
+    top: 7237px;
+    list-style-type:disc;
+}
+.main-end a {
+    text-decoration: none;
+}
+.main-end-products-list {
+    left: 552px;
+}
+.main-end-company-list {
+    left: 1031px;
+}
+.main-end-support-list {
+    left: 1571px;
+}
+.footer {
+    top: 8192px;
+    width: 1920px;
+    left: 308px;
+    height: 155px;
+    background-color: #AACE9B;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.footer-p1 {
+    position: absolute;
+    top: 8243px;
+    left: 960px;
+}
+.footer-p2 {
+    position: absolute;
+    top: 8285px;
+    left: 829px;
 }
