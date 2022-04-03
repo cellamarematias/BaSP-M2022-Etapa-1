@@ -30,3 +30,9 @@ Good practices applied this project:
 * Did not skip heading levels in HTML.
 * Did not use divs to create headers and footers.
 * Did not use HTML to apply styles
+## Week 02
+---
+This week was dedicated to HTML. I created the files and all the elements to start the project. I focused on the semantic and the sintax of the code. During this week I applied good practices to the code achieving a perfect basic  structure to work for the rest of the project.
+## Week 03
+---
+The style's week. I worked on the CSS file to make it as similar as possible to the final "landing page" of the project. It´s important to clear out that I couldn´t use some model desing tools like Flexbox and CSS Grid Layout. So I decided to work with "position" and fix the elements manually to the final position on the screen. The final result is not a responsive design yet.
