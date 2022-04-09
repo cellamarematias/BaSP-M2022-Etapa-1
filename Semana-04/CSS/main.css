@@ -125,3 +125,43 @@ input[type="submit" i] {
     border-radius: 5px;
     padding: 1rem;
 }
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.history h2 {
+    text-transform: uppercase;
+}
+.history p {
+    margin: 1rem;
+}
+#first-p {
+    font-weight: bold;
+}
+.final-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+.final-section h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color:#AACE9B;
+}
+li a {
+    color: #373867;
+}
+ul {
+    font-weight: bold;
+    list-style-type: disc;
+}
+footer {
+    padding: 1rem;
+    background-color: #AACE9B;
+}
+footer p{
+    font-size: 10px;
+    font-weight: bold;
+}

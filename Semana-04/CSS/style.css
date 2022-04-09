@@ -33,3 +33,6 @@ img {
     width: 210px;
     height: 125px;
 }
+a {
+    text-decoration: none;
+}
