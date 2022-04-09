@@ -24,7 +24,6 @@ Can create an account from "Sign Up" section. See the projects where is involved
 ## SuperAdmin:
 Can manage, add or delete *Admins*.
 ## About the code
----
 Good practices applied this project:
 * Used only one  h1 element for one code sheet.
 * Did not skip heading levels in HTML.

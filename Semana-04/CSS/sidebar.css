@@ -1,0 +1,39 @@
+.nav-container {
+    width: 100%;
+    height: 46px;
+    background-color: #373867;
+}
+/* Burger menu */
+.nav-container .hamburger-lines {
+    padding: 10px 0 10px 10px;
+    height: 24px;
+    width: 30px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav-container .hamburger-lines .line {
+    display: block;
+    height: 5px;
+    width: 100%;
+    border-radius: 10px;
+    background: white;
+}
+/* Burger menu */
+@media only screen and (min-width: 1024px) {
+    .nav-container {
+        background-color: #373867;
+        width: 20%;
+        float: left;
+        min-height:100vh; 
+    }
+    .nav-container .hamburger-lines {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1024px) {
+ .nav-menu {
+     display: none;
+ }
+}

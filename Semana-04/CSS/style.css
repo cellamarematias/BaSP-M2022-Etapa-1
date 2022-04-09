@@ -1,0 +1,10 @@
+html body {
+    padding: 0;
+    margin: 0;
+    background-color: #FFF8F8;
+    font-family: 'Roboto', sans-serif;
+}
+img {
+    width: 210px;
+    height: 125px;
+}
