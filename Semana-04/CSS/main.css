@@ -1,67 +1,127 @@
-.main-inicial h2 {
-    font-size: 38px;
-    font-weight: bold;
-    text-align: center;
-}
-.main-inicial h3 {
-    font-size: 22px;
-    font-weight: bold;
-    align-self: end;
-    margin: 0.5rem;
-}
-.main-inicial h4 {
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 1rem;
-}
-.main-inicial {
+.first-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 1rem;
 }
-.main-section-header {
+.first-section-header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.main-section-header img {
+#main-img {
+    margin: 1rem;
     width: 210px;
     height: 125px;
-    margin: 1rem;
 }
-.main-inicial p {
-    color: #373867;
-    font-size: 20px;
+.features-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.features {
+    margin: 2rem;
     text-align: center;
 }
-@media only screen and (min-width: 768px) {
-    .main-inicial h2 {
-        font-size: 50px;
-    }
-    .main-inicial h3 {
-        font-size: 25px;
-        margin-right: 7rem;
-    }
-    .main-inicial p {
-        font-size: 32px;
-    }
+.features h3 {
+    align-self: center;
+    margin: 0;
 }
-@media only screen and (min-width: 1024px) {
-    .main-inicial h2 {
-        font-size: 70px;
-    }
-    .main-inicial h3 {
-        font-size: 40px;
-    }
-    .main-inicial p {
-        font-size: 32px;
-    }
+.features p {
+    align-self: center;
+    margin: 0;
+    font-size: 10px;
+    line-height: 2;
+}
+.features img {
+    height: 100px;
+    width: auto;
 }
 .barra {
     margin: 1rem;
     width: 80%;
     height: 6px;
     background-color: #AACE9B;
+}
+.features-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.features-block:last-of-type {
+    margin-bottom: 0;
+}
+/* Second section */
+.second-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.square {
+    height: 200px;
+    width: 300px;
+    border: solid 5px #AACE9B;
+    margin: 1rem;
+}
+.square h3 {
+    margin: 1rem;
+    font-size: 33px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #AACE9B;
+}
+.square p {
+    margin: 1rem;
+    font-weight: bold;
+    font-size: small;
+}
+.form input {
+    display: flex;
+    margin: 1rem;
+    border: none;
+    background-color: #DADADA;
+}
+.form h3 {
+    text-align: center;
+}
+.form h4 {
+    text-align: start;
+    margin: 0 0 0 1rem;
+}
+.form label {
+    margin: 0 0 0 1rem;
+    text-transform: uppercase;
+    font-size: 12px;
+
+}
+/* CAMBIAR DE LUGAR ESTO SEG?UN APARECE */
+.form textarea {    
+    display: flex;
+    width: 92%;
+    margin: 1rem;
+    border: none;
+    background-color: #DADADA;
+}
+.form-checks {
+    display: flex;
+    justify-content: space-around;
+}
+.form-checks label {
+    font-size: 7px;
+}
+.check {
+    display: flex;
+    align-items: center;
+}
+.check p{
+    font-size: 12px;
+}
+input[type="text" i] {
+    width: 92%;
+}
+input[type="submit" i] {
+    background-color: #AACE9B;
+    border-radius: 5px;
+    padding: 1rem;
 }

@@ -4,6 +4,31 @@ html body {
     background-color: #FFF8F8;
     font-family: 'Roboto', sans-serif;
 }
+h1 {
+    margin-right: 1rem;
+    font-weight: bold;
+    font-size: 45px;
+}
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+h3 {
+    margin: 0.5rem;
+    font-size: 20px;
+    font-weight: bold;
+}
+h4 {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+p {
+    text-align: center;
+    font-size: 20px;
+    color: #373867;
+}
 img {
     width: 210px;
     height: 125px;
