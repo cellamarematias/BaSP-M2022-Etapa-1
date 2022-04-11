@@ -31,6 +31,13 @@
     width: 100%;
     margin: 0 0 3rem 0rem;
 }
+.column-features {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+}
 .features img {
     height: 110px;
     margin-bottom: 1rem;
@@ -38,6 +45,8 @@
 .features {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 6rem;
 }
 .features-block {
@@ -45,30 +54,33 @@
     flex: 50%;
     align-items: center;
     align-content: center;
-    width: 200px;
+    width: 100%;
 }
 @media (max-width: 480px) {
+    .column-features {
+        width: 100%;
+    }
     .features-block {
-      flex: 100%;
-      flex-direction: column;
+        flex-direction: column;
     }
   }
 .features h3 {
     align-self: center;
     margin: 0 0 1rem 0;
 }
-.features h4 {
+.features-block h4 {
     margin: 1rem;
     text-transform: uppercase;
 }
 .features-text {
     text-align: center;
-}
-.features p {
     font-size: 10px;
-    align-self: center;
-    margin: 0;
+}
+.features-p {
     
+    align-self: center;
+    margin-top: 2rem;
+    font-size: 10px;    
 }
 .barra {
     margin: 1rem;
@@ -81,11 +93,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    justify-content: space-around;
+    margin: 0 0 5rem 0;
 }
 .column {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .square {
     height: 260px;
@@ -210,7 +224,7 @@ input[type="submit" i] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 280px;
+    width: 240px;
 }
 .final-section h3 {
     text-transform: uppercase;
