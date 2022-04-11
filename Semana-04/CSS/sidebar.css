@@ -1,3 +1,12 @@
+button {
+    margin: 1rem;
+    height: 37px;
+    width: 133px;
+    border-radius: 10px;
+    border: none;
+    font-size: x-large;
+    background-color: #AACE9B;
+}
 .barra-nav {
     height: 100%;
     background-color: #AACE9B;
@@ -12,20 +21,23 @@
 }
 button:hover {
     cursor:pointer;
-    background-color:#d7ebcf;
+    background-color:#e3eae0;
     transition: 0.3s;
 }
 .nav-separador {
-    margin: 2rem 0 1rem 0;
-    height: 1px;
-    width: 100%;
+    margin: 2rem 0rem 2rem 3rem;
+    height: 2px;
     background-color: #AACE9B;
 }
 .nav-menu p {
     margin: 1rem;
+    text-align: center;
     color: white;
     font-size: 10px;
     text-align: initial;
+}
+#nav-p-dos {
+    text-align: center;
 }
 .nav-menu h2 {
     color: white;
@@ -36,14 +48,6 @@ button:hover {
 }
 .nav-menu img {
     margin: 1rem;
-}
-button {
-    margin: 1rem;
-    height: 37px;
-    width: 133px;
-    border-radius: 10px;
-    font-size: x-large;
-    background-color: #AACE9B;
 }
 .nav-container {
     position: sticky;
