@@ -1,3 +1,9 @@
+/* MQ Needed to show sidebar */
+@media only screen and (min-width: 1024px) {
+    main {
+        margin-left: 18%;
+    }
+}
 .first-section {
     display: flex;
     flex-direction: column;
@@ -9,33 +15,60 @@
     flex-direction: column;
     align-items: center;
 }
+.first-section-img {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 #main-img {
     margin: 1rem;
-    width: 210px;
-    height: 125px;
+}
+.features-title {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    margin: 0 0 3rem 0rem;
+}
+.features img {
+    height: 110px;
+    margin-bottom: 1rem;
+}
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 6rem;
 }
 .features-block {
     display: flex;
+    flex: 50%;
     align-items: center;
-    margin-bottom: 4rem;
+    align-content: center;
+    width: 200px;
 }
-.features {
-    margin: 2rem;
-    text-align: center;
-}
+@media (max-width: 480px) {
+    .features-block {
+      flex: 100%;
+      flex-direction: column;
+    }
+  }
 .features h3 {
     align-self: center;
-    margin: 0;
+    margin: 0 0 1rem 0;
+}
+.features h4 {
+    margin: 1rem;
+    text-transform: uppercase;
+}
+.features-text {
+    text-align: center;
 }
 .features p {
+    font-size: 10px;
     align-self: center;
     margin: 0;
-    font-size: 10px;
-    line-height: 2;
-}
-.features img {
-    height: 100px;
-    width: auto;
+    
 }
 .barra {
     margin: 1rem;
@@ -43,42 +76,63 @@
     height: 6px;
     background-color: #AACE9B;
 }
-.features-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.features-block:last-of-type {
-    margin-bottom: 0;
-}
 /* Second section */
 .second-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .square {
-    height: 200px;
-    width: 300px;
+    height: 260px;
+    width: 340px;
     border: solid 5px #AACE9B;
     margin: 1rem;
 }
 .square h3 {
     margin: 1rem;
-    font-size: 33px;
-    text-transform: uppercase;
+    padding: 1rem;
+    font-size: 28px;
     text-align: center;
+    text-transform: uppercase;
     font-weight: bold;
     color: #AACE9B;
 }
 .square p {
     margin: 1rem;
+    padding: 1rem;
     font-weight: bold;
-    font-size: small;
+    font-size: 15px;
+}
+@media only screen and (min-width: 1024px) {
+    .square {
+        height: 260px;
+        width: 360px;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .square {
+        height: 300px;
+        width: 230px;
+    }
+    .square h3 {
+        padding: 0;
+    }
+}
+/* History section */
+.container {
+    display: flex;
+}
+.input-check {
+    margin: 0;
 }
 .form input {
-    display: flex;
     margin: 1rem;
+    border-radius: 2px;
     border: none;
     background-color: #DADADA;
 }
@@ -93,22 +147,19 @@
     margin: 0 0 0 1rem;
     text-transform: uppercase;
     font-size: 12px;
-
-}
-/* CAMBIAR DE LUGAR ESTO SEG?UN APARECE */
-.form textarea {    
-    display: flex;
-    width: 92%;
-    margin: 1rem;
-    border: none;
-    background-color: #DADADA;
 }
 .form-checks {
     display: flex;
     justify-content: space-around;
 }
+@media only screen and (max-width: 480px) {
+    .form-checks {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 .form-checks label {
-    font-size: 7px;
+    font-size: 11px;
 }
 .check {
     display: flex;
@@ -117,8 +168,15 @@
 .check p{
     font-size: 12px;
 }
+.form textarea {    
+    display: flex;
+    width: -webkit-fill-available;
+    margin: 1rem;
+    border: none;
+    background-color: #DADADA;
+}
 input[type="text" i] {
-    width: 92%;
+    width: -webkit-fill-available;
 }
 input[type="submit" i] {
     background-color: #AACE9B;
@@ -139,11 +197,20 @@ input[type="submit" i] {
 #first-p {
     font-weight: bold;
 }
+/* Final section */
 .final-section {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0 2rem 0;
+}
+.col-final-section {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 1rem;
+    width: 280px;
 }
 .final-section h3 {
     text-transform: uppercase;
@@ -156,12 +223,4 @@ li a {
 ul {
     font-weight: bold;
     list-style-type: disc;
-}
-footer {
-    padding: 1rem;
-    background-color: #AACE9B;
-}
-footer p{
-    font-size: 10px;
-    font-weight: bold;
 }
