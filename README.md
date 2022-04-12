@@ -35,3 +35,6 @@ This week was dedicated to HTML. I created the files and all the elements to sta
 ## Week 03
 ---
 The style's week. I worked on the CSS file to make it as similar as possible to the final "landing page" of the project. It´s important to clear out that I couldn´t use some model desing tools like Flexbox and CSS Grid Layout. So I decided to work with "position" and fix the elements manually to the final position on the screen. The final result is not a responsive design yet.
+## Week 04
+---
+The responsive design's week. This week with the responsive design. This is an approach to web design that aims to make web pages render well on a variety of devices and window or screen sizes from minimum to maximum display size to ensure usability and satisfaction. I designed a desktop landing, a tablet one and a mobile in the same file.
