@@ -38,6 +38,6 @@ The style's week. I worked on the CSS file to make it as similar as possible to 
 ## Week 04
 ---
 The responsive design's week. This week with the responsive design. This is an approach to web design that aims to make web pages render well on a variety of devices and window or screen sizes from minimum to maximum display size to ensure usability and satisfaction. I designed a desktop landing, a tablet one and a mobile in the same file.
-## Week 04
+## Week 05
 ---
 The JavaScript's week. This week we made exercises applying new concepts in this language. Concepts like variables, operators, string, arrays, If, for, functions and so on. With logical reasoning we were able to handle this week's tasks. Also, we fixed some bugs in the responsive behaviour of the last week index.html.
