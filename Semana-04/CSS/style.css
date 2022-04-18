@@ -61,7 +61,7 @@ a {
 /*TABLET */
 @media only screen and (max-width: 768px) {
     h1 {
-        font-size: 60px;
+        font-size: 55px;
         }
     h2 {
         font-size: 35px;
