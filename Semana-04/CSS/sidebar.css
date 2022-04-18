@@ -33,7 +33,7 @@ button:hover {
     margin: 1rem;
     text-align: center;
     color: white;
-    font-size: 10px;
+    font-size: 16px;
     text-align: initial;
 }
 #nav-p-dos {
@@ -44,7 +44,6 @@ button:hover {
 }
 .nav-menu a {
     color: white;
-    font-size: small;
 }
 .nav-menu img {
     margin: 1rem;
@@ -52,8 +51,7 @@ button:hover {
 .nav-container {
     position: sticky;
     top: 0;
-    padding: 13px;
-    height: 100%;
+    padding: 0 0 0px 13px;
     height: 46px;
     background-color: #373867;
 }
@@ -66,7 +64,7 @@ button:hover {
 /* Burger menu */
 .nav-container .hamburger-lines {
     padding: 10px 0 10px 10px;
-    height: 24px;
+    height: 25px;
     width: 30px;
     z-index: 2;
     display: flex;
@@ -81,7 +79,7 @@ button:hover {
     background: white;
 }
 /* Burger menu */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
     .nav-container {
         display: flex;
         flex-direction: column;
@@ -91,16 +89,36 @@ button:hover {
         flex-wrap: wrap;
         padding: 0;
         background-color: #373867;
-        width: 18%;
+        width: 20%;
         float: left;
         min-height:100vh; 
     }
     .nav-container .hamburger-lines {
         display: none;
     }
+    button {
+        margin: 0.5rem;
+        height: 32px;
+        width: 105px;
+        border-radius: 10px;
+        border: none;
+        font-size: large;
+        background-color: #AACE9B;
+    }
+    .nav-menu img {
+        margin: 0.5rem;
+    }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
  .nav-menu {
      display: none;
  }
 }
+@media only screen and (max-width: 1024px) {
+    .nav-menu p {
+        font-size: 10px;
+    }
+    .nav-menu a {
+        font-size: 10px;
+    }
+   }
