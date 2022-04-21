@@ -23,8 +23,16 @@ document.getElementById("email").onfocus = () => {
 var pass = document.getElementById('password');
 
 document.getElementById("password").onblur = () => {
-    console.log(pass.value.indexOf("@"))
-    if (pass.value.includes("1") && pass.value.includes("2") && pass.value.length > 4 && pass.value.indexOf("3") > 0) {
+    var numPattern = /[0-9]/;
+    let result = numPattern.test(pass.value);
+    console.log(result);
+    var charPattern = /[a-zA-Z]/;
+    let result2 = charPattern.test(pass.value);
+    console.log(result2);
+
+    
+
+    if (result == true && result2 == true) {
         pass.style = "border-color: none";
     } else {
         pass.style = "border: solid 2px red; border-radius: 5px";
