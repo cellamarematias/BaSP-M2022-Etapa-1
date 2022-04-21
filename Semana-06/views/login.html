@@ -32,13 +32,13 @@
                 <div class="nav-separador"></div>
                 <div class="button-container">
                     <form method="get" action="../views/index.html">
-                        <button id="btn-home">Home</button>
+                        <button>Home</button>
                     </form>
                     <form method="get" action="../views/sign-up.html">
-                        <button id="btn-home" >Sign Up</button>
+                        <button>Sign Up</button>
                     </form>
                     <form method="get" action="../views/login.html">
-                        <button id="btn-home" >Log In</button>
+                        <button>Log In</button>
                     </form>
                 </div>
                 <div class="nav-separador"></div>
@@ -67,13 +67,13 @@
                 <form class="container form-login">
                     <div class="input-login">
                         <img class="login-img" src="../assets/logemail.png" alt="email-icon">
-                        <input type="text" class="" id="">
+                        <input type="text" class="" id="email" required>
                     </div>
                     <div class="input-login">
                         <img class="login-img" src="../assets/padlock.png" alt="email-icon">
-                        <input type="password" class="" id="">
+                        <input type="password" class="" id="password" required>
                     </div>
-                    <button type="submit" class="">Agree</button>
+                    <button type="submit" class="btn">Agree</button>
                 </form>
             </div>
         </main>
@@ -85,5 +85,6 @@
                 Copyright © 2022 Trackgenix SA. All rights reserved.
             </p>
         </footer>
+        <script src="../javascript/login.js"></script>
     </body>
 </html>
