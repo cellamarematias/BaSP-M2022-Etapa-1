@@ -5,9 +5,18 @@ h4 {
     margin-top: 2rem;
     text-align: center;
 }
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem 1rem 1rem;
+}
 input {
     padding: 5px;
-    margin-bottom: 1rem;
     border-width: 1px;
     border-radius: 3px;
     background-color: #FFF8F8;
@@ -22,8 +31,8 @@ input {
     justify-content: center;
 }
 .signup-square {
-    width: 350px;
-    height: 415px;
+    width: auto;
+    height: auto;
     margin: 4rem;
     border-color: #888888;
     border-top-style: none;
@@ -31,8 +40,10 @@ input {
     border-radius: 0 0 5px 5px;
 }
 .form-signup {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     margin-top: 2rem;
 }
@@ -46,19 +57,13 @@ input {
 .signup-label {
     margin: 1rem;
 }
-#signup-button {
-    width: 9rem;
+.input-signup:last-of-type {
+    margin-bottom: 2rem;   
+   }
+.btn-l {
+    width: 35%;
     height: 2rem;
     border-radius: 5px;
     font-size: small;
     font-weight: bold;
-}
-.btn-l {
-    width: 11rem;
-}
-@media only screen and (max-width: 480px) {
-    .btn-l {
-        width: 8rem;
-        font-size: 16px;
-    }
 }

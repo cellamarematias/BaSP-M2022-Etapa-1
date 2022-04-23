@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="layer">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,20 +65,54 @@
             <main class="signup-main">
                 <div class="signup-square">
                     <h4>Sign Up</h4>
-                    <form class="container form-signup">
-                        <div class="input-signup">
-                            <input type="text" placeholder="Full name" required>
+                    <form id="formLogin" class="form-signup">
+                        <div class="formContainer">
+                            <div class="sign-up-container">
+                                <div class="input-signup">
+                                    <input id="name" type="text" placeholder="First name" required>
+                                    <div id="nameAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="lastName" type="text" placeholder="Last Name" required>
+                                    <div id="lastNameAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="dni" type="text" placeholder="DNI" required>
+                                    <div id="dniAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="dateOfBirth" type="text" placeholder="Date of birth" required>
+                                    <div id="dateOfBirthAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="phone" type="text" placeholder="Phone" required>
+                                    <div id="phoneAlert"></div>
+                                </div>
+                            </div>
+                            <div class="sign-up-container">
+                                <div class="input-signup">
+                                    <input id="adress" type="text" placeholder="Adress" required>
+                                    <div id="adressAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="city" type="text" placeholder="City" required>
+                                    <div id="cityAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="zipcode" type="text" placeholder="Zip code" required>
+                                    <div id="zipcodeAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="password" type="password" placeholder="Password" required>
+                                    <div id="passwordAlert"></div>
+                                </div>
+                                <div class="input-signup">
+                                    <input id="passwordConfirm" type="password" placeholder="Confirm Password" required>
+                                    <div id="passwordConfirmAlert"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="input-signup">
-                            <input type="password" placeholder="Email" required>
-                        </div>
-                        <div class="input-signup">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="input-signup">
-                            <input type="password" placeholder="Confirm Password" required>
-                        </div>
-                        <button type="submit" class="btn-l">Create account</button>
+                        <button type="submit" class="btn-l">Create</button>
                     </form>
                 </div>
             </main>    
@@ -92,4 +126,5 @@
             </p>
         </footer>
     </body>
+    <script src="../javascript/sign-up.js"></script>
 </html>

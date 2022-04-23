@@ -41,3 +41,14 @@ input {
 .login-label {
     margin: 1rem;
 }
+.inputInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 8rem;
+    line-height: 1rem;
+    background-color: #ff000059;
+    border-radius: 10px;
+}

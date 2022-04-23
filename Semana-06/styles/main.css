@@ -192,14 +192,12 @@
 }
 .form textarea {    
     display: flex;
-    width: -webkit-fill-available;
     margin: 1rem;
     border-radius: 10px;
     border: none;
     background-color: #DADADA;
 }
 input[type="text" i] {
-    width: -webkit-fill-available;
     height: 2rem;
 }
 input[type="submit" i] {
