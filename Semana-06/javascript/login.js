@@ -27,11 +27,20 @@ document.getElementById("email").onfocus = () => {
 //password validation
 var pass = document.getElementById('password');
 document.getElementById("password").onblur = () => {
-    var numPattern = /[0-9]/;
-    var result = numPattern.test(pass.value);
-    var charPattern = /[a-zA-Z]/;
-    var result2 = charPattern.test(pass.value);
-    if (result == true && result2 == true) {
+    var number = false;
+    for (var i = 0; i < password.value.length; i++) {
+        if (isNaN(password.value[i]) == false) {
+            number = true;
+        };
+    };
+    // check for letters
+    var letter = false;
+    for (var i = 0; i < password.value.length; i++) {
+        if (isNaN(password.value[i]) == true) {
+            letter = true;
+        };
+    };
+    if (number == true && letter == true) {
         pass.style = "border-color: none";
         passwordValidation = true;
     } else {
@@ -56,7 +65,6 @@ document.getElementById("password").onfocus = () => {
 var buttonLogIn = document.getElementsByClassName('btn');
 buttonLogIn[0].addEventListener('click', function(e) {
     if (emailValidation == true && passwordValidation == true) {
-        console.log('Apretao');
         layer();
         e.preventDefault() // sacar desp
     } else {
@@ -69,13 +77,11 @@ function layer() {
     divAlert.className = 'inputInfo';
     const pEmail = document.createElement("p");
     const pPassword = document.createElement("p");
-    //divAlert.innerHTML = 'User email: ' + email.value + '<br>' + 'User password: ' + pass.value;    
-    // Append to another element:
     var form = document.getElementsByTagName('form')
     console.log(form[3])
     form[3].appendChild(divAlert);
     divAlert.appendChild(pEmail);
     divAlert.appendChild(pPassword);
-    pEmail.innerHTML = 'User email: ' + email.value;
-    pPassword.innerHTML = 'User password: ' + pass.value;
+    pEmail.innerHTML = 'User email: ' + '<br> ' + email.value;
+    pPassword.innerHTML = 'User password: ' + '<br> ' + pass.value;
 };
