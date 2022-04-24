@@ -1,8 +1,9 @@
 var validation = 0;
 var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
-<path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
-<path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-</svg>`;
+    <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
+    1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+    </svg>`;
 // NAME validation Nombre: Solo letras y debe tener más de 3 letras. 
 document.getElementById("name").onblur = () => {
     var alertName = '[ERROR]'
@@ -22,14 +23,13 @@ document.getElementById("name").onblur = () => {
         texto = `*Invalid name format. <br> Don't use numbers.`
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
-        p.innerHTML = icon + 'Invalid name.';
+        p.innerHTML = icon + '*Invalid name.';
         p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
         capa.appendChild(p);
         name.value += ' [error]';
     };
 };
 // this is to remove the alert div
-
 document.getElementById("name").onfocus = () => {
     var name = document.getElementById('name');
     name.style = "border-color: none";
@@ -52,7 +52,7 @@ document.getElementById("lastName").onblur = () => {
         validation++;
     } else {
         lastName.style = "border: solid 2px red; border-radius: 5px";
-        texto = icon + `*Invalid last name format. <br> Don't use numbers.`
+        texto = icon + `*Invalid last name format. <br> Don't use numbers.`;
         var capa = document.getElementById("lastNameAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
@@ -196,22 +196,7 @@ document.getElementById("address").onfocus = () => {
 };
 // CITY validation Localidad: Texto alfanumérico y debe tener más de 3 letras. 
 document.getElementById("city").onblur = () => {
-    var city = document.getElementById('city');
-    //check for numbers
-    var number = false;
-    for (var i = 0; i < city.value.length; i++) {
-        if (isNaN(city.value[i]) == false) {
-            number = true;
-        };
-    };
-    // check for letters
-    var letter = false;
-    for (var i = 0; i < city.value.length; i++) {
-        if (isNaN(city.value[i]) == true) {
-            letter = true;
-        };
-    };
-    if (city.value.length > 3 && number == true && letter == true) {
+    if (city.value.length > 3) {
         city.style = "border-color: none";
         validation++;
     } else {
@@ -286,6 +271,7 @@ document.getElementById("email").onfocus = () => {
 // PASSWORD validation
 document.getElementById("password").onblur = () => {
     var password = document.getElementById('password');
+    var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var passwordConfirm = document.getElementById('passwordConfirm');
     //check for numbers
     var number = false;
@@ -301,7 +287,13 @@ document.getElementById("password").onblur = () => {
             letter = true;
         };
     };
-    if (password.value.length > 8 && number == true && letter == true) {
+    for (var i = 0; i < password.value.length; i++) {
+        if (specialChart.indexOf(password.value[i]) > 0) {
+            console.log(specialChart.indexOf(password.value[i]))
+            special = true;
+        };
+    };
+    if (password.value.length > 8 && number == true && letter == true && special == false) {
         password.style = "border-color: none";
         validation++;
     } else {
@@ -315,7 +307,6 @@ document.getElementById("password").onblur = () => {
         password.value += ' [error]';
     };
 };
-
 // this is to remove the alert div
 document.getElementById("password").onfocus = () => {
     var password = document.getElementById('password');
@@ -324,7 +315,6 @@ document.getElementById("password").onfocus = () => {
     list.removeChild(list.firstElementChild);
     password.value = password.value.replace(' [error]','');
 };
-
 // Confirm Password Validation
 document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password');
@@ -354,6 +344,7 @@ document.getElementById("passwordConfirm").onfocus = () => {
 // modal final
     var btnSignUp = document.getElementsByClassName('btn-l');
     btnSignUp[0].addEventListener('click', function(e) {
+    e.preventDefault(e);
     var name = document.getElementById('name');
     var lastName = document.getElementById('lastName');
     var dni = document.getElementById('dni');
@@ -365,7 +356,6 @@ document.getElementById("passwordConfirm").onfocus = () => {
     var email = document.getElementById('email');
     var password = document.getElementById('password');
     var passwordConfirm = document.getElementById('passwordConfirm');
-    e.preventDefault(e);
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("close")[0];
@@ -379,7 +369,7 @@ document.getElementById("passwordConfirm").onfocus = () => {
         body.style.position = "inherit";
         body.style.height = "auto";
         body.style.overflow = "visible";
-    }
+    };
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";

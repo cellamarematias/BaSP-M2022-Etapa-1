@@ -1,6 +1,11 @@
 var email = document.getElementById('email');
 var emailValidation = false;
 var passwordValidation = false;
+var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
+    <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
+    1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
+    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+    </svg>`;
 document.getElementById("email").onblur = () => {
     console.log(email.value.indexOf("@"))
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
@@ -11,8 +16,8 @@ document.getElementById("email").onblur = () => {
         texto = 'Invalid email format'
         var capa = document.getElementById("emailalert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.style = "color: red; font-size: 10px"
+        p.innerHTML = icon + texto;
+        p.style = "color: red; font-size: 12px; margin: 3px; display: flex; justify-content: space-evenly"
         capa.appendChild(p);
         emailValidation = false;
     };
@@ -27,6 +32,7 @@ document.getElementById("email").onfocus = () => {
 //password validation
 var pass = document.getElementById('password');
 document.getElementById("password").onblur = () => {
+    var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var number = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == false) {
@@ -40,7 +46,14 @@ document.getElementById("password").onblur = () => {
             letter = true;
         };
     };
-    if (number == true && letter == true) {
+    var special = false;
+    for (var i = 0; i < password.value.length; i++) {
+        if (specialChart.indexOf(password.value[i]) > 0) {
+            console.log(specialChart.indexOf(password.value[i]))
+            special = true;
+        };
+    };
+    if (number == true && letter == true && special == false) {
         pass.style = "border-color: none";
         passwordValidation = true;
     } else {
@@ -48,8 +61,8 @@ document.getElementById("password").onblur = () => {
         texto = 'Invalid password'
         var capa = document.getElementById("passalert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.style = "color: red; font-size: 10px"
+        p.innerHTML = icon + texto;
+        p.style = "color: red; font-size: 12px; margin: 3px; display: flex; justify-content: space-evenly"
         capa.appendChild(p);
         passwordValidation = false;
     };
