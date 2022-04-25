@@ -164,34 +164,35 @@
             <section class="form">
                 <div class="barra"></div>
                     <h3>Information</h3>
-                <form action="#">
+                <form action="#" class="form">
                     <label for="input-name">
                         name & last name
                     </label>
-                    <input type="text" id="input-name">
+                    <input type="text" id="name" required>
+                    <div id="nameAlert"></div>
                     <label id="label-email" for="input-email">
                         e-mail
                     </label>
-                    <input type="text" id="input-email">
+                    <input type="text" id="email" required>
+                    <div id="emailAlert"></div>
                     <h4>Contact</h4>
-                    <div class="form-checks">
-                        <div class="check">
-                            <input type="checkbox" value="None" id="form-check-rrhh"/>
-                            <label for="form-check-rrhh">Human Resources</label>
-                        </div>
-                        <div class="check">
-                            <input type="checkbox" value="None" id="form-check-sistem"/>
-                            <label for="form-check-sistem">Sistems</label>
-                        </div>
-                        <div class="check">
-                            <input type="checkbox" value="None" id="form-check-comercialization" checked/>
-                            <label for="form-check-comercialization">Comercialization</label>
-                        </div>
-                    </div>
+                    <select id="items" class="form-select" name="cars">
+                        <option value="rrhh">Human Resources</option>
+                        <option value="system">System</option>
+                        <option value="comercialization">Comercialization</option>
+                    </select>
                     <h4>Message</h4>
-                    <textarea name="form-input-message" id="form-input-message" cols="10" rows="5"></textarea>
-                    <input id="form-btn-message" type="submit" value="Submit">
+                    <textarea id="msg" name="form-input-message" id="form-input-message" cols="50" rows="5" required></textarea>
+                    <div id="msgAlert"></div>
+                    <input id="formBtnMsg" type="submit" value="Submit">
                 </form>
+                <div id="myModal" class="modalContainer">
+                    <div class="modal-content">
+                        <span class="close">×</span> 
+                        <h3>Sign Up Information</h3>
+                        <div id="info"></div>
+                    </div>
+                 </div> 
                 <div class="barra"></div>              
             </section>
             <section class="history">
@@ -266,5 +267,6 @@
                 </p>
             </footer>
         </main>
+    <script src="../javascript/contact.js"></script>
     </body>
 </html>
