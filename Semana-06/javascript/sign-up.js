@@ -172,7 +172,8 @@ document.getElementById("address").onblur = () => {
             letter = true;
         };
     };
-    if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0) {
+    if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
+        && address.value.indexOf(' ') < address.value.length-1 && address.value.length > address.value.lastIndexOf(' ')) {
         address.style = "border-color: none";
         validation++;
     } else {
