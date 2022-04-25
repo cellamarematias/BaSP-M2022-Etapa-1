@@ -4,11 +4,9 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
-// NAME validation Nombre: Solo letras y debe tener más de 3 letras. 
 document.getElementById("name").onblur = () => {
     var alertName = '[ERROR]'
     var name = document.getElementById('name');
-    // loop for to check is there is a number in the name
     var number = false;
     for (var i = 0; i < name.value.length; i++) {
         if (isNaN(name.value[i]) == false) {
@@ -29,18 +27,15 @@ document.getElementById("name").onblur = () => {
         name.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("name").onfocus = () => {
     var name = document.getElementById('name');
     name.style = "border-color: none";
-    const list = document.getElementById("nameAlert");
+    var list = document.getElementById("nameAlert");
     list.removeChild(list.firstElementChild);
     name.value = name.value.replace(' [error]','');
 };
-// LASTNAME validation
 document.getElementById("lastName").onblur = () => {
     var lastName = document.getElementById('lastName');
-        // loop for to check is there is a number in the Lastname
     var number = false;
     for (var i = 0; i < lastName.value.length; i++) {
         if (isNaN(lastName.value[i]) == false) {
@@ -61,15 +56,13 @@ document.getElementById("lastName").onblur = () => {
         lastName.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("lastName").onfocus = () => {
     var lastName = document.getElementById('lastName');
     lastName.style = "border-color: none";
-    const list = document.getElementById("lastNameAlert");
+    var list = document.getElementById("lastNameAlert");
     list.removeChild(list.firstElementChild);
     lastName.value = lastName.value.replace(' [error]','');
 };
-// DNI validation
 document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni');
     if (dni.value.length > 7 && isNaN(dni.value) == false) {
@@ -86,20 +79,18 @@ document.getElementById("dni").onblur = () => {
         dni.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("dni").onfocus = () => {
     var dni = document.getElementById('dni');
     dni.style = "border-color: none";
-    const list = document.getElementById("dniAlert");
+    var list = document.getElementById("dniAlert");
     list.removeChild(list.firstElementChild);
     dni.value = dni.value.replace(' [error]','');
 };
-// DATE validation  Fecha de Nacimiento: Con formato dd/mm/aaaa.  // check only numbers and check slashes
 document.getElementById("dateOfBirth").onblur = () => {
     var dateOfBirth = document.getElementById('dateOfBirth');
-    var day = dateOfBirth.value.substr(0,2)
-    var month = dateOfBirth.value.substr(2,2)
-    var year = dateOfBirth.value.substr(4,6)
+    var day = dateOfBirth.value.substr(0,2);
+    var month = dateOfBirth.value.substr(2,2);
+    var year = dateOfBirth.value.substr(4,6);
     var date = dateOfBirth.value.replace(/[/]/g, '');
     var slash = 0;
     for (var i = 0; i < dateOfBirth.value.length; i++) {
@@ -121,15 +112,13 @@ document.getElementById("dateOfBirth").onblur = () => {
         dateOfBirth.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("dateOfBirth").onfocus = () => {
     var dateOfBirth = document.getElementById('dateOfBirth');
     dateOfBirth.style = "border-color: none";
-    const list = document.getElementById("dateOfBirthAlert");
+    var list = document.getElementById("dateOfBirthAlert");
     list.removeChild(list.firstElementChild);
     dateOfBirth.value = dateOfBirth.value.replace(' [error]','');
 };
-// PHONE validation
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone');
     if (phone.value.length == 10 && isNaN(phone.value) == false) {
@@ -146,26 +135,22 @@ document.getElementById("phone").onblur = () => {
         phone.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("phone").onfocus = () => {
     var phone = document.getElementById('phone');
     phone.style = "border-color: none";
-    const list = document.getElementById("phoneAlert");
+    var list = document.getElementById("phoneAlert");
     list.removeChild(list.firstElementChild);
     phone.value = phone.value.replace(' [error]','');
 };
-// ADRESS validation Dirección: Al menos 5 caracteres con letras, números y un espacio en el medio.
 document.getElementById("address").onblur = () => {
     var address = document.getElementById('address');
     var addressSpaces = address.value.replaceAll(' ','');
-    //check for numbers
     var number = false;
     for (var i = 0; i < addressSpaces.length; i++) {
         if (isNaN(addressSpaces[i]) == false) {
             number = true;
         };
     };
-    // check for letters
     var letter = false;
     for (var i = 0; i < addressSpaces.length; i++) {
         if (isNaN(addressSpaces[i]) == true) {
@@ -187,15 +172,13 @@ document.getElementById("address").onblur = () => {
         address.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("address").onfocus = () => {
     var address = document.getElementById('address');
     address.style = "border-color: none";
-    const list = document.getElementById("addressAlert");
+    var list = document.getElementById("addressAlert");
     list.removeChild(list.firstElementChild);
     address.value = address.value.replace(' [error]','');
 };
-// CITY validation Localidad: Texto alfanumérico y debe tener más de 3 letras. 
 document.getElementById("city").onblur = () => {
     if (city.value.length > 3) {
         city.style = "border-color: none";
@@ -211,15 +194,13 @@ document.getElementById("city").onblur = () => {
         city.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("city").onfocus = () => {
     var city = document.getElementById('city');
     city.style = "border-color: none";
-    const list = document.getElementById("cityAlert");
+    var list = document.getElementById("cityAlert");
     list.removeChild(list.firstElementChild);
     city.value = city.value.replace(' [error]','');
 };
-// ZIPCODE validation Código Postal: Solo número y debe tener entre 4 y 5 números. 
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode');
     if (zipCode.value.length >= 4 && zipCode.value.length <= 5 && isNaN(zipCode.value) == false) {
@@ -236,15 +217,13 @@ document.getElementById("zipCode").onblur = () => {
         zipCode.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("zipCode").onfocus = () => {
     var zipCode = document.getElementById('zipCode');
     zipCode.style = "border-color: none";
-    const list = document.getElementById("zipCodeAlert");
+    var list = document.getElementById("zipCodeAlert");
     list.removeChild(list.firstElementChild);
     zipCode.value = zipCode.value.replace(' [error]','');
 };
-// EMAIL validation Repetir 
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email');
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
@@ -261,27 +240,23 @@ document.getElementById("email").onblur = () => {
         email.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
     email.style = "border-color: none";
-    const list = document.getElementById("emailAlert");
+    var list = document.getElementById("emailAlert");
     list.removeChild(list.firstElementChild);
     email.value = email.value.replace(' [error]','');
 };
-// PASSWORD validation
 document.getElementById("password").onblur = () => {
     var password = document.getElementById('password');
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var passwordConfirm = document.getElementById('passwordConfirm');
-    //check for numbers
     var number = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == false) {
             number = true;
         };
     };
-    // check for letters
     var letter = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == true) {
@@ -290,7 +265,6 @@ document.getElementById("password").onblur = () => {
     };
     for (var i = 0; i < password.value.length; i++) {
         if (specialChart.indexOf(password.value[i]) > 0) {
-            console.log(specialChart.indexOf(password.value[i]))
             special = true;
         };
     };
@@ -308,15 +282,13 @@ document.getElementById("password").onblur = () => {
         password.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("password").onfocus = () => {
     var password = document.getElementById('password');
     password.style = "border-color: none";
-    const list = document.getElementById("passwordAlert");
+    var list = document.getElementById("passwordAlert");
     list.removeChild(list.firstElementChild);
     password.value = password.value.replace(' [error]','');
 };
-// Confirm Password Validation
 document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password');
     var passwordConfirm = document.getElementById('passwordConfirm');
@@ -334,17 +306,15 @@ document.getElementById("passwordConfirm").onblur = () => {
         passwordConfirm.value += ' [error]';
     };
 };
-// this is to remove the alert div
 document.getElementById("passwordConfirm").onfocus = () => {
     var passwordConfirm = document.getElementById('passwordConfirm');
     passwordConfirm.style = "border-color: none";
-    const list = document.getElementById("passwordConfirmAlert");
+    var list = document.getElementById("passwordConfirmAlert");
     list.removeChild(list.firstElementChild);
     passwordConfirm.value = passwordConfirm.value.replace(' [error]','');
 };
-// modal final
-    var btnSignUp = document.getElementsByClassName('btn-l');
-    btnSignUp[0].addEventListener('click', function(e) {
+var btnSignUp = document.getElementsByClassName('btn-l');
+btnSignUp[0].addEventListener('click', function(e) {
     e.preventDefault(e);
     var name = document.getElementById('name');
     var lastName = document.getElementById('lastName');
@@ -361,15 +331,15 @@ document.getElementById("passwordConfirm").onfocus = () => {
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("close")[0];
     var body = document.getElementsByTagName("body")[0];  
-        modal.style.display = "block";
-        body.style.position = "static";
-        body.style.height = "100%";
-        body.style.overflow = "hidden"; 
-        span.onclick = function() {
-        modal.style.display = "none";
-        body.style.position = "inherit";
-        body.style.height = "auto";
-        body.style.overflow = "visible";
+    modal.style.display = "block";
+    body.style.position = "static";
+    body.style.height = "100%";
+    body.style.overflow = "hidden"; 
+    span.onclick = function() {
+    modal.style.display = "none";
+    body.style.position = "inherit";
+    body.style.height = "auto";
+    body.style.overflow = "visible";
     };
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -387,9 +357,3 @@ document.getElementById("passwordConfirm").onfocus = () => {
     var info = document.getElementById("info");
     info.innerHTML = texto;
 });
-
-
-
-
-
-

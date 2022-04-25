@@ -22,14 +22,12 @@ document.getElementById("email").onblur = () => {
         emailValidation = false;
     };
 };
-// this is to remove the alert div
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
     email.style = "border-color: none";
     const list = document.getElementById("emailalert");
     list.removeChild(list.firstElementChild);
 };
-//password validation
 var pass = document.getElementById('password');
 document.getElementById("password").onblur = () => {
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
@@ -39,7 +37,6 @@ document.getElementById("password").onblur = () => {
             number = true;
         };
     };
-    // check for letters
     var letter = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == true) {
@@ -67,14 +64,12 @@ document.getElementById("password").onblur = () => {
         passwordValidation = false;
     };
 };
-// this is to remove the alert div
 document.getElementById("password").onfocus = () => {
     var password = document.getElementById('password');
     password.style = "border-color: none";
     const list = document.getElementById("passalert");
     list.removeChild(list.firstElementChild);
 };
-// button event
 var buttonLogIn = document.getElementsByClassName('btn');
 buttonLogIn[0].addEventListener('click', function(e) {
     if (emailValidation == true && passwordValidation == true) {
