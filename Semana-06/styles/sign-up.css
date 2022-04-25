@@ -69,6 +69,24 @@ input {
     font-size: small;
     font-weight: bold;
 }
+svg {
+    margin-right: 1rem;
+}
+.shake {
+    -webkit-animation: tiembla 0.1s 5;
+    border: solid 2px red; 
+    border-radius: 5px;
+}
+@-webkit-keyframes tiembla{
+    0%  { -webkit-transform: translate(5px); }
+}
+.alert {
+    color: red; 
+    font-size: 12px; 
+    margin: 5px; 
+    display: flex; 
+    justify-content: center;
+}  
 .modalContainer {
     display: none; 
     position: fixed; 

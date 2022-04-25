@@ -17,18 +17,19 @@ document.getElementById("name").onblur = () => {
         name.style = "border-color: none";
         validation++;
     } else {
-        name.style = "border: solid 2px red; border-radius: 5px";
+        name.classList.add("shake");
         texto = `*Invalid name format. <br> Don't use numbers.`
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + '*Invalid name.';
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         name.value += ' [error]';
     };
 };
 document.getElementById("name").onfocus = () => {
     var name = document.getElementById('name');
+    name.classList.remove("shake");
     name.style = "border-color: none";
     var list = document.getElementById("nameAlert");
     list.removeChild(list.firstElementChild);
@@ -46,18 +47,19 @@ document.getElementById("lastName").onblur = () => {
         lastName.style = "border-color: none";
         validation++;
     } else {
-        lastName.style = "border: solid 2px red; border-radius: 5px";
+        lastName.classList.add("shake");
         texto = icon + `*Invalid last name format. <br> Don't use numbers.`;
         var capa = document.getElementById("lastNameAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         lastName.value += ' [error]';
     };
 };
 document.getElementById("lastName").onfocus = () => {
     var lastName = document.getElementById('lastName');
+    lastName.classList.remove("shake");
     lastName.style = "border-color: none";
     var list = document.getElementById("lastNameAlert");
     list.removeChild(list.firstElementChild);
@@ -69,18 +71,19 @@ document.getElementById("dni").onblur = () => {
         dni.style = "border-color: none";
         validation++;
     } else {
-        dni.style = "border: solid 2px red; border-radius: 5px";
+        dni.classList.add("shake");
         texto = icon + '*Invalid dni format';
         var capa = document.getElementById("dniAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         dni.value += ' [error]';
     };
 };
 document.getElementById("dni").onfocus = () => {
     var dni = document.getElementById('dni');
+    dni.classList.remove("shake");
     dni.style = "border-color: none";
     var list = document.getElementById("dniAlert");
     list.removeChild(list.firstElementChild);
@@ -102,18 +105,19 @@ document.getElementById("dateOfBirth").onblur = () => {
         dateOfBirth.style = "border-color: none";
         validation++;
     } else {
-        dateOfBirth.style = "border: solid 2px red; border-radius: 5px";
+        dateOfBirth.classList.add("shake");
         texto = icon + '*Invalid format. <br> Please use this: dd/mm/yy';
         var capa = document.getElementById("dateOfBirthAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         dateOfBirth.value += ' [error]';
     };
 };
 document.getElementById("dateOfBirth").onfocus = () => {
     var dateOfBirth = document.getElementById('dateOfBirth');
+    dateOfBirth.classList.remove("shake");
     dateOfBirth.style = "border-color: none";
     var list = document.getElementById("dateOfBirthAlert");
     list.removeChild(list.firstElementChild);
@@ -125,18 +129,19 @@ document.getElementById("phone").onblur = () => {
         phone.style = "border-color: none";
         validation++;
     } else {
-        phone.style = "border: solid 2px red; border-radius: 5px";
+        phone.classList.add("shake");
         texto = icon + '*Invalid phone. <br> Must containt 10 digits.';
         var capa = document.getElementById("phoneAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         phone.value += ' [error]';
     };
 };
 document.getElementById("phone").onfocus = () => {
     var phone = document.getElementById('phone');
+    phone.classList.remove("shake");
     phone.style = "border-color: none";
     var list = document.getElementById("phoneAlert");
     list.removeChild(list.firstElementChild);
@@ -162,18 +167,19 @@ document.getElementById("address").onblur = () => {
         address.style = "border-color: none";
         validation++;
     } else {
-        address.style = "border: solid 2px red; border-radius: 5px";
+        address.classList.add("shake");
         texto = icon + '*Invalid address format <br> Please use this: Street 123.';
         var capa = document.getElementById("addressAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         address.value += ' [error]';
     };
 };
 document.getElementById("address").onfocus = () => {
     var address = document.getElementById('address');
+    address.classList.remove("shake");
     address.style = "border-color: none";
     var list = document.getElementById("addressAlert");
     list.removeChild(list.firstElementChild);
@@ -184,18 +190,19 @@ document.getElementById("city").onblur = () => {
         city.style = "border-color: none";
         validation++;
     } else {
-        city.style = "border: solid 2px red; border-radius: 5px";
+        city.classList.add("shake");
         texto = icon + '*Invalid city format';
         var capa = document.getElementById("cityAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         city.value += ' [error]';
     };
 };
 document.getElementById("city").onfocus = () => {
     var city = document.getElementById('city');
+    city.classList.remove("shake");
     city.style = "border-color: none";
     var list = document.getElementById("cityAlert");
     list.removeChild(list.firstElementChild);
@@ -207,18 +214,19 @@ document.getElementById("zipCode").onblur = () => {
         zipCode.style = "border-color: none";
         validation++;
     } else {
-        zipCode.style = "border: solid 2px red; border-radius: 5px";
+        zipCode.classList.add("shake");
         texto = '*Invalid Zip Code format <br> Use only number(4 to 5)'
         var capa = document.getElementById("zipCodeAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
         zipCode.value += ' [error]';
     };
 };
 document.getElementById("zipCode").onfocus = () => {
     var zipCode = document.getElementById('zipCode');
+    zipCode.classList.remove("shake");
     zipCode.style = "border-color: none";
     var list = document.getElementById("zipCodeAlert");
     list.removeChild(list.firstElementChild);
@@ -230,18 +238,19 @@ document.getElementById("email").onblur = () => {
         email.style = "border-color: none";
         validation++;
     } else {
-        email.style = "border: solid 2px red; border-radius: 5px";
+        email.classList.add("shake");
         texto = icon + '*Invalid email format';
         var capa = document.getElementById("emailAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         email.value += ' [error]';
     };
 };
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
+    email.classList.remove("shake");
     email.style = "border-color: none";
     var list = document.getElementById("emailAlert");
     list.removeChild(list.firstElementChild);
@@ -274,18 +283,19 @@ document.getElementById("password").onblur = () => {
         password.style = "border-color: none";
         validation++;
     } else {
-        password.style = "border: solid 2px red; border-radius: 5px";
+        password.classList.add("shake");
         texto = icon + '*Use at least 8 charaters. <br> Use numbers and letters.';
         var capa = document.getElementById("passwordAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         password.value += ' [error]';
     };
 };
 document.getElementById("password").onfocus = () => {
     var password = document.getElementById('password');
+    password.classList.remove("shake");
     password.style = "border-color: none";
     var list = document.getElementById("passwordAlert");
     list.removeChild(list.firstElementChild);
@@ -298,18 +308,19 @@ document.getElementById("passwordConfirm").onblur = () => {
         passwordConfirm.style = "border-color: none";
         validation++;
     } else {
-        passwordConfirm.style = "border: solid 2px red; border-radius: 5px";
+        passwordConfirm.classList.add("shake");
         texto = icon + '*Password does not match';
         var capa = document.getElementById("passwordConfirmAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly";
+        p.classList.add("alert");;
         capa.appendChild(p);
         passwordConfirm.value += ' [error]';
     };
 };
 document.getElementById("passwordConfirm").onfocus = () => {
     var passwordConfirm = document.getElementById('passwordConfirm');
+    passwordConfirm.classList.remove("shake");
     passwordConfirm.style = "border-color: none";
     var list = document.getElementById("passwordConfirmAlert");
     list.removeChild(list.firstElementChild);

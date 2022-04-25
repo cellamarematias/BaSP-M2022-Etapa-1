@@ -1,6 +1,7 @@
 var email = document.getElementById('email');
 var emailValidation = false;
 var passwordValidation = false;
+var alertText = '[ERROR]'
 var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
     <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
@@ -12,21 +13,24 @@ document.getElementById("email").onblur = () => {
         email.style = "border-color: none";
         emailValidation = true;
     } else {
-        email.style = "border: solid 2px red; border-radius: 5px";
+        email.classList.add("shake");
         texto = 'Invalid email format'
         var capa = document.getElementById("emailalert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
-        p.style = "color: red; font-size: 12px; margin: 3px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
+        email.value += ' [error]';
     };
 };
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
+    email.classList.remove("shake");
     email.style = "border-color: none";
     const list = document.getElementById("emailalert");
     list.removeChild(list.firstElementChild);
+    email.value = email.value.replace(' [error]','');
 };
 var pass = document.getElementById('password');
 document.getElementById("password").onblur = () => {
@@ -54,42 +58,52 @@ document.getElementById("password").onblur = () => {
         pass.style = "border-color: none";
         passwordValidation = true;
     } else {
-        pass.style = "border: solid 2px red; border-radius: 5px";
+        pass.classList.add("shake");
         texto = 'Invalid password'
         var capa = document.getElementById("passalert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
-        p.style = "color: red; font-size: 12px; margin: 3px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         passwordValidation = false;
+        pass.value += ' [error]';
     };
 };
 document.getElementById("password").onfocus = () => {
     var password = document.getElementById('password');
+    password.classList.remove("shake");
     password.style = "border-color: none";
     const list = document.getElementById("passalert");
     list.removeChild(list.firstElementChild);
+    password.value = password.value.replace(' [error]','');
 };
-var buttonLogIn = document.getElementsByClassName('btn');
-buttonLogIn[0].addEventListener('click', function(e) {
-    if (emailValidation == true && passwordValidation == true) {
-        layer();
-        e.preventDefault() // sacar desp
-    } else {
-        e.preventDefault()
-        console.log('faltan validar campos');
-    }
+var formBtnMsg = document.getElementById('btn');
+formBtnMsg.addEventListener('click', function(e) {
+    e.preventDefault(e);
+    var name = document.getElementById('email');
+    var lastName = document.getElementById('password');
+    var modal = document.getElementById("myModal");
+    var body = document.getElementsByTagName("body")[0]; 
+    var span = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    body.style.position = "static";
+    body.style.height = "100%";
+    body.style.overflow = "hidden"; 
+    span.onclick = function() {
+        modal.style.display = "none";
+        body.style.position = "inherit";
+        body.style.height = "auto";
+        body.style.overflow = "visible";
+    };
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            body.style.position = "inherit";
+            body.style.height = "auto";
+            body.style.overflow = "visible";
+        };
+    };
+    texto = `Email: `+ email.value + `<br> <br>` + `Password: `+ password.value;
+    var info = document.getElementById("info");
+    info.innerHTML = texto;
 });
-function layer() {
-    const divAlert = document.createElement("div");
-    divAlert.className = 'inputInfo';
-    const pEmail = document.createElement("p");
-    const pPassword = document.createElement("p");
-    var form = document.getElementsByTagName('form')
-    console.log(form[3])
-    form[3].appendChild(divAlert);
-    divAlert.appendChild(pEmail);
-    divAlert.appendChild(pPassword);
-    pEmail.innerHTML = 'User email: ' + '<br> ' + email.value;
-    pPassword.innerHTML = 'User password: ' + '<br> ' + pass.value;
-};

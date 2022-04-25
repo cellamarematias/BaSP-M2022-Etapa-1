@@ -17,17 +17,19 @@ document.getElementById("name").onblur = () => {
         validation++;
     } else {
         name.style = "border: solid 2px red; border-radius: 5px";
-        texto = `*Invalid name format. <br> Don't use numbers.`
+        name.classList.add("shake");
+        texto = `*Invalid name format. <br> Don't use numbers.`;
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
-        p.innerHTML = icon + '*Invalid name.';
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.innerHTML = icon + '  Invalid name.';
+        p.classList.add("alert");
         capa.appendChild(p);
         name.value += ' [error]';
     };
 };
 document.getElementById("name").onfocus = () => {
     var name = document.getElementById('name');
+    name.classList.remove("shake");
     name.style = "border-color: none";
     var list = document.getElementById("nameAlert");
     list.removeChild(list.firstElementChild);
@@ -40,11 +42,12 @@ document.getElementById("email").onblur = () => {
         emailValidation = true;
     } else {
         email.style = "border: solid 2px red; border-radius: 5px";
-        texto = 'Invalid email format'
+        email.classList.add("shake");
+        texto = ' Invalid email format'
         var capa = document.getElementById("emailAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
-        p.style = "color: red; font-size: 12px; margin: 3px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
         email.value += ' [error]';
@@ -52,6 +55,7 @@ document.getElementById("email").onblur = () => {
 };
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
+    email.classList.remove("shake");
     email.style = "border-color: none";
     const list = document.getElementById("emailAlert");
     list.removeChild(list.firstElementChild);
@@ -63,17 +67,19 @@ document.getElementById("msg").onblur = () => {
         validation++;
     } else {
         msg.style = "border: solid 2px red; border-radius: 5px";
-        texto = icon + '*Message too short';
+        msg.classList.add("shake");
+        texto = icon + ' Message too short';
         var capa = document.getElementById("msgAlert");
         var p = document.createElement("p");
         p.innerHTML = texto;
-        p.style = "color: red; font-size: 12px; margin: 5px; display: flex; justify-content: space-evenly"
+        p.classList.add("alert");
         capa.appendChild(p);
         msg.value += ' [error]';
     };
 };
 document.getElementById("msg").onfocus = () => {
     var msg = document.getElementById('msg');
+    msg.classList.remove("shake");
     msg.style = "border-color: none";
     var list = document.getElementById("msgAlert");
     list.removeChild(list.firstElementChild);

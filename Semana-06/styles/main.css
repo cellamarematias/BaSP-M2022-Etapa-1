@@ -238,20 +238,34 @@ input[type="submit" i] {
     border-bottom: 10px solid #AACE9B;
     width: 60%;
 }
-
 .modalContainer .close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-
 .modalContainer .close:hover,
 .modalContainer .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
+svg {
+    margin-right: 1rem;
+}
+.shake {
+    -webkit-animation: tiembla 0.1s 5;
+}
+@-webkit-keyframes tiembla{
+    0%  { -webkit-transform: translate(5px); }
+}
+.alert {
+    color: red; 
+    font-size: 12px; 
+    margin: 5px; 
+    display: flex; 
+    justify-content: center;
+}  
 .history {
     display: flex;
     flex-direction: column;
