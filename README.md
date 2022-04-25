@@ -41,3 +41,6 @@ The responsive design's week. This week with the responsive design. This is an a
 ## Week 05
 ---
 The JavaScript's week. This week we made exercises applying new concepts in this language. Concepts like variables, operators, string, arrays, If, for, functions and so on. With logical reasoning we were able to handle this week's tasks. Also, we fixed some bugs in the responsive behaviour of the last week index.html.
+## Week 06
+---
+The JavaScript's week II. This week we made two forms in HTML and CSS. Also, we made the validation for each form in JavaScript. The first form is a Log In form, only two inputs: email and password. The second form is about a Sign Up site with eleven inputs. All of this fields needs to be right and pass different validations. Finally, the site shows a modal windows with the submmited information. 
