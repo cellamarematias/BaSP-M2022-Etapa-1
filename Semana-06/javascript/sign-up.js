@@ -257,12 +257,14 @@ document.getElementById("password").onblur = () => {
             number = true;
         };
     };
+    console.log(number)
     var letter = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == true) {
             letter = true;
         };
     };
+    var special = false;
     for (var i = 0; i < password.value.length; i++) {
         if (specialChart.indexOf(password.value[i]) > 0) {
             special = true;
