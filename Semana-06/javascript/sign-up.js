@@ -13,19 +13,30 @@ document.getElementById("name").onblur = () => {
             number = true;
         };
     };
-    if (name.value.length > 3 && number == false) {
-        name.style = "border-color: none";
-        validation++;
-    } else {
+    if (name.value.length < 1) {
         name.classList.add("shake");
-        texto = `*Invalid name format. <br> Don't use numbers.`
+        texto = 'This field is required.'
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
-        p.innerHTML = icon + '*Invalid name.';
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        name.value += ' [error]';
-    };
+        nameValidation = false;
+    } else {
+        if (name.value.length > 3 && number == false) {
+            name.style = "border-color: none";
+            validation++;
+        } else {
+            name.classList.add("shake");
+            texto = `*Invalid name format. <br> Don't use numbers.`
+            var capa = document.getElementById("nameAlert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + '*Invalid name.';
+            p.classList.add("alert");
+            capa.appendChild(p);
+            name.value += ' [error]';
+        };
+    }
 };
 document.getElementById("name").onfocus = () => {
     var name = document.getElementById('name');
@@ -43,18 +54,29 @@ document.getElementById("lastName").onblur = () => {
             number = true;
         };
     };
-    if (lastName.value.length > 3 && number == false) {
-        lastName.style = "border-color: none";
-        validation++;
-    } else {
+    if (lastName.value.length < 1) {
         lastName.classList.add("shake");
-        texto = icon + `*Invalid last name format. <br> Don't use numbers.`;
+        texto = 'This field is required.'
         var capa = document.getElementById("lastNameAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        lastName.value += ' [error]';
+        lastNameValidation = false;
+    } else {
+        if (lastName.value.length > 3 && number == false) {
+            lastName.style = "border-color: none";
+            validation++;
+        } else {
+            lastName.classList.add("shake");
+            texto = icon + `*Invalid last name format. <br> Don't use numbers.`;
+            var capa = document.getElementById("lastNameAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            lastName.value += ' [error]';
+        };
     };
 };
 document.getElementById("lastName").onfocus = () => {
@@ -67,18 +89,29 @@ document.getElementById("lastName").onfocus = () => {
 };
 document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni');
-    if (dni.value.length > 7 && isNaN(dni.value) == false) {
-        dni.style = "border-color: none";
-        validation++;
-    } else {
+    if (dni.value.length < 1) {
         dni.classList.add("shake");
-        texto = icon + '*Invalid dni format';
+        texto = 'This field is required.'
         var capa = document.getElementById("dniAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        dni.value += ' [error]';
+        dniValidation = false;
+    } else {
+        if (dni.value.length > 7 && isNaN(dni.value) == false) {
+            dni.style = "border-color: none";
+            validation++;
+        } else {
+            dni.classList.add("shake");
+            texto = icon + '*Invalid dni format. <br> Only numbers.';
+            var capa = document.getElementById("dniAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            dni.value += ' [error]';
+        };
     };
 };
 document.getElementById("dni").onfocus = () => {
@@ -101,18 +134,29 @@ document.getElementById("dateOfBirth").onblur = () => {
             slash++;
         };
     };
-    if (slash == 2 && isNaN(date) == false) {
-        dateOfBirth.style = "border-color: none";
-        validation++;
-    } else {
+    if (dateOfBirth.value.length < 1) {
         dateOfBirth.classList.add("shake");
-        texto = icon + '*Invalid format. <br> Please use this: dd/mm/yy';
+        texto = 'This field is required.'
         var capa = document.getElementById("dateOfBirthAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        dateOfBirth.value += ' [error]';
+        dateOfBirthValidation = false;
+    } else {
+        if (slash == 2 && isNaN(date) == false) {
+            dateOfBirth.style = "border-color: none";
+            validation++;
+        } else {
+            dateOfBirth.classList.add("shake");
+            texto = icon + '*Invalid format. <br> Please use this: dd/mm/yy';
+            var capa = document.getElementById("dateOfBirthAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            dateOfBirth.value += ' [error]';
+        };
     };
 };
 document.getElementById("dateOfBirth").onfocus = () => {
@@ -125,18 +169,29 @@ document.getElementById("dateOfBirth").onfocus = () => {
 };
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone');
-    if (phone.value.length == 10 && isNaN(phone.value) == false) {
-        phone.style = "border-color: none";
-        validation++;
-    } else {
+    if (phone.value.length < 1) {
         phone.classList.add("shake");
-        texto = icon + '*Invalid phone. <br> Must containt 10 digits.';
+        texto = 'This field is required.'
         var capa = document.getElementById("phoneAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        phone.value += ' [error]';
+        phoneValidation = false;
+    } else {
+        if (phone.value.length == 10 && isNaN(phone.value) == false) {
+            phone.style = "border-color: none";
+            validation++;
+        } else {
+            phone.classList.add("shake");
+            texto = icon + '*Invalid phone. <br> Must containt 10 digits.';
+            var capa = document.getElementById("phoneAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            phone.value += ' [error]';
+        };
     };
 };
 document.getElementById("phone").onfocus = () => {
@@ -162,21 +217,32 @@ document.getElementById("address").onblur = () => {
             letter = true;
         };
     };
-    if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
-        && address.value.indexOf(' ') < address.value.length-1 && address.value.length > address.value.lastIndexOf(' ')) {
-        address.style = "border-color: none";
-        validation++;
-    } else {
+    if (address.value.length < 1) {
         address.classList.add("shake");
-        texto = icon + '*Invalid address format <br> Please use this: Street 123.';
+        texto = 'This field is required.'
         var capa = document.getElementById("addressAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        address.value += ' [error]';
+        addressValidation = false;
+    } else {
+        if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
+            && address.value.indexOf(' ') < address.value.length-1 && address.value.length > address.value.lastIndexOf(' ')) {
+            address.style = "border-color: none";
+            validation++;
+        } else {
+            address.classList.add("shake");
+            texto = icon + '*Invalid address format <br> Please use this: Street 123.';
+            var capa = document.getElementById("addressAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            address.value += ' [error]';
+        };
     };
-};
+    };
 document.getElementById("address").onfocus = () => {
     var address = document.getElementById('address');
     address.classList.remove("shake");
@@ -186,18 +252,29 @@ document.getElementById("address").onfocus = () => {
     address.value = address.value.replace(' [error]','');
 };
 document.getElementById("city").onblur = () => {
-    if (city.value.length > 3) {
-        city.style = "border-color: none";
-        validation++;
-    } else {
+    if (city.value.length < 1) {
         city.classList.add("shake");
-        texto = icon + '*Invalid city format';
+        texto = 'This field is required.'
         var capa = document.getElementById("cityAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        city.value += ' [error]';
+        cityValidation = false;
+    } else {
+        if (city.value.length > 3) {
+            city.style = "border-color: none";
+            validation++;
+        } else {
+            city.classList.add("shake");
+            texto = icon + '*Invalid city format';
+            var capa = document.getElementById("cityAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            city.value += ' [error]';
+        };
     };
 };
 document.getElementById("city").onfocus = () => {
@@ -210,18 +287,29 @@ document.getElementById("city").onfocus = () => {
 };
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode');
-    if (zipCode.value.length >= 4 && zipCode.value.length <= 5 && isNaN(zipCode.value) == false) {
-        zipCode.style = "border-color: none";
-        validation++;
-    } else {
+    if (zipCode.value.length < 1) {
         zipCode.classList.add("shake");
-        texto = '*Invalid Zip Code format <br> Use only number(4 to 5)'
+        texto = 'This field is required.'
         var capa = document.getElementById("zipCodeAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        zipCode.value += ' [error]';
+        zipCodeValidation = false;
+    } else {
+        if (zipCode.value.length >= 4 && zipCode.value.length <= 5 && isNaN(zipCode.value) == false) {
+            zipCode.style = "border-color: none";
+            validation++;
+        } else {
+            zipCode.classList.add("shake");
+            texto = '*Invalid Zip Code format <br> Use only number(4 to 5)'
+            var capa = document.getElementById("zipCodeAlert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            zipCode.value += ' [error]';
+        };
     };
 };
 document.getElementById("zipCode").onfocus = () => {
@@ -234,18 +322,29 @@ document.getElementById("zipCode").onfocus = () => {
 };
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email');
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
-        email.style = "border-color: none";
-        validation++;
-    } else {
+    if (email.value.length < 1) {
         email.classList.add("shake");
-        texto = icon + '*Invalid email format';
+        texto = 'This field is required.'
         var capa = document.getElementById("emailAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        email.value += ' [error]';
+        emailValidation = false;
+    } else {
+        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
+            email.style = "border-color: none";
+            validation++;
+        } else {
+            email.classList.add("shake");
+            texto = icon + '*Invalid email format';
+            var capa = document.getElementById("emailAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            email.value += ' [error]';
+        };
     };
 };
 document.getElementById("email").onfocus = () => {
@@ -279,18 +378,29 @@ document.getElementById("password").onblur = () => {
             special = true;
         };
     };
-    if (password.value.length > 8 && number == true && letter == true && special == false) {
-        password.style = "border-color: none";
-        validation++;
-    } else {
+    if (password.value.length < 1) {
         password.classList.add("shake");
-        texto = icon + '*Use at least 8 charaters. <br> Use numbers and letters.';
+        texto = 'This field is required.'
         var capa = document.getElementById("passwordAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        password.value += ' [error]';
+        passwordValidation = false;
+    } else {
+        if (password.value.length > 8 && number == true && letter == true && special == false) {
+            password.style = "border-color: none";
+            validation++;
+        } else {
+            password.classList.add("shake");
+            texto = icon + '*Use at least 8 charaters. <br> Use numbers and letters.';
+            var capa = document.getElementById("passwordAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            password.value += ' [error]';
+        };
     };
 };
 document.getElementById("password").onfocus = () => {
@@ -304,18 +414,29 @@ document.getElementById("password").onfocus = () => {
 document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password');
     var passwordConfirm = document.getElementById('passwordConfirm');
-    if (password.value == passwordConfirm.value) {
-        passwordConfirm.style = "border-color: none";
-        validation++;
-    } else {
+    if (passwordConfirm.value.length < 1) {
         passwordConfirm.classList.add("shake");
-        texto = icon + '*Password does not match';
+        texto = 'This field is required.'
         var capa = document.getElementById("passwordConfirmAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
-        p.classList.add("alert");;
+        p.innerHTML = icon + texto;
+        p.classList.add("alert");
         capa.appendChild(p);
-        passwordConfirm.value += ' [error]';
+        passwordConfirmValidation = false;
+    } else {
+        if (password.value == passwordConfirm.value) {
+            passwordConfirm.style = "border-color: none";
+            validation++;
+        } else {
+            passwordConfirm.classList.add("shake");
+            texto = icon + '*Password does not match';
+            var capa = document.getElementById("passwordConfirmAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");;
+            capa.appendChild(p);
+            passwordConfirm.value += ' [error]';
+        };
     };
 };
 document.getElementById("passwordConfirm").onfocus = () => {

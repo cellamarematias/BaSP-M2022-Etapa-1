@@ -12,19 +12,30 @@ document.getElementById("name").onblur = () => {
             number = true;
         };
     };
-    if (name.value.length > 3 && number == false) {
-        name.style = "border-color: none";
-        validation++;
-    } else {
-        name.style = "border: solid 2px red; border-radius: 5px";
+    if (name.value.length < 1) {
         name.classList.add("shake");
-        texto = `*Invalid name format. <br> Don't use numbers.`;
+        texto = 'This field is required.'
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
-        p.innerHTML = icon + '  Invalid name.';
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        name.value += ' [error]';
+        nameValidation = false;
+    } else {
+        if (name.value.length > 3 && number == false) {
+            name.style = "border-color: none";
+            validation++;
+        } else {
+            name.style = "border: solid 2px red; border-radius: 5px";
+            name.classList.add("shake");
+            texto = `*Invalid name format. <br> Don't use numbers.`;
+            var capa = document.getElementById("nameAlert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + '  Invalid name.';
+            p.classList.add("alert");
+            capa.appendChild(p);
+            name.value += ' [error]';
+        };
     };
 };
 document.getElementById("name").onfocus = () => {
@@ -36,21 +47,31 @@ document.getElementById("name").onfocus = () => {
     name.value = name.value.replace(' [error]','');
 };
 document.getElementById("email").onblur = () => {
-    console.log(email.value.indexOf("@"))
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
-        email.style = "border-color: none";
-        emailValidation = true;
-    } else {
-        email.style = "border: solid 2px red; border-radius: 5px";
+    if (email.value.length < 1) {
         email.classList.add("shake");
-        texto = ' Invalid email format'
+        texto = 'This field is required.'
         var capa = document.getElementById("emailAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
-        email.value += ' [error]';
+    } else {
+        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
+            email.style = "border-color: none";
+            emailValidation = true;
+        } else {
+            email.style = "border: solid 2px red; border-radius: 5px";
+            email.classList.add("shake");
+            texto = ' Invalid email format'
+            var capa = document.getElementById("emailAlert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            emailValidation = false;
+            email.value += ' [error]';
+        };
     };
 };
 document.getElementById("email").onfocus = () => {
@@ -62,19 +83,30 @@ document.getElementById("email").onfocus = () => {
     email.value = email.value.replace(' [error]','');
 };
 document.getElementById("msg").onblur = () => {
-    if (msg.value.length >= 3) {
-        msg.style = "border-color: none";
-        validation++;
-    } else {
-        msg.style = "border: solid 2px red; border-radius: 5px";
+    if (msg.value.length < 1) {
         msg.classList.add("shake");
-        texto = icon + ' Message too short';
+        texto = 'This field is required.'
         var capa = document.getElementById("msgAlert");
         var p = document.createElement("p");
-        p.innerHTML = texto;
+        p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        msg.value += ' [error]';
+        msgValidation = false;
+    } else {
+        if (msg.value.length >= 3) {
+            msg.style = "border-color: none";
+            validation++;
+        } else {
+            msg.style = "border: solid 2px red; border-radius: 5px";
+            msg.classList.add("shake");
+            texto = icon + ' Message too short';
+            var capa = document.getElementById("msgAlert");
+            var p = document.createElement("p");
+            p.innerHTML = texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            msg.value += ' [error]';
+        };
     };
 };
 document.getElementById("msg").onfocus = () => {

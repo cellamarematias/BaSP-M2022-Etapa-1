@@ -8,21 +8,32 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
 document.getElementById("email").onblur = () => {
-    console.log(email.value.indexOf("@"))
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
-        email.style = "border-color: none";
-        emailValidation = true;
-    } else {
+    if (email.value.length < 1) {
         email.classList.add("shake");
-        texto = 'Invalid email format'
+        texto = 'This field is required.'
         var capa = document.getElementById("emailalert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
-        email.value += ' [error]';
-    };
+    } else {
+        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
+            email.style = "border-color: none";
+            emailValidation = true;
+        } else {
+            email.classList.add("shake");
+            texto = 'Invalid email format'
+            var capa = document.getElementById("emailalert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            emailValidation = false;
+            email.value += ' [error]';
+        };
+    }
+
 };
 document.getElementById("email").onfocus = () => {
     var email = document.getElementById('email');
@@ -54,19 +65,30 @@ document.getElementById("password").onblur = () => {
             special = true;
         };
     };
-    if (number == true && letter == true && special == false) {
-        pass.style = "border-color: none";
-        passwordValidation = true;
-    } else {
+    if (pass.value.length < 1) {
         pass.classList.add("shake");
-        texto = 'Invalid password'
+        texto = 'This field is required.'
         var capa = document.getElementById("passalert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        passwordValidation = false;
-        pass.value += ' [error]';
+        passValidation = false;
+    } else {
+        if (number == true && letter == true && special == false) {
+            pass.style = "border-color: none";
+            passwordValidation = true;
+        } else {
+            pass.classList.add("shake");
+            texto = 'Invalid password'
+            var capa = document.getElementById("passalert");
+            var p = document.createElement("p");
+            p.innerHTML = icon + texto;
+            p.classList.add("alert");
+            capa.appendChild(p);
+            passwordValidation = false;
+            pass.value += ' [error]';
+        };
     };
 };
 document.getElementById("password").onfocus = () => {
