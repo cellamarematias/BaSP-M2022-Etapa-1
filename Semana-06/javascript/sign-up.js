@@ -1,4 +1,5 @@
 var validation = 0;
+var alertText = '- Check this field -';
 var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
     <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
@@ -22,6 +23,7 @@ document.getElementById("name").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         nameValidation = false;
+        name.value += alertText;
     } else {
         if (name.value.length > 3 && number == false) {
             name.style = "border-color: none";
@@ -34,7 +36,7 @@ document.getElementById("name").onblur = () => {
             p.innerHTML = icon + '*Invalid name.';
             p.classList.add("alert");
             capa.appendChild(p);
-            name.value += ' [error]';
+            name.value += alertText;
         };
     }
 };
@@ -44,7 +46,7 @@ document.getElementById("name").onfocus = () => {
     name.style = "border-color: none";
     var list = document.getElementById("nameAlert");
     list.removeChild(list.firstElementChild);
-    name.value = name.value.replace(' [error]','');
+    name.value = name.value.replace(alertText,'');
 };
 document.getElementById("lastName").onblur = () => {
     var lastName = document.getElementById('lastName');
@@ -63,6 +65,7 @@ document.getElementById("lastName").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         lastNameValidation = false;
+        lastName.value += alertText;
     } else {
         if (lastName.value.length > 3 && number == false) {
             lastName.style = "border-color: none";
@@ -75,7 +78,7 @@ document.getElementById("lastName").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");
             capa.appendChild(p);
-            lastName.value += ' [error]';
+            lastName.value += alertText;
         };
     };
 };
@@ -85,7 +88,7 @@ document.getElementById("lastName").onfocus = () => {
     lastName.style = "border-color: none";
     var list = document.getElementById("lastNameAlert");
     list.removeChild(list.firstElementChild);
-    lastName.value = lastName.value.replace(' [error]','');
+    lastName.value = lastName.value.replace(alertText,'');
 };
 document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni');
@@ -98,6 +101,7 @@ document.getElementById("dni").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         dniValidation = false;
+        dni.value += alertText;
     } else {
         if (dni.value.length > 7 && isNaN(dni.value) == false) {
             dni.style = "border-color: none";
@@ -110,7 +114,7 @@ document.getElementById("dni").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            dni.value += ' [error]';
+            dni.value += alertText;
         };
     };
 };
@@ -120,7 +124,7 @@ document.getElementById("dni").onfocus = () => {
     dni.style = "border-color: none";
     var list = document.getElementById("dniAlert");
     list.removeChild(list.firstElementChild);
-    dni.value = dni.value.replace(' [error]','');
+    dni.value = dni.value.replace(alertText,'');
 };
 document.getElementById("dateOfBirth").onblur = () => {
     var dateOfBirth = document.getElementById('dateOfBirth');
@@ -143,6 +147,7 @@ document.getElementById("dateOfBirth").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         dateOfBirthValidation = false;
+        dateOfBirth.value += alertText;
     } else {
         if (slash == 2 && isNaN(date) == false) {
             dateOfBirth.style = "border-color: none";
@@ -155,7 +160,7 @@ document.getElementById("dateOfBirth").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            dateOfBirth.value += ' [error]';
+            dateOfBirth.value += alertText;
         };
     };
 };
@@ -165,7 +170,7 @@ document.getElementById("dateOfBirth").onfocus = () => {
     dateOfBirth.style = "border-color: none";
     var list = document.getElementById("dateOfBirthAlert");
     list.removeChild(list.firstElementChild);
-    dateOfBirth.value = dateOfBirth.value.replace(' [error]','');
+    dateOfBirth.value = dateOfBirth.value.replace(alertText,'');
 };
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone');
@@ -178,6 +183,7 @@ document.getElementById("phone").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         phoneValidation = false;
+        phone.value += alertText;
     } else {
         if (phone.value.length == 10 && isNaN(phone.value) == false) {
             phone.style = "border-color: none";
@@ -190,7 +196,7 @@ document.getElementById("phone").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            phone.value += ' [error]';
+            phone.value += alertText;
         };
     };
 };
@@ -200,7 +206,7 @@ document.getElementById("phone").onfocus = () => {
     phone.style = "border-color: none";
     var list = document.getElementById("phoneAlert");
     list.removeChild(list.firstElementChild);
-    phone.value = phone.value.replace(' [error]','');
+    phone.value = phone.value.replace(alertText,'');
 };
 document.getElementById("address").onblur = () => {
     var address = document.getElementById('address');
@@ -226,6 +232,7 @@ document.getElementById("address").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         addressValidation = false;
+        address.value += alertText;
     } else {
         if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
             && address.value.indexOf(' ') < address.value.length-1 && address.value.length > address.value.lastIndexOf(' ')) {
@@ -239,7 +246,7 @@ document.getElementById("address").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");
             capa.appendChild(p);
-            address.value += ' [error]';
+            address.value += alertText;
         };
     };
     };
@@ -249,7 +256,7 @@ document.getElementById("address").onfocus = () => {
     address.style = "border-color: none";
     var list = document.getElementById("addressAlert");
     list.removeChild(list.firstElementChild);
-    address.value = address.value.replace(' [error]','');
+    address.value = address.value.replace(alertText,'');
 };
 document.getElementById("city").onblur = () => {
     if (city.value.length < 1) {
@@ -261,6 +268,7 @@ document.getElementById("city").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         cityValidation = false;
+        city.value += alertText;
     } else {
         if (city.value.length > 3) {
             city.style = "border-color: none";
@@ -273,7 +281,7 @@ document.getElementById("city").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");
             capa.appendChild(p);
-            city.value += ' [error]';
+            city.value += alertText;
         };
     };
 };
@@ -283,7 +291,7 @@ document.getElementById("city").onfocus = () => {
     city.style = "border-color: none";
     var list = document.getElementById("cityAlert");
     list.removeChild(list.firstElementChild);
-    city.value = city.value.replace(' [error]','');
+    city.value = city.value.replace(alertText,'');
 };
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode');
@@ -296,6 +304,7 @@ document.getElementById("zipCode").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         zipCodeValidation = false;
+        zipCode.value += alertText;
     } else {
         if (zipCode.value.length >= 4 && zipCode.value.length <= 5 && isNaN(zipCode.value) == false) {
             zipCode.style = "border-color: none";
@@ -308,7 +317,7 @@ document.getElementById("zipCode").onblur = () => {
             p.innerHTML = icon + texto;
             p.classList.add("alert");
             capa.appendChild(p);
-            zipCode.value += ' [error]';
+            zipCode.value += alertText;
         };
     };
 };
@@ -318,7 +327,7 @@ document.getElementById("zipCode").onfocus = () => {
     zipCode.style = "border-color: none";
     var list = document.getElementById("zipCodeAlert");
     list.removeChild(list.firstElementChild);
-    zipCode.value = zipCode.value.replace(' [error]','');
+    zipCode.value = zipCode.value.replace(alertText,'');
 };
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email');
@@ -331,6 +340,7 @@ document.getElementById("email").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
+        email.value += alertText;
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             email.style = "border-color: none";
@@ -343,7 +353,7 @@ document.getElementById("email").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            email.value += ' [error]';
+            email.value += alertText;
         };
     };
 };
@@ -353,7 +363,7 @@ document.getElementById("email").onfocus = () => {
     email.style = "border-color: none";
     var list = document.getElementById("emailAlert");
     list.removeChild(list.firstElementChild);
-    email.value = email.value.replace(' [error]','');
+    email.value = email.value.replace(alertText,'');
 };
 document.getElementById("password").onblur = () => {
     var password = document.getElementById('password');
@@ -387,6 +397,7 @@ document.getElementById("password").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         passwordValidation = false;
+        password.value += alertText;
     } else {
         if (password.value.length > 8 && number == true && letter == true && special == false) {
             password.style = "border-color: none";
@@ -399,7 +410,7 @@ document.getElementById("password").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            password.value += ' [error]';
+            password.value += alertText;
         };
     };
 };
@@ -409,7 +420,7 @@ document.getElementById("password").onfocus = () => {
     password.style = "border-color: none";
     var list = document.getElementById("passwordAlert");
     list.removeChild(list.firstElementChild);
-    password.value = password.value.replace(' [error]','');
+    password.value = password.value.replace(alertText,'');
 };
 document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password');
@@ -423,6 +434,7 @@ document.getElementById("passwordConfirm").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         passwordConfirmValidation = false;
+        passwordConfirm.value += alertText;
     } else {
         if (password.value == passwordConfirm.value) {
             passwordConfirm.style = "border-color: none";
@@ -435,7 +447,7 @@ document.getElementById("passwordConfirm").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");;
             capa.appendChild(p);
-            passwordConfirm.value += ' [error]';
+            passwordConfirm.value += alertText;
         };
     };
 };
@@ -445,22 +457,9 @@ document.getElementById("passwordConfirm").onfocus = () => {
     passwordConfirm.style = "border-color: none";
     var list = document.getElementById("passwordConfirmAlert");
     list.removeChild(list.firstElementChild);
-    passwordConfirm.value = passwordConfirm.value.replace(' [error]','');
+    passwordConfirm.value = passwordConfirm.value.replace(alertText,'');
 };
-var btnSignUp = document.getElementsByClassName('btn-l');
-btnSignUp[0].addEventListener('click', function(e) {
-    e.preventDefault(e);
-    var name = document.getElementById('name');
-    var lastName = document.getElementById('lastName');
-    var dni = document.getElementById('dni');
-    var dateOfBirth = document.getElementById('dateOfBirth');
-    var phone = document.getElementById('phone');
-    var address = document.getElementById('address');
-    var city = document.getElementById('city');
-    var zipCode = document.getElementById('zipCode');
-    var email = document.getElementById('email');
-    var password = document.getElementById('password');
-    var passwordConfirm = document.getElementById('passwordConfirm');
+function openModal() {
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("close")[0];
@@ -483,6 +482,23 @@ btnSignUp[0].addEventListener('click', function(e) {
             body.style.overflow = "visible";
         };
     };
+};
+var btnSignUp = document.getElementsByClassName('btn-l');
+btnSignUp[0].addEventListener('click', function(e) {
+    e.preventDefault(e);
+    openModal();
+    var name = document.getElementById('name');
+    var lastName = document.getElementById('lastName');
+    var dni = document.getElementById('dni');
+    var dateOfBirth = document.getElementById('dateOfBirth');
+    var phone = document.getElementById('phone');
+    var address = document.getElementById('address');
+    var city = document.getElementById('city');
+    var zipCode = document.getElementById('zipCode');
+    var email = document.getElementById('email');
+    var password = document.getElementById('password');
+    var passwordConfirm = document.getElementById('passwordConfirm');
+
     texto = `First Name: `+ name.value + `<br> <br>` + `Last Name: `+ lastName.value + `<br> <br>` + `DNI: `+ dni.value + `<br> <br>` +`Date of birth: `
     + dateOfBirth.value + `<br> <br>` +`Phone: `+ phone.value + `<br> <br>` +`Adress: `+ address.value + `<br> <br>` +`City: ` + city.value + `<br> <br>`
     + `Zip Code: ` + zipCode.value + `<br> <br>` +`Email: ` + email.value + `<br> <br>` + `Password: ` + password.value + `<br> <br>` + 

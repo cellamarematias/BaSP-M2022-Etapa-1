@@ -3,6 +3,7 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
+var alertText = '- Check this field -'
 document.getElementById("name").onblur = () => {
     var alertName = '[ERROR]'
     var name = document.getElementById('name');
@@ -21,6 +22,7 @@ document.getElementById("name").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         nameValidation = false;
+        name.value += alertText;
     } else {
         if (name.value.length > 3 && number == false) {
             name.style = "border-color: none";
@@ -34,7 +36,7 @@ document.getElementById("name").onblur = () => {
             p.innerHTML = icon + '  Invalid name.';
             p.classList.add("alert");
             capa.appendChild(p);
-            name.value += ' [error]';
+            name.value += alertText;
         };
     };
 };
@@ -44,7 +46,7 @@ document.getElementById("name").onfocus = () => {
     name.style = "border-color: none";
     var list = document.getElementById("nameAlert");
     list.removeChild(list.firstElementChild);
-    name.value = name.value.replace(' [error]','');
+    name.value = name.value.replace(alertText,'');
 };
 document.getElementById("email").onblur = () => {
     if (email.value.length < 1) {
@@ -56,6 +58,7 @@ document.getElementById("email").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         emailValidation = false;
+        email.value += alertText;
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
             email.style = "border-color: none";
@@ -70,7 +73,7 @@ document.getElementById("email").onblur = () => {
             p.classList.add("alert");
             capa.appendChild(p);
             emailValidation = false;
-            email.value += ' [error]';
+            email.value += alertText;
         };
     };
 };
@@ -80,7 +83,7 @@ document.getElementById("email").onfocus = () => {
     email.style = "border-color: none";
     const list = document.getElementById("emailAlert");
     list.removeChild(list.firstElementChild);
-    email.value = email.value.replace(' [error]','');
+    email.value = email.value.replace(alertText,'');
 };
 document.getElementById("msg").onblur = () => {
     if (msg.value.length < 1) {
@@ -92,6 +95,7 @@ document.getElementById("msg").onblur = () => {
         p.classList.add("alert");
         capa.appendChild(p);
         msgValidation = false;
+        msg.value += alertText;
     } else {
         if (msg.value.length >= 3) {
             msg.style = "border-color: none";
@@ -105,7 +109,7 @@ document.getElementById("msg").onblur = () => {
             p.innerHTML = texto;
             p.classList.add("alert");
             capa.appendChild(p);
-            msg.value += ' [error]';
+            msg.value += alertText;
         };
     };
 };
@@ -115,7 +119,7 @@ document.getElementById("msg").onfocus = () => {
     msg.style = "border-color: none";
     var list = document.getElementById("msgAlert");
     list.removeChild(list.firstElementChild);
-    msg.value = msg.value.replace(' [error]','');
+    msg.value = msg.value.replace(alertText,'');
 };
 var formBtnMsg = document.getElementById('formBtnMsg');
 formBtnMsg.addEventListener('click', function(e) {
