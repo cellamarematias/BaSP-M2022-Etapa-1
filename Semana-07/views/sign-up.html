@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="layer">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../styles/header.css">
         <link rel="stylesheet" href="../styles/main.css">
         <link rel="stylesheet" href="../styles/sidebar.css">
-        <link rel="stylesheet" href="../styles/login.css">
+        <link rel="stylesheet" href="../styles/sign-up.css">
         <link rel="stylesheet" href="../styles/footer.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,10 +35,10 @@
                         <button>Home</button>
                     </form>
                     <form method="get" action="../views/sign-up.html">
-                        <button>Sign Up</button>
+                        <button >Sign Up</button>
                     </form>
                     <form method="get" action="../views/login.html">
-                        <button>Log In</button>
+                        <button >Log In</button>
                     </form>
                 </div>
                 <div class="nav-separador"></div>
@@ -61,28 +61,68 @@
                 </div>
             </div>
         </nav>
-        <main class="login-main">
-            <div class="login-square">
-                <h4>Log In</h4>
-                <form class="container form-login" method="post">
-                    <div class="input-login">
-                        <img id="login-img" class="login-img" src="../assets/logemail.png" alt="email-icon">
-                        <input id="email" type="text">
-                        <div id="emailalert"></div>
+        <main class="signup-main">
+            <div class="signup-square">
+                <h4>Sign Up</h4>
+                <form id="formLogin" class="form-signup">
+                    <div class="formContainer">
+                        <div class="sign-up-container">
+                            <div class="input-signup">
+                                <input id="name" type="text" placeholder="First name">
+                                <div id="nameAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="lastName" type="text" placeholder="Last Name">
+                                <div id="lastNameAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="dni" type="text" placeholder="DNI">
+                                <div id="dniAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="dateOfBirth" type="text" placeholder="Date of birth">
+                                <div id="dateOfBirthAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="phone" type="text" placeholder="Phone">
+                                <div id="phoneAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="address" type="text" placeholder="Address">
+                                <div id="addressAlert"></div>
+                            </div>
+                        </div>
+                        <div class="sign-up-container">
+                            <div class="input-signup">
+                                <input id="city" type="text" placeholder="City">
+                                <div id="cityAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="zipCode" type="text" placeholder="Zip code">
+                                <div id="zipCodeAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="email" type="text" placeholder="Email">
+                                <div id="emailAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="password" type="password" placeholder="Password">
+                                <div id="passwordAlert"></div>
+                            </div>
+                            <div class="input-signup">
+                                <input id="passwordConfirm" type="password" placeholder="Confirm Password">
+                                <div id="passwordConfirmAlert"></div>
+                            </div>
+                            <button type="submit" class="btn-l">Create</button>
+                        </div>
                     </div>
-                    <div class="input-login">
-                        <img class="login-img" src="../assets/padlock.png" alt="email-icon">
-                        <input id="password" type="password">
-                        <div id="passalert"></div>
-                    </div>
-                    <button type="submit" id="btn">Agree</button>
                 </form>
             </div>
         </main>
         <div id="myModal" class="modalContainer">
             <div class="modal-content">
                 <span class="close">×</span> 
-                <h3>Log In Information:</h3>
+                <h3>Sign Up Information</h3>
                 <div id="info"></div>
             </div>
          </div> 
@@ -94,6 +134,6 @@
                 Copyright © 2022 Trackgenix SA. All rights reserved.
             </p>
         </footer>
-        <script src="../javascript/login.js"></script>
+        <script src="../javascript/sign-up.js"></script>
     </body>
 </html>
