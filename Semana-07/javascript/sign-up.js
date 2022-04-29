@@ -577,7 +577,12 @@ btnSignUp[0].addEventListener('click', function(e) {
             if (jsonResponse.success == true) {
                 console.log(jsonResponse.msg);
                 openModal();
-                texto = 'Success! ' + jsonResponse.msg;
+                let valores = Object.values(jsonResponse.data); // valores = ["Scott", "Negro", true, 5];
+                for (var key in jsonResponse.data) {
+                    if (jsonResponse.data.hasOwnProperty(key)) {
+                        texto += key + ": " + jsonResponse.data[key] + '<br>';
+                    }
+                }
                 var info = document.getElementById("info");
                 info.innerHTML = texto;
             } else {
