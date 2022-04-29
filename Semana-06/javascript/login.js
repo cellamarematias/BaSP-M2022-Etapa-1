@@ -126,24 +126,6 @@ function openModal() {
         };
     };
 };
-
-function Solicitud() {
-    // Solicitud GET (Request).
-    let data = {
-        usuario: 'rose@radiumrocket.com',
-        password: 'BaSP2022'
-      }
-    fetch('https://basp-m2022-api-rest-server.herokuapp.com/login', {
-        method: "GET",
-        data: data
-      })
-        // Exito
-        .then(response => response.json())  // convertir a json
-        .then(json => console.log(json))    //imprimir los datos en la consola
-        .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
-    };
-
-
 var formBtnMsg = document.getElementById('btn');
 formBtnMsg.addEventListener('click', function(e) {
     e.preventDefault(e);

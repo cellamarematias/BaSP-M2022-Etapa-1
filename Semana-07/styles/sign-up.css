@@ -56,6 +56,15 @@ input {
     height: 15px;
     margin-bottom: 3rem;
 }
+input[type=date] {
+    appearance: none;
+    color: #1D1D1D;
+    font-size: 14px;
+    padding: 14px;
+    display: inline-block;
+    visibility: visible;
+    width: 140px;
+    }
 .signup-label {
     margin: 1rem;
 }

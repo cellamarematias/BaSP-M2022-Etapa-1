@@ -43,6 +43,7 @@ document.getElementById("email").onfocus = () => {
     const list = document.getElementById("emailalert");
     list.removeChild(list.firstElementChild);
     email.value = email.value.replace(alertText,'');
+    emailValidation = true;
 };
 var pass = document.getElementById('password');
 document.getElementById("password").onblur = () => {
@@ -74,7 +75,7 @@ document.getElementById("password").onblur = () => {
         p.innerHTML = icon + texto;
         p.classList.add("alert");
         capa.appendChild(p);
-        passValidation = false;
+        passwordValidation = false;
         pass.value += alertText;
     } else {
         if (number == true && letter == true && special == false) {
@@ -100,6 +101,7 @@ document.getElementById("password").onfocus = () => {
     const list = document.getElementById("passalert");
     list.removeChild(list.firstElementChild);
     password.value = password.value.replace(alertText,'');
+    passwordValidation = true;
 };
 
 function openModal() {
@@ -127,33 +129,63 @@ function openModal() {
     };
 };
 
-function Solicitud() {
-    // Solicitud GET (Request).
-    let data = {
-        usuario: 'rose@radiumrocket.com',
-        password: 'BaSP2022'
-      }
-    fetch('https://basp-m2022-api-rest-server.herokuapp.com/login', {
-        method: "GET",
-        data: data
-      })
-        // Exito
-        .then(response => response.json())  // convertir a json
-        .then(json => console.log(json))    //imprimir los datos en la consola
-        .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
-    };
+document.getElementById("btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(emailValidation)
+    console.log(passwordValidation)
+    if (emailValidation == true && passwordValidation == true) {
+        var email = document.getElementById('email');
+        var pass = document.getElementById('password');
+        console.log(email + pass)
+        var url =
+            "https://basp-m2022-api-rest-server.herokuapp.com/login?" +
+            new URLSearchParams({
+            email: email.value,
+            password: pass.value,
+            }).toString();
 
+        fetch(url)
+            .then(function (res) {
+            return res.json();
+            })
+            .then(function (jsonResponse) {
+            // lógica +
+            console.log(jsonResponse);
+            //console.log(jsonResponse.errors)
 
-var formBtnMsg = document.getElementById('btn');
-formBtnMsg.addEventListener('click', function(e) {
-    e.preventDefault(e);
-    openModal();
-    Solicitud();
-    var name = document.getElementById('email');
-    var lastName = document.getElementById('password');
-    texto = `Email: `+ email.value + `<br> <br>` + `Password: `+ password.value;
-    var info = document.getElementById("info");
-    info.innerHTML = texto;
+            if (jsonResponse.success == true) {
+                console.log(jsonResponse.msg);
+                openModal();
+                texto = 'Success! ' + jsonResponse.msg;
+                var info = document.getElementById("info");
+                info.innerHTML = texto;
+            } else {
+                console.log(jsonResponse["msg"] == undefined);
+                if (jsonResponse["msg"] == undefined) {
+                for (x of jsonResponse.errors) {
+                    console.log(x.msg);
+                };
+                openModal();
+                texto = x.msg;
+                var info = document.getElementById("info");
+                info.innerHTML = texto;
+                } else {
+                    openModal();
+                    texto = jsonResponse.msg;
+                    console.log(jsonResponse.msg);
+                    var info = document.getElementById("info");
+                    info.innerHTML = texto;
+                }
+            }
+            })
+            .catch(function (error) {
+            // lógica -
+            console.log(error);
+            });
+    } else {
+        openModal();
+        texto = 'Log In validation Failed';
+        var info = document.getElementById("info");
+        info.innerHTML = texto;
+    }
 });
-
-
