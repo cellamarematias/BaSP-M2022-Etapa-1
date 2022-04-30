@@ -26,7 +26,7 @@ document.getElementById("name").onblur = () => {
     };
     if (name.value.length < 1) {
         name.classList.add("shake");
-        texto = 'This field is required.';;
+        texto = 'This field is required.';
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -49,16 +49,19 @@ document.getElementById("name").onblur = () => {
             name.value += alertText;
             nameValidation = false;
         };
-    }
+    };
 };
 document.getElementById("name").onfocus = () => {
-    var name = document.getElementById('name');
-    name.classList.remove("shake");
-    name.style = "border-color: none";
-    var list = document.getElementById("nameAlert");
-    list.removeChild(list.firstElementChild);
-    name.value = name.value.replace(alertText,'');
-    nameValidation = true;
+    var list = document.getElementById("nameAlert");    
+    if (list.hasChildNodes()) {
+        var name = document.getElementById('name');
+        name.classList.remove("shake");
+        name.style = "border-color: none";
+        var list = document.getElementById("nameAlert");
+        list.removeChild(list.firstElementChild);
+        name.value = name.value.replace(alertText,'');
+        nameValidation = true;
+        };
 };
 document.getElementById("lastName").onblur = () => {
     var lastName = document.getElementById('lastName');
@@ -96,13 +99,16 @@ document.getElementById("lastName").onblur = () => {
     };
 };
 document.getElementById("lastName").onfocus = () => {
-    var lastName = document.getElementById('lastName');
-    lastName.classList.remove("shake");
-    lastName.style = "border-color: none";
-    var list = document.getElementById("lastNameAlert");
-    list.removeChild(list.firstElementChild);
-    lastName.value = lastName.value.replace(alertText,'');
-    lastNameValidation = true;
+    var list = document.getElementById("lastNameAlert");    
+    if (list.hasChildNodes()) {
+        var lastName = document.getElementById('lastName');
+        lastName.classList.remove("shake");
+        lastName.style = "border-color: none";
+        var list = document.getElementById("lastNameAlert");
+        list.removeChild(list.firstElementChild);
+        lastName.value = lastName.value.replace(alertText,'');
+        lastNameValidation = true;
+        };
 };
 document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni');
@@ -134,13 +140,16 @@ document.getElementById("dni").onblur = () => {
     };
 };
 document.getElementById("dni").onfocus = () => {
-    var dni = document.getElementById('dni');
-    dni.classList.remove("shake");
-    dni.style = "border-color: none";
-    var list = document.getElementById("dniAlert");
-    list.removeChild(list.firstElementChild);
-    dni.value = dni.value.replace(alertText,'');
-    dniValidation = true;
+    var list = document.getElementById("dniAlert");    
+    if (list.hasChildNodes()) {
+        var dni = document.getElementById('dni');
+        dni.classList.remove("shake");
+        dni.style = "border-color: none";
+        var list = document.getElementById("dniAlert");
+        list.removeChild(list.firstElementChild);
+        dni.value = dni.value.replace(alertText,'');
+        dniValidation = true;
+        };
 };
 document.getElementById("dateOfBirth").onblur = () => {
     var dateOfBirth = document.getElementById('dateOfBirth');
@@ -155,11 +164,6 @@ document.getElementById("dateOfBirth").onblur = () => {
             slash++;
         };
     };
-    console.log(day)
-    console.log(month)
-    console.log(year)
-
-
     if (dateOfBirth.value.length < 1) {
         dateOfBirth.classList.add("shake");
         texto = 'This field is required.';
@@ -189,21 +193,16 @@ document.getElementById("dateOfBirth").onblur = () => {
 
 };
 document.getElementById("dateOfBirth").onfocus = () => {
-    var dateOfBirth = document.getElementById('dateOfBirth');
-    dateOfBirth.classList.remove("shake");
-    dateOfBirth.style = "border-color: none";
-    var list = document.getElementById("dateOfBirthAlert");
-    list.removeChild(list.firstElementChild);
-    dateOfBirth.value = dateOfBirth.value.replace(alertText,'');
-};
-document.getElementById("dateOfBirth").onfocus = () => {
-    var dateOfBirth = document.getElementById('dateOfBirth');
-    dateOfBirth.classList.remove("shake");
-    dateOfBirth.style = "border-color: none";
-    var list = document.getElementById("dateOfBirthAlert");
-    list.removeChild(list.firstElementChild);
-    dateOfBirth.value = dateOfBirth.value.replace(alertText,'');
-    dateOfBirthValidation = true;
+    var list = document.getElementById("dateOfBirthAlert");    
+    if (list.hasChildNodes()) {
+        var dateOfBirth = document.getElementById('dateOfBirth');
+        dateOfBirth.classList.remove("shake");
+        dateOfBirth.style = "border-color: none";
+        var list = document.getElementById("dateOfBirthAlert");
+        list.removeChild(list.firstElementChild);
+        dateOfBirth.value = dateOfBirth.value.replace(alertText,'');
+        dateOfBirthValidation = true;
+        };
 };
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone');
@@ -235,13 +234,16 @@ document.getElementById("phone").onblur = () => {
     };
 };
 document.getElementById("phone").onfocus = () => {
-    var phone = document.getElementById('phone');
-    phone.classList.remove("shake");
-    phone.style = "border-color: none";
-    var list = document.getElementById("phoneAlert");
-    list.removeChild(list.firstElementChild);
-    phone.value = phone.value.replace(alertText,'');
-    phoneValidation = true;
+    var list = document.getElementById("phoneAlert");    
+    if (list.hasChildNodes()) {
+        var phone = document.getElementById('phone');
+        phone.classList.remove("shake");
+        phone.style = "border-color: none";
+        var list = document.getElementById("phoneAlert");
+        list.removeChild(list.firstElementChild);
+        phone.value = phone.value.replace(alertText,'');
+        phoneValidation = true;
+        };
 };
 document.getElementById("address").onblur = () => {
     var address = document.getElementById('address');
@@ -270,7 +272,7 @@ document.getElementById("address").onblur = () => {
         addressValidation = false;
     } else {
         if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
-            && address.value.indexOf(' ') < address.value.length-1 && address.value.length > address.value.lastIndexOf(' ')) {
+            && address.value.indexOf(' ') < address.value.length-1 && address.value.lastIndexOf(' ')+1 < address.value.length) {
             address.style = "border-color: none";
             addressValidation = true;
         } else {
@@ -287,13 +289,16 @@ document.getElementById("address").onblur = () => {
     };
     };
 document.getElementById("address").onfocus = () => {
-    var address = document.getElementById('address');
-    address.classList.remove("shake");
-    address.style = "border-color: none";
-    var list = document.getElementById("addressAlert");
-    list.removeChild(list.firstElementChild);
-    address.value = address.value.replace(alertText,'');
-    addressValidation = true;
+    var list = document.getElementById("addressAlert");    
+    if (list.hasChildNodes()) {
+        var address = document.getElementById('address');
+        address.classList.remove("shake");
+        address.style = "border-color: none";
+        var list = document.getElementById("addressAlert");
+        list.removeChild(list.firstElementChild);
+        address.value = address.value.replace(alertText,'');
+        addressValidation = true;
+        };
 };
 document.getElementById("city").onblur = () => {
     if (city.value.length < 1) {
@@ -324,13 +329,16 @@ document.getElementById("city").onblur = () => {
     };
 };
 document.getElementById("city").onfocus = () => {
-    var city = document.getElementById('city');
-    city.classList.remove("shake");
-    city.style = "border-color: none";
-    var list = document.getElementById("cityAlert");
-    list.removeChild(list.firstElementChild);
-    city.value = city.value.replace(alertText,'');
-    cityValidation = true;
+    var list = document.getElementById("cityAlert");    
+    if (list.hasChildNodes()) {
+        var city = document.getElementById('city');
+        city.classList.remove("shake");
+        city.style = "border-color: none";
+        var list = document.getElementById("cityAlert");
+        list.removeChild(list.firstElementChild);
+        city.value = city.value.replace(alertText,'');
+        cityValidation = true;
+        };
 };
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode');
@@ -362,13 +370,16 @@ document.getElementById("zipCode").onblur = () => {
     };
 };
 document.getElementById("zipCode").onfocus = () => {
-    var zipCode = document.getElementById('zipCode');
-    zipCode.classList.remove("shake");
-    zipCode.style = "border-color: none";
-    var list = document.getElementById("zipCodeAlert");
-    list.removeChild(list.firstElementChild);
-    zipCode.value = zipCode.value.replace(alertText,'');
-    zipCodeValidation = true;
+    var list = document.getElementById("zipCodeAlert");    
+    if (list.hasChildNodes()) {
+        var zipCode = document.getElementById('zipCode');
+        zipCode.classList.remove("shake");
+        zipCode.style = "border-color: none";
+        var list = document.getElementById("zipCodeAlert");
+        list.removeChild(list.firstElementChild);
+        zipCode.value = zipCode.value.replace(alertText,'');
+        zipCodeValidation = true;
+        };
 };
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email');
@@ -400,13 +411,16 @@ document.getElementById("email").onblur = () => {
     };
 };
 document.getElementById("email").onfocus = () => {
-    var email = document.getElementById('email');
-    email.classList.remove("shake");
-    email.style = "border-color: none";
-    var list = document.getElementById("emailAlert");
-    list.removeChild(list.firstElementChild);
-    email.value = email.value.replace(alertText,'');
-    emailValidation = true;
+    var list = document.getElementById("emailAlert");    
+    if (list.hasChildNodes()) {
+        var email = document.getElementById('email');
+        email.classList.remove("shake");
+        email.style = "border-color: none";
+        var list = document.getElementById("emailAlert");
+        list.removeChild(list.firstElementChild);
+        email.value = email.value.replace(alertText,'');
+        emailValidation = true;
+        };
 };
 document.getElementById("password").onblur = () => {
     var password = document.getElementById('password');
@@ -418,7 +432,6 @@ document.getElementById("password").onblur = () => {
             number = true;
         };
     };
-    console.log(number)
     var letter = false;
     for (var i = 0; i < password.value.length; i++) {
         if (isNaN(password.value[i]) == true) {
@@ -459,13 +472,16 @@ document.getElementById("password").onblur = () => {
     };
 };
 document.getElementById("password").onfocus = () => {
-    var password = document.getElementById('password');
-    password.classList.remove("shake");
-    password.style = "border-color: none";
-    var list = document.getElementById("passwordAlert");
-    list.removeChild(list.firstElementChild);
-    password.value = password.value.replace(alertText,'');
-    passwordValidation = true;
+    var list = document.getElementById("passwordAlert");    
+    if (list.hasChildNodes()) {
+        var password = document.getElementById('password');
+        password.classList.remove("shake");
+        password.style = "border-color: none";
+        var list = document.getElementById("passwordAlert");
+        list.removeChild(list.firstElementChild);
+        password.value = password.value.replace(alertText,'');
+        passwordValidation = true;
+        };
 };
 document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password');
@@ -498,14 +514,16 @@ document.getElementById("passwordConfirm").onblur = () => {
     };
 };
 document.getElementById("passwordConfirm").onfocus = () => {
-    var passwordConfirm = document.getElementById('passwordConfirm');
-    passwordConfirm.classList.remove("shake");
-    passwordConfirm.style = "border-color: none";
-    var list = document.getElementById("passwordConfirmAlert");
-    list.removeChild(list.firstElementChild);
-    passwordConfirm.value = passwordConfirm.value.replace(alertText,'');
-    passwordConfirmValidation = true;
-};
+    var list = document.getElementById("passwordConfirmAlert");    
+    if (list.hasChildNodes()) {
+        var password = document.getElementById('password');
+        passwordConfirm.style = "border-color: none";
+        var list = document.getElementById("passwordConfirmAlert");
+        list.removeChild(list.firstElementChild);
+        passwordConfirm.value = passwordConfirm.value.replace(alertText,'');
+        passwordConfirmValidation = true;
+    };
+        };
 function openModal() {
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("btnModal");
@@ -533,8 +551,8 @@ function openModal() {
 var btnSignUp = document.getElementsByClassName('btn-l');
 btnSignUp[0].addEventListener('click', function(e) {
     e.preventDefault(e);
-    console.log(nameValidation, lastNameValidation, dniValidation, dateOfBirthValidation, phoneValidation, addressValidation, 
-        cityValidation, zipCodeValidation, emailValidation, passwordValidation, passwordConfirmValidation)
+    // console.log(nameValidation, lastNameValidation, dniValidation, dateOfBirthValidation, phoneValidation, addressValidation, 
+    //     cityValidation, zipCodeValidation, emailValidation, passwordValidation, passwordConfirmValidation)
     if (nameValidation == true && lastNameValidation == true && dniValidation == true 
         && dateOfBirthValidation == true && phoneValidation == true && addressValidation == true
         && cityValidation == true && zipCodeValidation == true && emailValidation == true 
@@ -571,9 +589,7 @@ btnSignUp[0].addEventListener('click', function(e) {
             })
             .then(function (jsonResponse) {
             // lógica +
-            console.log(jsonResponse);
             if (jsonResponse.success == true) {
-                console.log(jsonResponse.msg);
                 openModal();
                 var texto = '';
                 let valores = Object.values(jsonResponse.data);
@@ -586,10 +602,8 @@ btnSignUp[0].addEventListener('click', function(e) {
                 var info = document.getElementById("info");
                 info.innerHTML = texto;
             } else {
-                console.log(jsonResponse["msg"] == undefined);
                 if (jsonResponse["msg"] == undefined) {
                 for (x of jsonResponse.errors) {
-                    console.log(x.msg);
                 };
                 openModal();
                 texto = x.msg;
@@ -598,11 +612,10 @@ btnSignUp[0].addEventListener('click', function(e) {
                 } else {
                     openModal();
                     texto = jsonResponse.msg;
-                    console.log(jsonResponse.msg);
                     var info = document.getElementById("info");
                     info.innerHTML = texto;
-                }
-            }
+                };
+            };
             })
             .catch(function (error) {
             // lógica -
