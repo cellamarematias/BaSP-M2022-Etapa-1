@@ -44,3 +44,6 @@ The JavaScript's week. This week we made exercises applying new concepts in this
 ## Week 06
 ---
 The JavaScript's week II. This week we made two forms in HTML and CSS. Also, we made the validation for each form in JavaScript. The first form is a Log In form, only two inputs: email and password. The second form is about a Sign Up site with eleven inputs. All of this fields needs to be right and pass different validations. Finally, the site shows a modal windows with the submmited information. 
+## Week 07
+---
+JavasCript Fetch Api and Local Storages's week. We worked on the Sign Up and Log In form. We used Fetch to make the request to the server. To make it possible, first we validated the form and all the data. Then we made the URL and sent the request. The response shows up in a modal, also the errors. The Sign Up site check for data in the local storage and bring it to the form.

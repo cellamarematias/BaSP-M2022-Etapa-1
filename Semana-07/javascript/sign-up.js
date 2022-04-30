@@ -623,7 +623,7 @@ btnSignUp[0].addEventListener('click', function(e) {
             });
     } else {
         openModal();
-        texto = 'Log In validation Failed';
+        texto = 'Log In validation Failed. Check all the fields first.';
         var info = document.getElementById("info");
         info.innerHTML = texto;
     };
