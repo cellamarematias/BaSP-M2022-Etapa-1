@@ -516,7 +516,8 @@ document.getElementById("passwordConfirm").onblur = () => {
 document.getElementById("passwordConfirm").onfocus = () => {
     var list = document.getElementById("passwordConfirmAlert");    
     if (list.hasChildNodes()) {
-        var password = document.getElementById('password');
+        var passwordConfirm = document.getElementById('passwordConfirm');
+        passwordConfirm.classList.remove("shake");
         passwordConfirm.style = "border-color: none";
         var list = document.getElementById("passwordConfirmAlert");
         list.removeChild(list.firstElementChild);
