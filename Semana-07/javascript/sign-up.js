@@ -26,7 +26,7 @@ document.getElementById("name").onblur = () => {
     };
     if (name.value.length < 1) {
         name.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';;
         var capa = document.getElementById("nameAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -70,7 +70,7 @@ document.getElementById("lastName").onblur = () => {
     };
     if (lastName.value.length < 1) {
         lastName.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("lastNameAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -108,7 +108,7 @@ document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni');
     if (dni.value.length < 1) {
         dni.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("dniAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -162,7 +162,7 @@ document.getElementById("dateOfBirth").onblur = () => {
 
     if (dateOfBirth.value.length < 1) {
         dateOfBirth.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("dateOfBirthAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -209,7 +209,7 @@ document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone');
     if (phone.value.length < 1) {
         phone.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("phoneAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -260,7 +260,7 @@ document.getElementById("address").onblur = () => {
     };
     if (address.value.length < 1) {
         address.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("addressAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -298,7 +298,7 @@ document.getElementById("address").onfocus = () => {
 document.getElementById("city").onblur = () => {
     if (city.value.length < 1) {
         city.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("cityAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -336,7 +336,7 @@ document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode');
     if (zipCode.value.length < 1) {
         zipCode.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("zipCodeAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -374,7 +374,7 @@ document.getElementById("email").onblur = () => {
     var email = document.getElementById('email');
     if (email.value.length < 1) {
         email.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("emailAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -433,7 +433,7 @@ document.getElementById("password").onblur = () => {
     };
     if (password.value.length < 1) {
         password.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("passwordAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -472,7 +472,7 @@ document.getElementById("passwordConfirm").onblur = () => {
     var passwordConfirm = document.getElementById('passwordConfirm');
     if (passwordConfirm.value.length < 1) {
         passwordConfirm.classList.add("shake");
-        texto = 'This field is required.'
+        texto = 'This field is required.';
         var capa = document.getElementById("passwordConfirmAlert");
         var p = document.createElement("p");
         p.innerHTML = icon + texto;
@@ -572,17 +572,17 @@ btnSignUp[0].addEventListener('click', function(e) {
             .then(function (jsonResponse) {
             // lógica +
             console.log(jsonResponse);
-            //console.log(jsonResponse.errors)
-
             if (jsonResponse.success == true) {
                 console.log(jsonResponse.msg);
                 openModal();
-                let valores = Object.values(jsonResponse.data); // valores = ["Scott", "Negro", true, 5];
+                var texto = '';
+                let valores = Object.values(jsonResponse.data);
                 for (var key in jsonResponse.data) {
                     if (jsonResponse.data.hasOwnProperty(key)) {
                         texto += key + ": " + jsonResponse.data[key] + '<br>';
-                    }
-                }
+                        localStorage.setItem(key, jsonResponse.data[key]);
+                    };
+                };
                 var info = document.getElementById("info");
                 info.innerHTML = texto;
             } else {
@@ -613,5 +613,34 @@ btnSignUp[0].addEventListener('click', function(e) {
         texto = 'Log In validation Failed';
         var info = document.getElementById("info");
         info.innerHTML = texto;
-    }
+    };
 });
+
+window.onload = function() {
+    if (localStorage.getItem('name') === null){
+        console.log('no hay datos en el Local Storage');
+    } else { 
+        var name = document.getElementById('name');
+        name.value = localStorage.getItem('name');
+        var lastName = document.getElementById('lastName');
+        lastName.value = localStorage.getItem('lastName');
+        var zipCode = document.getElementById('zipCode');
+        zipCode.value = localStorage.getItem('zip');        
+        var dateOfBirth = document.getElementById('dateOfBirth');
+        dateOfBirth.value = localStorage.getItem('dob');        
+        var phone = document.getElementById('phone');
+        phone.value = localStorage.getItem('phone');        
+        var dni = document.getElementById('dni');
+        dni.value = localStorage.getItem('dni');
+        var address = document.getElementById('address');        
+        address.value = localStorage.getItem('address');      
+        var city = document.getElementById('city');
+        city.value = localStorage.getItem('city');     
+        var email = document.getElementById('email');
+        email.value = localStorage.getItem('email');     
+        var password = document.getElementById('password');
+        password.value = localStorage.getItem('password');        
+        var passwordConfirm = document.getElementById('passwordConfirm');
+        passwordConfirm.value = localStorage.getItem('password');        
+    };
+  };
