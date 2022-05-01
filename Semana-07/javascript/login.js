@@ -1,4 +1,6 @@
 var email = document.getElementById('email');
+var pass = document.getElementById('password');
+var id = "";
 var emailValidation = false;
 var passwordValidation = false;
 var alertText = '- Check this field -'
@@ -7,46 +9,53 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
+
+function emptyError(id, index) {
+    var div = document.getElementById(id);
+    div.classList.add("shake");
+    var alert = document.getElementsByClassName('alert');
+    alert[index].classList.add('alert')
+    texto = `${id} required.`;
+    alert[index].innerHTML = icon + texto;
+};
+
+function validationError(id, index) {
+    var div = document.getElementById(id);
+    div.classList.add("shake");
+    var alert = document.getElementsByClassName('alert');
+    texto = `Invalid ${id} format.`;
+    alert[index].innerHTML = icon + texto;
+};
+
+function removerError(id, index) {
+    var div = document.getElementById(id);
+    div.classList.remove("shake");
+    var alert = document.getElementsByClassName('alert');
+    alert[index].innerHTML = '';
+};
+
 document.getElementById("email").onblur = () => {
     if (email.value.length < 1) {
-        email.classList.add("shake");
-        texto = 'This field is required.'
-        var capa = document.getElementById("emailalert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        emailValidation = false;
-        email.value += alertText;
+        emptyError(id, 0);
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
-            email.style = "border-color: none";
+            removerError(id, 0)
             emailValidation = true;
         } else {
-            email.classList.add("shake");
-            texto = 'Invalid email format'
-            var capa = document.getElementById("emailalert");
-            var p = document.createElement("p");
-            p.innerHTML = icon + texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
+            validationError(id, 0);
             emailValidation = false;
-            email.value += alertText;
         };
-    }
-
+    };
 };
+
 document.getElementById("email").onfocus = () => {
-    var email = document.getElementById('email');
-    email.classList.remove("shake");
-    email.style = "border-color: none";
-    const list = document.getElementById("emailalert");
-    list.removeChild(list.firstElementChild);
-    email.value = email.value.replace(alertText,'');
+    id = "email";
+    removerError(id, 0)
     emailValidation = true;
 };
-var pass = document.getElementById('password');
+
 document.getElementById("password").onblur = () => {
+
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var number = false;
     for (var i = 0; i < password.value.length; i++) {
@@ -68,39 +77,20 @@ document.getElementById("password").onblur = () => {
         };
     };
     if (pass.value.length < 1) {
-        pass.classList.add("shake");
-        texto = 'This field is required.'
-        var capa = document.getElementById("passalert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        passwordValidation = false;
-        pass.value += alertText;
+        emptyError(id, 1);
     } else {
         if (number == true && letter == true && special == false) {
-            pass.style = "border-color: none";
+            removerError(id, 1);
             passwordValidation = true;
-        } else {
-            pass.classList.add("shake");
-            texto = 'Invalid password'
-            var capa = document.getElementById("passalert");
-            var p = document.createElement("p");
-            p.innerHTML = icon + texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
+        } else {;
+            validationError(id, 1)
             passwordValidation = false;
-            pass.value += alertText;
         };
     };
 };
 document.getElementById("password").onfocus = () => {
-    var password = document.getElementById('password');
-    password.classList.remove("shake");
-    password.style = "border-color: none";
-    const list = document.getElementById("passalert");
-    list.removeChild(list.firstElementChild);
-    password.value = password.value.replace(alertText,'');
+    id = "password";
+    removerError(id, 1);
     passwordValidation = true;
 };
 

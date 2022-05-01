@@ -9,245 +9,180 @@ var zipCodeValidation = false;
 var emailValidation = false;
 var passwordValidation = false;
 var passwordConfirmValidation = false;
-var alertText = '- Check this field -';
+//var firstName = document.getElementById('firstName').value;
+var lastName = document.getElementById('lastName').value;
+var dni = document.getElementById('dni').value;
+var dateOfBirth = document.getElementById('dateOfBirth').value;
+var phone = document.getElementById('phone').value;
+var address = document.getElementById('address').value;
+var city = document.getElementById('city').value;
+var zipCode = document.getElementById('zipCode').value;
+var email = document.getElementById('email').value;
+var password = document.getElementById('password').value;
+var id = "";
 var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
     <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
-document.getElementById("name").onblur = () => {
-    var alertName = '[ERROR]'
-    var name = document.getElementById('name');
+
+function emptyError(id, index, msg) {
+    var div = document.getElementById(id);
+    div.classList.add("shake");
+    var alert = document.getElementsByClassName('alert');
+    alert[index].classList.add('alert');
+    texto = msg;
+    alert[index].innerHTML = icon + texto;
+};
+
+function validationError(id, index, msg) {
+    var div = document.getElementById(id);
+    div.classList.add("shake");
+    var alert = document.getElementsByClassName('alert');
+    texto = msg;
+    alert[index].innerHTML = icon + texto;
+};
+
+function removerError(id, index) {
+    var div = document.getElementById(id);
+    div.classList.remove("shake");
+    var alert = document.getElementsByClassName('alert');
+    alert[index].innerHTML = '';
+};
+
+document.getElementById("firstName").onblur = () => {
+    var firstName = document.getElementById('firstName').value;
     var number = false;
-    for (var i = 0; i < name.value.length; i++) {
-        if (isNaN(name.value[i]) == false) {
+    for (var i = 0; i < firstName.length; i++) {
+        if (isNaN(firstName[i]) == false) {
             number = true;
         };
     };
-    if (name.value.length < 1) {
-        name.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("nameAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
+    if (firstName.length < 1) {
+        validationError('firstName', 0, 'Name is required');
         nameValidation = false;
-        name.value += alertText;
     } else {
-        if (name.value.length > 3 && number == false) {
-            name.style = "border-color: none";
+        if (firstName.length >= 3 && number == false) {
+            removerError('firstName', 0);
             nameValidation = true;
         } else {
-            name.classList.add("shake");
-            texto = `*Invalid name format. <br> Don't use numbers.`
-            var capa = document.getElementById("nameAlert");
-            var p = document.createElement("p");
-            p.innerHTML = icon + '*Invalid name.';
-            p.classList.add("alert");
-            capa.appendChild(p);
-            name.value += alertText;
+            console.log(firstName.length)
+            validationError('firstName', 0, 'Invalid Name. Use only letters.')
             nameValidation = false;
         };
     };
 };
-document.getElementById("name").onfocus = () => {
-    var list = document.getElementById("nameAlert");    
-    if (list.hasChildNodes()) {
-        var name = document.getElementById('name');
-        name.classList.remove("shake");
-        name.style = "border-color: none";
-        var list = document.getElementById("nameAlert");
-        list.removeChild(list.firstElementChild);
-        name.value = name.value.replace(alertText,'');
+document.getElementById("firstName").onfocus = () => {
+        removerError('firstName', 0);
         nameValidation = true;
-        };
 };
 document.getElementById("lastName").onblur = () => {
-    var lastName = document.getElementById('lastName');
+    var lastName = document.getElementById('lastName').value;
     var number = false;
-    for (var i = 0; i < lastName.value.length; i++) {
-        if (isNaN(lastName.value[i]) == false) {
+    for (var i = 0; i < lastName.length; i++) {
+        if (isNaN(lastName[i]) == false) {
             number = true;
         };
     };
-    if (lastName.value.length < 1) {
-        lastName.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("lastNameAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        lastName.value += alertText;
+    if (lastName.length < 1) {
+        validationError(id, 1, 'Last Name is required.');
         lastNameValidation = false;
     } else {
-        if (lastName.value.length > 3 && number == false) {
-            lastName.style = "border-color: none";
+        if (lastName.length > 3 && number == false) {
+            removerError(id, 1);
             lastNameValidation = true;
         } else {
-            lastName.classList.add("shake");
-            texto = icon + `*Invalid last name format. <br> Don't use numbers.`;
-            var capa = document.getElementById("lastNameAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
-            lastName.value += alertText;
+            validationError(id,1, 'Invalid Last name. Use only letters.');
             lastNameValidation = false;
         };
     };
 };
 document.getElementById("lastName").onfocus = () => {
-    var list = document.getElementById("lastNameAlert");    
-    if (list.hasChildNodes()) {
-        var lastName = document.getElementById('lastName');
-        lastName.classList.remove("shake");
-        lastName.style = "border-color: none";
-        var list = document.getElementById("lastNameAlert");
-        list.removeChild(list.firstElementChild);
-        lastName.value = lastName.value.replace(alertText,'');
-        lastNameValidation = true;
-        };
+    id = "lastName";
+    removerError(id, 1)
+    lastNameValidation = true;
 };
 document.getElementById("dni").onblur = () => {
-    var dni = document.getElementById('dni');
-    if (dni.value.length < 1) {
-        dni.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("dniAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        dni.value += alertText;
+    var dni = document.getElementById('dni').value;
+    if (dni.length < 1) {
+        validationError(id, 2, 'DNI is required.');
         dniValidation = false;
     } else {
-        if (dni.value.length > 7 && isNaN(dni.value) == false) {
-            dni.style = "border-color: none";
+        if (dni.length > 7 && dni.length <= 8 && isNaN(dni) == false) {
+            removerError(id, 2);
             dniValidation = true;
         } else {
-            dni.classList.add("shake");
-            texto = icon + '*Invalid dni format. <br> Only numbers.';
-            var capa = document.getElementById("dniAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            dni.value += alertText;
+            validationError(id, 2, 'Invalid DNI. 6 to 8 numbers.');
             dniValidation = false;
         };
     };
 };
 document.getElementById("dni").onfocus = () => {
-    var list = document.getElementById("dniAlert");    
-    if (list.hasChildNodes()) {
-        var dni = document.getElementById('dni');
-        dni.classList.remove("shake");
-        dni.style = "border-color: none";
-        var list = document.getElementById("dniAlert");
-        list.removeChild(list.firstElementChild);
-        dni.value = dni.value.replace(alertText,'');
-        dniValidation = true;
-        };
+    id = "dni";
+    removerError(id, 2);
+    dniValidation = true;
 };
 document.getElementById("dateOfBirth").onblur = () => {
-    var dateOfBirth = document.getElementById('dateOfBirth');
-    var date = dateOfBirth.value.replace(/[/]/g, '');
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+    var date = dateOfBirth.replace(/[/]/g, '');
     var day = date.substr(2,2);
     var month = date.substr(0,2);
     var year = date.substr(4,4);
 
     var slash = 0;
-    for (var i = 0; i < dateOfBirth.value.length; i++) {
-        if (dateOfBirth.value[i] == '/') {
+    for (var i = 0; i < dateOfBirth.length; i++) {
+        if (dateOfBirth[i] == '/') {
             slash++;
         };
     };
-    if (dateOfBirth.value.length < 1) {
-        dateOfBirth.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("dateOfBirthAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        dateOfBirth.value += alertText;
+    if (dateOfBirth.length < 1) {
+        validationError(id, 3, 'Date is required.');
         dateOfBirthValidation = false;
     } else {
-        if (slash == 2 && isNaN(date) == false && day <= 31 && month <= 12 && year > 1900 && year <= 2004) {
-            dateOfBirth.style = "border-color: none";
+        if (slash == 2 && isNaN(date) == false && day <= 31 && month <= 12) {
+            removerError(id,3);
             dateOfBirthValidation = true;
         } else {
-            dateOfBirth.classList.add("shake");
-            texto = icon + '*Invalid format. <br> Please use this: mm/dd/yyyy';
-            var capa = document.getElementById("dateOfBirthAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            dateOfBirth.value += alertText;
+            validationError(id, 3, 'Invalid date. Use MM/DD/YYYY');
+            dateOfBirthValidation = false;
+        };
+        if (slash == 2 && isNaN(date) == false && year > 1900 && year <= 2004) {
+            removerError(id,3);
+            dateOfBirthValidation = true;
+        } else {
+            validationError(id, 3, 'Must be over 18 years old.');
             dateOfBirthValidation = false;
         };
     };
-
 };
 document.getElementById("dateOfBirth").onfocus = () => {
-    var list = document.getElementById("dateOfBirthAlert");    
-    if (list.hasChildNodes()) {
-        var dateOfBirth = document.getElementById('dateOfBirth');
-        dateOfBirth.classList.remove("shake");
-        dateOfBirth.style = "border-color: none";
-        var list = document.getElementById("dateOfBirthAlert");
-        list.removeChild(list.firstElementChild);
-        dateOfBirth.value = dateOfBirth.value.replace(alertText,'');
-        dateOfBirthValidation = true;
-        };
+    id = "dateOfBirth";
+    removerError(id, 3)
+    dateOfBirthValidation = true;
 };
 document.getElementById("phone").onblur = () => {
-    var phone = document.getElementById('phone');
-    if (phone.value.length < 1) {
-        phone.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("phoneAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        phone.value += alertText;
+    var phone = document.getElementById('phone').value;
+    if (phone.length < 1) {
+        emptyError(id, 4);
         phoneValidation = false;
     } else {
-        if (phone.value.length == 10 && isNaN(phone.value) == false) {
-            phone.style = "border-color: none";
+        if (phone.length == 10 && isNaN(phone) == false) {
+            removerError(id,4);
             phoneValidation = true;
         } else {
-            phone.classList.add("shake");
-            texto = icon + '*Invalid phone. <br> Must containt 10 digits.';
-            var capa = document.getElementById("phoneAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            phone.value += alertText;
+            validationError(id,4);
             phoneValidation = false;
         };
     };
 };
 document.getElementById("phone").onfocus = () => {
-    var list = document.getElementById("phoneAlert");    
-    if (list.hasChildNodes()) {
-        var phone = document.getElementById('phone');
-        phone.classList.remove("shake");
-        phone.style = "border-color: none";
-        var list = document.getElementById("phoneAlert");
-        list.removeChild(list.firstElementChild);
-        phone.value = phone.value.replace(alertText,'');
-        phoneValidation = true;
-        };
+    id = "phone";
+    removerError(id, 4);
+    phoneValidation = true;
 };
 document.getElementById("address").onblur = () => {
-    var address = document.getElementById('address');
-    var addressSpaces = address.value.replaceAll(' ','');
+    var address = document.getElementById('address').value;
+    var addressSpaces = address.replaceAll(' ','');
     var number = false;
     for (var i = 0; i < addressSpaces.length; i++) {
         if (isNaN(addressSpaces[i]) == false) {
@@ -260,271 +195,149 @@ document.getElementById("address").onblur = () => {
             letter = true;
         };
     };
-    if (address.value.length < 1) {
-        address.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("addressAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        address.value += alertText;
+    if (address.length < 1) {
+        emptyError(id,5);
         addressValidation = false;
     } else {
-        if (address.value.length > 5 && number == true && letter == true && address.value.indexOf(' ') > 0 
-            && address.value.indexOf(' ') < address.value.length-1 && address.value.lastIndexOf(' ')+1 < address.value.length) {
-            address.style = "border-color: none";
+        if (address.length > 5 && number == true && letter == true && address.indexOf(' ') > 0 
+            && address.indexOf(' ') < address.length-1 && address.lastIndexOf(' ')+1 < address.length) {
+            removerError(id,5);    
             addressValidation = true;
         } else {
-            address.classList.add("shake");
-            texto = icon + '*Invalid address format <br> Please use this: Street 123.';
-            var capa = document.getElementById("addressAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
-            address.value += alertText;
+            validationError(id,5);
             addressValidation = false;
         };
     };
-    };
+};
 document.getElementById("address").onfocus = () => {
-    var list = document.getElementById("addressAlert");    
-    if (list.hasChildNodes()) {
-        var address = document.getElementById('address');
-        address.classList.remove("shake");
-        address.style = "border-color: none";
-        var list = document.getElementById("addressAlert");
-        list.removeChild(list.firstElementChild);
-        address.value = address.value.replace(alertText,'');
-        addressValidation = true;
-        };
+    id = "address";
+    removerError(id, 5);
+    addressValidation = true;
 };
 document.getElementById("city").onblur = () => {
-    if (city.value.length < 1) {
-        city.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("cityAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        city.value += alertText;
+    var city = document.getElementById('city').value;
+    if (city.length < 1) {
+        emptyError(id,6);
         cityValidation = false;
     } else {
-        if (city.value.length > 3) {
-            city.style = "border-color: none";
+        if (city.length > 3) {
+            removerError(id,6);
             cityValidation = true;
         } else {
-            city.classList.add("shake");
-            texto = icon + '*Invalid city format';
-            var capa = document.getElementById("cityAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
-            city.value += alertText;
+            validationError(id,6);
             cityValidation = false;
         };
     };
 };
 document.getElementById("city").onfocus = () => {
-    var list = document.getElementById("cityAlert");    
-    if (list.hasChildNodes()) {
-        var city = document.getElementById('city');
-        city.classList.remove("shake");
-        city.style = "border-color: none";
-        var list = document.getElementById("cityAlert");
-        list.removeChild(list.firstElementChild);
-        city.value = city.value.replace(alertText,'');
-        cityValidation = true;
-        };
+    id = "city";
+    removerError(id, 6);
+    cityValidation = true;
 };
 document.getElementById("zipCode").onblur = () => {
-    var zipCode = document.getElementById('zipCode');
-    if (zipCode.value.length < 1) {
-        zipCode.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("zipCodeAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        zipCode.value += alertText;
+    var zipCode = document.getElementById('zipCode').value;
+    if (zipCode.length < 1) {
+        emptyError(id,7);
         zipCodeValidation = false;
     } else {
-        if (zipCode.value.length >= 4 && zipCode.value.length <= 5 && isNaN(zipCode.value) == false) {
-            zipCode.style = "border-color: none";
+        if (zipCode.length >= 4 && zipCode.length <= 5 && isNaN(zipCode) == false) {
+            removerError(id,7);
             zipCodeValidation = true;
         } else {
-            zipCode.classList.add("shake");
-            texto = '*Invalid Zip Code format <br> Use only number(4 to 5)'
-            var capa = document.getElementById("zipCodeAlert");
-            var p = document.createElement("p");
-            p.innerHTML = icon + texto;
-            p.classList.add("alert");
-            capa.appendChild(p);
-            zipCode.value += alertText;
+            validationError(id,7);
             zipCodeValidation = false;
         };
     };
 };
 document.getElementById("zipCode").onfocus = () => {
-    var list = document.getElementById("zipCodeAlert");    
-    if (list.hasChildNodes()) {
-        var zipCode = document.getElementById('zipCode');
-        zipCode.classList.remove("shake");
-        zipCode.style = "border-color: none";
-        var list = document.getElementById("zipCodeAlert");
-        list.removeChild(list.firstElementChild);
-        zipCode.value = zipCode.value.replace(alertText,'');
-        zipCodeValidation = true;
-        };
+    id = "zipCode";
+    removerError(id, 7);
+    zipCodeValidation = true;
+
 };
 document.getElementById("email").onblur = () => {
-    var email = document.getElementById('email');
-    if (email.value.length < 1) {
-        email.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("emailAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        email.value += alertText;
+    var email = document.getElementById('email').value;
+    if (email.length < 1) {
+        emptyError(id, 8);
         emailValidation = false;
     } else {
-        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
-            email.style = "border-color: none";
-            emailValidation = true;
+        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email)) {
+            removerError(id, 8);
+           emailValidation = true;
         } else {
-            email.classList.add("shake");
-            texto = icon + '*Invalid email format';
-            var capa = document.getElementById("emailAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            email.value += alertText;
+            validationError(id, 8);
             emailValidation = false;
         };
     };
 };
 document.getElementById("email").onfocus = () => {
-    var list = document.getElementById("emailAlert");    
-    if (list.hasChildNodes()) {
-        var email = document.getElementById('email');
-        email.classList.remove("shake");
-        email.style = "border-color: none";
-        var list = document.getElementById("emailAlert");
-        list.removeChild(list.firstElementChild);
-        email.value = email.value.replace(alertText,'');
-        emailValidation = true;
-        };
+    id = "email";
+    removerError(id, 8);
+    emailValidation = true;
 };
 document.getElementById("password").onblur = () => {
-    var password = document.getElementById('password');
+    var password = document.getElementById('password').value;
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
-    var passwordConfirm = document.getElementById('passwordConfirm');
+    var passwordConfirm = document.getElementById('passwordConfirm').value;
     var number = false;
-    for (var i = 0; i < password.value.length; i++) {
-        if (isNaN(password.value[i]) == false) {
+    for (var i = 0; i < password.length; i++) {
+        if (isNaN(password[i]) == false) {
             number = true;
         };
     };
     var letter = false;
-    for (var i = 0; i < password.value.length; i++) {
-        if (isNaN(password.value[i]) == true) {
+    for (var i = 0; i < password.length; i++) {
+        if (isNaN(password[i]) == true) {
             letter = true;
         };
     };
     var special = false;
-    for (var i = 0; i < password.value.length; i++) {
-        if (specialChart.indexOf(password.value[i]) > 0) {
+    for (var i = 0; i < password.length; i++) {
+        if (specialChart.indexOf(password[i]) > 0) {
             special = true;
         };
     };
-    if (password.value.length < 1) {
-        password.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("passwordAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        password.value += alertText;
+    if (password.length < 1) {
+        emptyError(id,9);
         passwordValidation = false;
     } else {
-        if (password.value.length > 8 && number == true && letter == true && special == false) {
-            password.style = "border-color: none";
+        if (password.length > 8 && number == true && letter == true && special == false) {
+            removerError(id,9);
             passwordValidation = true;
         } else {
-            password.classList.add("shake");
-            texto = icon + '*Use at least 8 charaters. <br> Use numbers and letters.';
-            var capa = document.getElementById("passwordAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            password.value += alertText;
+            validationError(id,9);
             passwordValidation = false;
         };
     };
 };
 document.getElementById("password").onfocus = () => {
-    var list = document.getElementById("passwordAlert");    
-    if (list.hasChildNodes()) {
-        var password = document.getElementById('password');
-        password.classList.remove("shake");
-        password.style = "border-color: none";
-        var list = document.getElementById("passwordAlert");
-        list.removeChild(list.firstElementChild);
-        password.value = password.value.replace(alertText,'');
-        passwordValidation = true;
-        };
+    id = "password";
+    removerError(id, 9);
+    passwordValidation = true;
 };
 document.getElementById("passwordConfirm").onblur = () => {
-    var password = document.getElementById('password');
-    var passwordConfirm = document.getElementById('passwordConfirm');
-    if (passwordConfirm.value.length < 1) {
-        passwordConfirm.classList.add("shake");
-        texto = 'This field is required.';
-        var capa = document.getElementById("passwordConfirmAlert");
-        var p = document.createElement("p");
-        p.innerHTML = icon + texto;
-        p.classList.add("alert");
-        capa.appendChild(p);
-        passwordConfirm.value += alertText;
+    var passwordConfirm = document.getElementById('passwordConfirm').value;
+    var password = document.getElementById('password').value;
+
+    if (passwordConfirm.length < 1) {
+        emptyError(id,10);
         passwordConfirmValidation = false;
     } else {
-        if (password.value == passwordConfirm.value) {
-            passwordConfirm.style = "border-color: none";
+        if (password == passwordConfirm) {
+            removerError(id,10);
             passwordConfirmValidation = true;
         } else {
-            passwordConfirm.classList.add("shake");
-            texto = icon + '*Password does not match';
-            var capa = document.getElementById("passwordConfirmAlert");
-            var p = document.createElement("p");
-            p.innerHTML = texto;
-            p.classList.add("alert");;
-            capa.appendChild(p);
-            passwordConfirm.value += alertText;
+            validationError(id,10);
             passwordConfirmValidation = false;
         };
     };
 };
 document.getElementById("passwordConfirm").onfocus = () => {
-    var list = document.getElementById("passwordConfirmAlert");    
-    if (list.hasChildNodes()) {
-        var passwordConfirm = document.getElementById('passwordConfirm');
-        passwordConfirm.classList.remove("shake");
-        passwordConfirm.style = "border-color: none";
-        var list = document.getElementById("passwordConfirmAlert");
-        list.removeChild(list.firstElementChild);
-        passwordConfirm.value = passwordConfirm.value.replace(alertText,'');
-        passwordConfirmValidation = true;
-    };
-        };
+    id = "passwordConfirm";
+    removerError(id, 10);
+    passwordConfirmValidation = true;
+
+};
 function openModal() {
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("btnModal");
@@ -558,30 +371,29 @@ btnSignUp[0].addEventListener('click', function(e) {
         && dateOfBirthValidation == true && phoneValidation == true && addressValidation == true
         && cityValidation == true && zipCodeValidation == true && emailValidation == true 
         && passwordValidation == true && passwordConfirmValidation == true) {
-            var name = document.getElementById('name');
-            var lastName = document.getElementById('lastName');
-            var dni = document.getElementById('dni');
-            var dateOfBirth = document.getElementById('dateOfBirth');
-            var phone = document.getElementById('phone');
-            var address = document.getElementById('address');
-            var city = document.getElementById('city');
-            var zip = document.getElementById('zipCode');
-            var email = document.getElementById('email');
-            var password = document.getElementById('password');
-            var passwordConfirm = document.getElementById('passwordConfirm');
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var dni = document.getElementById('dni').value;
+            var dateOfBirth = document.getElementById('dateOfBirth').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            var city = document.getElementById('city').value;
+            var zip = document.getElementById('zipCode').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
 
             var url ="https://basp-m2022-api-rest-server.herokuapp.com/signup?" +
             new URLSearchParams({
-            name: name.value,
-            lastName: lastName.value,
-            dni: dni.value,
-            dob: dateOfBirth.value,
-            phone: phone.value,
-            address: address.value,
-            city: city.value,
-            zip: zip.value,
-            email: email.value,
-            password: password.value,
+            name: firstName,
+            lastName: lastName,
+            dni: dni,
+            dob: dateOfBirth,
+            phone: phone,
+            address: address,
+            city: city,
+            zip: zip,
+            email: email,
+            password: password,
             }).toString();
 
         fetch(url)
@@ -635,7 +447,7 @@ window.onload = function() {
         console.log('no hay datos en el Local Storage');
     } else { 
         var name = document.getElementById('name');
-        name.value = localStorage.getItem('name');
+        firstName.value = localStorage.getItem('firstName');
         var lastName = document.getElementById('lastName');
         lastName.value = localStorage.getItem('lastName');
         var zipCode = document.getElementById('zipCode');
