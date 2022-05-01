@@ -26,7 +26,7 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
 
-function emptyError(id, index, msg) {
+function validationError(id, index, msg) {
     var div = document.getElementById(id);
     div.classList.add("shake");
     var alert = document.getElementsByClassName('alert');
@@ -128,30 +128,34 @@ document.getElementById("dateOfBirth").onblur = () => {
     var day = date.substr(2,2);
     var month = date.substr(0,2);
     var year = date.substr(4,4);
-
+    var dateFormat = false;
     var slash = 0;
+
     for (var i = 0; i < dateOfBirth.length; i++) {
         if (dateOfBirth[i] == '/') {
             slash++;
         };
     };
+
+    if (slash == 2 && isNaN(date) == false && day <= 31 && month <= 12 && year < 2022) {
+        dateFormat = true;
+    };
+
     if (dateOfBirth.length < 1) {
         validationError(id, 3, 'Date is required.');
         dateOfBirthValidation = false;
     } else {
-        if (slash == 2 && isNaN(date) == false && day <= 31 && month <= 12) {
-            removerError(id,3);
-            dateOfBirthValidation = true;
-        } else {
+        if (dateFormat == false) {
             validationError(id, 3, 'Invalid date. Use MM/DD/YYYY');
             dateOfBirthValidation = false;
-        };
-        if (slash == 2 && isNaN(date) == false && year > 1900 && year <= 2004) {
-            removerError(id,3);
-            dateOfBirthValidation = true;
         } else {
-            validationError(id, 3, 'Must be over 18 years old.');
-            dateOfBirthValidation = false;
+            if (year > 1900 && year <= 2004) {
+                removerError(id,3);
+                dateOfBirthValidation = true;
+            } else {
+                validationError(id, 3, 'Must be over 18 years old.');
+                dateOfBirthValidation = false;
+            };
         };
     };
 };
@@ -163,14 +167,14 @@ document.getElementById("dateOfBirth").onfocus = () => {
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone').value;
     if (phone.length < 1) {
-        emptyError(id, 4);
+        validationError(id, 4, 'Phone is required.');
         phoneValidation = false;
     } else {
         if (phone.length == 10 && isNaN(phone) == false) {
             removerError(id,4);
             phoneValidation = true;
         } else {
-            validationError(id,4);
+            validationError(id,4, 'Invalid Phone. Must be 10 digits.');
             phoneValidation = false;
         };
     };
@@ -184,6 +188,7 @@ document.getElementById("address").onblur = () => {
     var address = document.getElementById('address').value;
     var addressSpaces = address.replaceAll(' ','');
     var number = false;
+    var spaces = false;
     for (var i = 0; i < addressSpaces.length; i++) {
         if (isNaN(addressSpaces[i]) == false) {
             number = true;
@@ -195,18 +200,25 @@ document.getElementById("address").onblur = () => {
             letter = true;
         };
     };
+    if (address.indexOf(' ') > 0 && address.indexOf(' ') < address.length-1 && address.lastIndexOf(' ')+1 < address.length){
+    spaces = true;
+    }
     if (address.length < 1) {
-        emptyError(id,5);
+        validationError(id,5, 'Address is required.');
         addressValidation = false;
     } else {
-        if (address.length > 5 && number == true && letter == true && address.indexOf(' ') > 0 
-            && address.indexOf(' ') < address.length-1 && address.lastIndexOf(' ')+1 < address.length) {
-            removerError(id,5);    
-            addressValidation = true;
-        } else {
-            validationError(id,5);
+        if (spaces == false) {
+            validationError(id,5, 'No spaces at the beggining or end.');
             addressValidation = false;
-        };
+        } else {
+            if (address.length > 5 && number == true && letter == true) {
+                removerError(id,5);    
+                addressValidation = true;
+             } else {
+                validationError(id,5, 'Invalid format. Use: Street 1234.');
+                addressValidation = false;
+            }
+        }
     };
 };
 document.getElementById("address").onfocus = () => {
@@ -217,14 +229,14 @@ document.getElementById("address").onfocus = () => {
 document.getElementById("city").onblur = () => {
     var city = document.getElementById('city').value;
     if (city.length < 1) {
-        emptyError(id,6);
+        validationError(id,6, 'City is required.');
         cityValidation = false;
     } else {
         if (city.length > 3) {
             removerError(id,6);
             cityValidation = true;
         } else {
-            validationError(id,6);
+            validationError(id,6, 'Must be at least 3 letters.');
             cityValidation = false;
         };
     };
@@ -237,14 +249,14 @@ document.getElementById("city").onfocus = () => {
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode').value;
     if (zipCode.length < 1) {
-        emptyError(id,7);
+        validationError(id,7, 'Zip code is required.');
         zipCodeValidation = false;
     } else {
         if (zipCode.length >= 4 && zipCode.length <= 5 && isNaN(zipCode) == false) {
             removerError(id,7);
             zipCodeValidation = true;
         } else {
-            validationError(id,7);
+            validationError(id,7, 'Must have 4 or 5 digits.');
             zipCodeValidation = false;
         };
     };
@@ -258,14 +270,14 @@ document.getElementById("zipCode").onfocus = () => {
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email').value;
     if (email.length < 1) {
-        emptyError(id, 8);
+        validationError(id, 8, 'Email is required.');
         emailValidation = false;
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email)) {
             removerError(id, 8);
            emailValidation = true;
         } else {
-            validationError(id, 8);
+            validationError(id, 8, 'Wrong email format.');
             emailValidation = false;
         };
     };
@@ -298,14 +310,14 @@ document.getElementById("password").onblur = () => {
         };
     };
     if (password.length < 1) {
-        emptyError(id,9);
+        validationError(id,9, 'Password is required');
         passwordValidation = false;
     } else {
         if (password.length > 8 && number == true && letter == true && special == false) {
             removerError(id,9);
             passwordValidation = true;
         } else {
-            validationError(id,9);
+            validationError(id,9, 'At least 8 numbers and letters.');
             passwordValidation = false;
         };
     };
@@ -320,14 +332,14 @@ document.getElementById("passwordConfirm").onblur = () => {
     var password = document.getElementById('password').value;
 
     if (passwordConfirm.length < 1) {
-        emptyError(id,10);
+        validationError(id,10, 'Confirmation is required.');
         passwordConfirmValidation = false;
     } else {
         if (password == passwordConfirm) {
             removerError(id,10);
             passwordConfirmValidation = true;
         } else {
-            validationError(id,10);
+            validationError(id,10, 'Passwords does not match.');
             passwordConfirmValidation = false;
         };
     };
@@ -446,8 +458,8 @@ window.onload = function() {
     if (localStorage.getItem('name') === null){
         console.log('no hay datos en el Local Storage');
     } else { 
-        var name = document.getElementById('name');
-        firstName.value = localStorage.getItem('firstName');
+        var name = document.getElementById('firstName');
+        name.value = localStorage.getItem('name');
         var lastName = document.getElementById('lastName');
         lastName.value = localStorage.getItem('lastName');
         var zipCode = document.getElementById('zipCode');
