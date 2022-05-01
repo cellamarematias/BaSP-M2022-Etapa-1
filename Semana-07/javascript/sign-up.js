@@ -9,17 +9,6 @@ var zipCodeValidation = false;
 var emailValidation = false;
 var passwordValidation = false;
 var passwordConfirmValidation = false;
-//var firstName = document.getElementById('firstName').value;
-var lastName = document.getElementById('lastName').value;
-var dni = document.getElementById('dni').value;
-var dateOfBirth = document.getElementById('dateOfBirth').value;
-var phone = document.getElementById('phone').value;
-var address = document.getElementById('address').value;
-var city = document.getElementById('city').value;
-var zipCode = document.getElementById('zipCode').value;
-var email = document.getElementById('email').value;
-var password = document.getElementById('password').value;
-var id = "";
 var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-octagon" viewBox="0 0 16 16">
     <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
@@ -35,14 +24,6 @@ function validationError(id, index, msg) {
     alert[index].innerHTML = icon + texto;
 };
 
-function validationError(id, index, msg) {
-    var div = document.getElementById(id);
-    div.classList.add("shake");
-    var alert = document.getElementsByClassName('alert');
-    texto = msg;
-    alert[index].innerHTML = icon + texto;
-};
-
 function removerError(id, index) {
     var div = document.getElementById(id);
     div.classList.remove("shake");
@@ -52,17 +33,26 @@ function removerError(id, index) {
 
 document.getElementById("firstName").onblur = () => {
     var firstName = document.getElementById('firstName').value;
+    var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
+    
     var number = false;
     for (var i = 0; i < firstName.length; i++) {
         if (isNaN(firstName[i]) == false) {
             number = true;
         };
     };
+
+    var special = false;
+    for (var i = 0; i < firstName.length; i++) {
+        if (specialChart.indexOf(firstName[i]) > 0) {
+            special = true;
+        };
+    };
     if (firstName.length < 1) {
         validationError('firstName', 0, 'Name is required');
         nameValidation = false;
     } else {
-        if (firstName.length >= 3 && number == false) {
+        if (firstName.length >= 3 && number == false && special == false) {
             removerError('firstName', 0);
             nameValidation = true;
         } else {
@@ -72,10 +62,12 @@ document.getElementById("firstName").onblur = () => {
         };
     };
 };
+
 document.getElementById("firstName").onfocus = () => {
         removerError('firstName', 0);
         nameValidation = true;
 };
+
 document.getElementById("lastName").onblur = () => {
     var lastName = document.getElementById('lastName').value;
     var number = false;
@@ -85,43 +77,45 @@ document.getElementById("lastName").onblur = () => {
         };
     };
     if (lastName.length < 1) {
-        validationError(id, 1, 'Last Name is required.');
+        validationError('lastName', 1, 'Last Name is required.');
         lastNameValidation = false;
     } else {
         if (lastName.length > 3 && number == false) {
-            removerError(id, 1);
+            removerError('lastName', 1);
             lastNameValidation = true;
         } else {
-            validationError(id,1, 'Invalid Last name. Use only letters.');
+            validationError('lastName', 1, 'Invalid Last name. Use only letters.');
             lastNameValidation = false;
         };
     };
 };
+
 document.getElementById("lastName").onfocus = () => {
-    id = "lastName";
-    removerError(id, 1)
+    removerError('lastName', 1)
     lastNameValidation = true;
 };
+
 document.getElementById("dni").onblur = () => {
     var dni = document.getElementById('dni').value;
     if (dni.length < 1) {
-        validationError(id, 2, 'DNI is required.');
+        validationError('dni', 2, 'DNI is required.');
         dniValidation = false;
     } else {
         if (dni.length > 7 && dni.length <= 8 && isNaN(dni) == false) {
-            removerError(id, 2);
+            removerError('dni', 2);
             dniValidation = true;
         } else {
-            validationError(id, 2, 'Invalid DNI. 6 to 8 numbers.');
+            validationError('dni', 2, 'Invalid DNI. 6 to 8 numbers.');
             dniValidation = false;
         };
     };
 };
+
 document.getElementById("dni").onfocus = () => {
-    id = "dni";
-    removerError(id, 2);
+    removerError('dni', 2);
     dniValidation = true;
 };
+
 document.getElementById("dateOfBirth").onblur = () => {
     var dateOfBirth = document.getElementById('dateOfBirth').value;
     var date = dateOfBirth.replace(/[/]/g, '');
@@ -142,48 +136,49 @@ document.getElementById("dateOfBirth").onblur = () => {
     };
 
     if (dateOfBirth.length < 1) {
-        validationError(id, 3, 'Date is required.');
+        validationError('dateOfBirth', 3, 'Date is required.');
         dateOfBirthValidation = false;
     } else {
         if (dateFormat == false) {
-            validationError(id, 3, 'Invalid date. Use MM/DD/YYYY');
+            validationError('dateOfBirth', 3, 'Invalid date. Use MM/DD/YYYY');
             dateOfBirthValidation = false;
         } else {
             if (year > 1900 && year <= 2004) {
-                removerError(id,3);
+                removerError('dateOfBirth',3);
                 dateOfBirthValidation = true;
             } else {
-                validationError(id, 3, 'Must be over 18 years old.');
+                validationError('dateOfBirth', 3, 'Must be over 18 years old.');
                 dateOfBirthValidation = false;
             };
         };
     };
 };
+
 document.getElementById("dateOfBirth").onfocus = () => {
-    id = "dateOfBirth";
-    removerError(id, 3)
+    removerError('dateOfBirth', 3)
     dateOfBirthValidation = true;
 };
+
 document.getElementById("phone").onblur = () => {
     var phone = document.getElementById('phone').value;
     if (phone.length < 1) {
-        validationError(id, 4, 'Phone is required.');
+        validationError('phone', 4, 'Phone is required.');
         phoneValidation = false;
     } else {
         if (phone.length == 10 && isNaN(phone) == false) {
-            removerError(id,4);
+            removerError('phone',4);
             phoneValidation = true;
         } else {
-            validationError(id,4, 'Invalid Phone. Must be 10 digits.');
+            validationError('phone', 4, 'Invalid Phone. Must be 10 digits.');
             phoneValidation = false;
         };
     };
 };
 document.getElementById("phone").onfocus = () => {
-    id = "phone";
-    removerError(id, 4);
+    removerError('phone', 4);
     phoneValidation = true;
 };
+
 document.getElementById("address").onblur = () => {
     var address = document.getElementById('address').value;
     var addressSpaces = address.replaceAll(' ','');
@@ -204,152 +199,161 @@ document.getElementById("address").onblur = () => {
     spaces = true;
     }
     if (address.length < 1) {
-        validationError(id,5, 'Address is required.');
+        validationError('address', 5, 'Address is required.');
         addressValidation = false;
     } else {
         if (spaces == false) {
-            validationError(id,5, 'No spaces at the beggining or end.');
+            validationError('address', 5, 'No spaces at the beggining or end.');
             addressValidation = false;
         } else {
             if (address.length > 5 && number == true && letter == true) {
-                removerError(id,5);    
+                removerError('address', 5);    
                 addressValidation = true;
              } else {
-                validationError(id,5, 'Invalid format. Use: Street 1234.');
+                validationError('address', 5, 'Invalid format. Use: Street 1234.');
                 addressValidation = false;
-            }
-        }
+            };
+        };
     };
 };
+
 document.getElementById("address").onfocus = () => {
-    id = "address";
-    removerError(id, 5);
+    removerError('address', 5);
     addressValidation = true;
 };
+
 document.getElementById("city").onblur = () => {
     var city = document.getElementById('city').value;
     if (city.length < 1) {
-        validationError(id,6, 'City is required.');
+        validationError('city', 6, 'City is required.');
         cityValidation = false;
     } else {
         if (city.length > 3) {
-            removerError(id,6);
+            removerError('city', 6);
             cityValidation = true;
         } else {
-            validationError(id,6, 'Must be at least 3 letters.');
+            validationError('city', 6, 'Must be at least 3 letters.');
             cityValidation = false;
         };
     };
 };
+
 document.getElementById("city").onfocus = () => {
-    id = "city";
-    removerError(id, 6);
+    removerError('city', 6);
     cityValidation = true;
 };
+
 document.getElementById("zipCode").onblur = () => {
     var zipCode = document.getElementById('zipCode').value;
     if (zipCode.length < 1) {
-        validationError(id,7, 'Zip code is required.');
+        validationError('zipCode', 7, 'Zip code is required.');
         zipCodeValidation = false;
     } else {
         if (zipCode.length >= 4 && zipCode.length <= 5 && isNaN(zipCode) == false) {
-            removerError(id,7);
+            removerError('zipCode',7);
             zipCodeValidation = true;
         } else {
-            validationError(id,7, 'Must have 4 or 5 digits.');
+            validationError('zipCode',7, 'Must have 4 or 5 digits.');
             zipCodeValidation = false;
         };
     };
 };
+
 document.getElementById("zipCode").onfocus = () => {
-    id = "zipCode";
-    removerError(id, 7);
+    removerError('zipCode', 7);
     zipCodeValidation = true;
 
 };
+
 document.getElementById("email").onblur = () => {
     var email = document.getElementById('email').value;
     if (email.length < 1) {
-        validationError(id, 8, 'Email is required.');
+        validationError('email', 8, 'Email is required.');
         emailValidation = false;
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email)) {
-            removerError(id, 8);
+            removerError('email', 8);
            emailValidation = true;
         } else {
-            validationError(id, 8, 'Wrong email format.');
+            validationError('email', 8, 'Wrong email format.');
             emailValidation = false;
         };
     };
 };
+
 document.getElementById("email").onfocus = () => {
-    id = "email";
-    removerError(id, 8);
+    removerError('email', 8);
     emailValidation = true;
 };
+
 document.getElementById("password").onblur = () => {
     var password = document.getElementById('password').value;
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var passwordConfirm = document.getElementById('passwordConfirm').value;
     var number = false;
+
     for (var i = 0; i < password.length; i++) {
         if (isNaN(password[i]) == false) {
             number = true;
         };
     };
+
     var letter = false;
     for (var i = 0; i < password.length; i++) {
         if (isNaN(password[i]) == true) {
             letter = true;
         };
     };
+
     var special = false;
     for (var i = 0; i < password.length; i++) {
         if (specialChart.indexOf(password[i]) > 0) {
             special = true;
         };
     };
+
     if (password.length < 1) {
-        validationError(id,9, 'Password is required');
+        validationError('password', 9, 'Password is required');
         passwordValidation = false;
     } else {
         if (password.length > 8 && number == true && letter == true && special == false) {
-            removerError(id,9);
+            removerError('password', 9);
             passwordValidation = true;
         } else {
-            validationError(id,9, 'At least 8 numbers and letters.');
+            validationError('password', 9, 'At least 8 numbers and letters.');
             passwordValidation = false;
         };
     };
 };
 document.getElementById("password").onfocus = () => {
-    id = "password";
-    removerError(id, 9);
+    removerError('password', 9);
     passwordValidation = true;
 };
+
 document.getElementById("passwordConfirm").onblur = () => {
     var passwordConfirm = document.getElementById('passwordConfirm').value;
     var password = document.getElementById('password').value;
 
     if (passwordConfirm.length < 1) {
-        validationError(id,10, 'Confirmation is required.');
+        validationError('passwordConfirm', 10, 'Confirmation is required.');
         passwordConfirmValidation = false;
     } else {
         if (password == passwordConfirm) {
-            removerError(id,10);
+            removerError('passwordConfirm', 10);
             passwordConfirmValidation = true;
         } else {
-            validationError(id,10, 'Passwords does not match.');
+            validationError('passwordConfirm', 10, 'Passwords does not match.');
             passwordConfirmValidation = false;
         };
     };
 };
+
 document.getElementById("passwordConfirm").onfocus = () => {
-    id = "passwordConfirm";
-    removerError(id, 10);
+    removerError('passwordConfirm', 10);
     passwordConfirmValidation = true;
 
 };
+
 function openModal() {
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("btnModal");

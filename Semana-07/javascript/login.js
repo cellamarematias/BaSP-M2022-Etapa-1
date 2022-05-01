@@ -1,5 +1,3 @@
-var email = document.getElementById('email');
-var pass = document.getElementById('password');
 var id = "";
 var emailValidation = false;
 var passwordValidation = false;
@@ -10,20 +8,12 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
     </svg>`;
 
-function emptyError(id, index) {
+function validationError(id, index, msg) {
     var div = document.getElementById(id);
     div.classList.add("shake");
     var alert = document.getElementsByClassName('alert');
-    alert[index].classList.add('alert')
-    texto = `${id} required.`;
-    alert[index].innerHTML = icon + texto;
-};
-
-function validationError(id, index) {
-    var div = document.getElementById(id);
-    div.classList.add("shake");
-    var alert = document.getElementsByClassName('alert');
-    texto = `Invalid ${id} format.`;
+    alert[index].classList.add('alert');
+    texto = msg;
     alert[index].innerHTML = icon + texto;
 };
 
@@ -35,27 +25,27 @@ function removerError(id, index) {
 };
 
 document.getElementById("email").onblur = () => {
-    if (email.value.length < 1) {
-        emptyError(id, 0);
+    var email = document.getElementById('email').value;
+    if (email.length < 1) {
+        validationError('email', 0, 'Email is required.');
     } else {
-        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email.value)) {
-            removerError(id, 0)
+        if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email)) {
+            removerError('email', 0)
             emailValidation = true;
         } else {
-            validationError(id, 0);
+            validationError('email', 0, 'Wrong email format.');
             emailValidation = false;
         };
     };
 };
 
 document.getElementById("email").onfocus = () => {
-    id = "email";
-    removerError(id, 0)
+    removerError('email', 0)
     emailValidation = true;
 };
 
 document.getElementById("password").onblur = () => {
-
+    var pass = document.getElementById('password');
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var number = false;
     for (var i = 0; i < password.value.length; i++) {
@@ -77,13 +67,13 @@ document.getElementById("password").onblur = () => {
         };
     };
     if (pass.value.length < 1) {
-        emptyError(id, 1);
+        validationError(id, 1, 'Password is required.');
     } else {
         if (number == true && letter == true && special == false) {
             removerError(id, 1);
             passwordValidation = true;
         } else {;
-            validationError(id, 1)
+            validationError(id, 1, 'Must have letters and numbers.')
             passwordValidation = false;
         };
     };
