@@ -33,7 +33,7 @@ function removerError(id, index) {
 
 document.getElementById("firstName").onblur = () => {
     var firstName = document.getElementById('firstName').value;
-    var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
+    var specialChart = ["[", "?", "!", ",", "'", "(",")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     
     var number = false;
     for (var i = 0; i < firstName.length; i++) {
@@ -424,12 +424,15 @@ btnSignUp[0].addEventListener('click', function(e) {
                 let valores = Object.values(jsonResponse.data);
                 for (var key in jsonResponse.data) {
                     if (jsonResponse.data.hasOwnProperty(key)) {
-                        texto += key + ": " + jsonResponse.data[key] + '<br>';
                         localStorage.setItem(key, jsonResponse.data[key]);
+                        var para = document.createElement("p");
+                        para.innerText = key + ": " + jsonResponse.data[key];
+                        document.getElementById("info").appendChild(para);
                     };
                 };
-                var info = document.getElementById("info");
-                info.innerHTML = texto;
+                var tittle = document.createElement("h4");
+                tittle.innerText = jsonResponse.msg;
+                document.getElementById("tittle").appendChild(tittle);
             } else {
                 if (jsonResponse["msg"] == undefined) {
                 for (x of jsonResponse.errors) {
