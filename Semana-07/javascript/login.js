@@ -46,7 +46,6 @@ function emailBlur() {
 
 function emailFocus() {
     removerError('email', 0)
-    emailValidation = true;
 };
 
 function passwordBlur() {
@@ -85,7 +84,6 @@ function passwordBlur() {
 
 function passwordFocus() {
     removerError('password', 1);
-    passwordValidation = true;
 };
 
 function openModal() {
