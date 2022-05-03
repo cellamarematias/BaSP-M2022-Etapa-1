@@ -32,37 +32,37 @@ function removerError(id, index) {
 };
 
 document.getElementById("firstName").addEventListener("blur", nameBlur);
-document.getElementById("firstName").addEventListener("onFocus", nameFocus);
+document.getElementById("firstName").addEventListener("focus", nameFocus);
 
 document.getElementById("lastName").addEventListener("blur", lastNameBlur);
-document.getElementById("lastName").addEventListener("onFocus", lastNameFocus);
+document.getElementById("lastName").addEventListener("focus", lastNameFocus);
 
 document.getElementById("dni").addEventListener("blur", dniBlur);
-document.getElementById("dni").addEventListener("onFocus", dniFocus);
+document.getElementById("dni").addEventListener("focus", dniFocus);
 
 document.getElementById("dateOfBirth").addEventListener("blur", dobBlur);
-document.getElementById("dateOfBirth").addEventListener("onFocus",dobFocus);
+document.getElementById("dateOfBirth").addEventListener("focus",dobFocus);
 
 document.getElementById("phone").addEventListener("blur", phoneBlur);
-document.getElementById("phone").addEventListener("onFocus", phoneFocus);
+document.getElementById("phone").addEventListener("focus", phoneFocus);
 
 document.getElementById("address").addEventListener("blur", addressBlur);
-document.getElementById("address").addEventListener("onFocus", addressFocus);
+document.getElementById("address").addEventListener("focus", addressFocus);
 
 document.getElementById("city").addEventListener("blur", cityBlur);
-document.getElementById("city").addEventListener("onFocus", cityFocus);
+document.getElementById("city").addEventListener("focus", cityFocus);
 
 document.getElementById("zipCode").addEventListener("blur", zipBlur);
-document.getElementById("zipCode").addEventListener("onFocus", zipFocus);
+document.getElementById("zipCode").addEventListener("focus", zipFocus);
 
 document.getElementById("email").addEventListener("blur", emailBlur);
-document.getElementById("email").addEventListener("onFocus", emailFocus);
+document.getElementById("email").addEventListener("focus", emailFocus);
 
 document.getElementById("password").addEventListener("blur", passwordBlur);
-document.getElementById("password").addEventListener("onFocus", passwordFocus);
+document.getElementById("password").addEventListener("focus", passwordFocus);
 
 document.getElementById("passwordConfirm").addEventListener("blur", passwordConfirmBLur);
-document.getElementById("passwordConfirm").addEventListener("onFocus", passwordConfirmFocus);
+document.getElementById("passwordConfirm").addEventListener("focus", passwordConfirmFocus);
 
 
 function nameBlur() {
@@ -86,7 +86,7 @@ function nameBlur() {
         validationError('firstName', 0, 'Name is required');
         nameValidation = false;
     } else {
-        if (firstName.length >= 3 && number == false && special == false) {
+        if (firstName.length > 3 && number == false && special == false) {
             removerError('firstName', 0);
             nameValidation = true;
         } else {
@@ -94,12 +94,12 @@ function nameBlur() {
             nameValidation = false;
         };
     };
-}
+};
 
 function nameFocus() {
     removerError('firstName', 0);
     nameValidation = true;
-}
+};
 
 function lastNameBlur() {
     var lastName = document.getElementById('lastName').value;
@@ -387,6 +387,12 @@ function passwordConfirmFocus() {
     passwordConfirmValidation = true;
 };
 
+function createElement() {
+    var div = document.createElement('div');
+    div.setAttribute("id", 'info');
+    document.getElementById("modalContentRemove").appendChild(div);
+};
+
 function cleanModal() {
     var modalContent = document.getElementById('modalContentRemove');  
     if (modalContent.hasChildNodes() === true){
@@ -436,8 +442,6 @@ btnSignUp[0].addEventListener('click', function(e) {
     emailBlur();
     passwordBlur();
     passwordConfirmBLur();
-    // console.log(nameValidation, lastNameValidation, dniValidation, dateOfBirthValidation, phoneValidation, addressValidation, 
-    //     cityValidation, zipCodeValidation, emailValidation, passwordValidation, passwordConfirmValidation)
     if (nameValidation == true && lastNameValidation == true && dniValidation == true 
         && dateOfBirthValidation == true && phoneValidation == true && addressValidation == true
         && cityValidation == true && zipCodeValidation == true && emailValidation == true 
@@ -501,11 +505,13 @@ btnSignUp[0].addEventListener('click', function(e) {
                 for (x of jsonResponse.errors) {
                 };
                 openModal();
+                createElement();
                 texto = x.msg;
                 var info = document.getElementById("info");
                 info.innerHTML = texto;
                 } else {
                     openModal();
+                    createElement();
                     texto = jsonResponse.msg;
                     var info = document.getElementById("info");
                     info.innerHTML = texto;
@@ -513,7 +519,11 @@ btnSignUp[0].addEventListener('click', function(e) {
             };
             })
             .catch(function (error) {
-            // lógica -
+                openModal();
+                createElement();
+                texto = jsonResponse.msg;
+                var info = document.getElementById("info");
+                info.innerHTML = texto;
             console.log(error);
             });
     } else {

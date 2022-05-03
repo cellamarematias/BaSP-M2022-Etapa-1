@@ -23,8 +23,13 @@ function removerError(id, index) {
     var alert = document.getElementsByClassName('alert');
     alert[index].innerHTML = '';
 };
+document.getElementById("email").addEventListener("blur", emailBlur);
+document.getElementById("email").addEventListener("focus", emailFocus);
 
-document.getElementById("email").onblur = () => {
+document.getElementById("password").addEventListener("blur", passwordBlur);
+document.getElementById("password").addEventListener("focus", passwordFocus);
+
+function emailBlur() {
     var email = document.getElementById('email').value;
     if (email.length < 1) {
         validationError('email', 0, 'Email is required.');
@@ -39,12 +44,12 @@ document.getElementById("email").onblur = () => {
     };
 };
 
-document.getElementById("email").onfocus = () => {
+function emailFocus() {
     removerError('email', 0)
     emailValidation = true;
 };
 
-document.getElementById("password").onblur = () => {
+function passwordBlur() {
     var pass = document.getElementById('password');
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var number = false;
@@ -62,25 +67,24 @@ document.getElementById("password").onblur = () => {
     var special = false;
     for (var i = 0; i < password.value.length; i++) {
         if (specialChart.indexOf(password.value[i]) > 0) {
-            console.log(specialChart.indexOf(password.value[i]))
             special = true;
         };
     };
     if (pass.value.length < 1) {
-        validationError(id, 1, 'Password is required.');
+        validationError('password', 1, 'Password is required.');
     } else {
         if (number == true && letter == true && special == false) {
-            removerError(id, 1);
+            removerError('password', 1);
             passwordValidation = true;
         } else {;
-            validationError(id, 1, 'Must have letters and numbers.')
+            validationError('password', 1, 'Must have letters and numbers.')
             passwordValidation = false;
         };
     };
 };
-document.getElementById("password").onfocus = () => {
-    id = "password";
-    removerError(id, 1);
+
+function passwordFocus() {
+    removerError('password', 1);
     passwordValidation = true;
 };
 
@@ -111,12 +115,9 @@ function openModal() {
 
 document.getElementById("btn").addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(emailValidation)
-    console.log(passwordValidation)
     if (emailValidation == true && passwordValidation == true) {
         var email = document.getElementById('email');
         var pass = document.getElementById('password');
-        console.log(email + pass)
         var url =
             "https://basp-m2022-api-rest-server.herokuapp.com/login?" +
             new URLSearchParams({
@@ -129,21 +130,15 @@ document.getElementById("btn").addEventListener("click", (e) => {
             return res.json();
             })
             .then(function (jsonResponse) {
-            // lógica +
-            console.log(jsonResponse);
-            //console.log(jsonResponse.errors)
 
             if (jsonResponse.success == true) {
-                console.log(jsonResponse.msg);
                 openModal();
                 texto = 'Success! ' + jsonResponse.msg;
                 var info = document.getElementById("info");
                 info.innerHTML = texto;
             } else {
-                console.log(jsonResponse["msg"] == undefined);
                 if (jsonResponse["msg"] == undefined) {
                 for (x of jsonResponse.errors) {
-                    console.log(x.msg);
                 };
                 openModal();
                 texto = x.msg;
@@ -152,15 +147,16 @@ document.getElementById("btn").addEventListener("click", (e) => {
                 } else {
                     openModal();
                     texto = jsonResponse.msg;
-                    console.log(jsonResponse.msg);
                     var info = document.getElementById("info");
                     info.innerHTML = texto;
                 }
             }
             })
             .catch(function (error) {
-            // lógica -
-            console.log(error);
+                openModal();
+                texto = jsonResponse.msg;
+                var info = document.getElementById("info");
+                info.innerHTML = texto;
             });
     } else {
         openModal();
