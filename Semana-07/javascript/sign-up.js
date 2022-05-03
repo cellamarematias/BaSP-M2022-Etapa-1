@@ -13,7 +13,7 @@ var icon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=
     <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 
     1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"/>
     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-    </svg>`;
+</svg>`;
 
 function validationError(id, index, msg) {
     var div = document.getElementById(id);
@@ -31,7 +31,41 @@ function removerError(id, index) {
     alert[index].innerHTML = '';
 };
 
-document.getElementById("firstName").onblur = () => {
+document.getElementById("firstName").addEventListener("blur", nameBlur);
+document.getElementById("firstName").addEventListener("onFocus", nameFocus);
+
+document.getElementById("lastName").addEventListener("blur", lastNameBlur);
+document.getElementById("lastName").addEventListener("onFocus", lastNameFocus);
+
+document.getElementById("dni").addEventListener("blur", dniBlur);
+document.getElementById("dni").addEventListener("onFocus", dniFocus);
+
+document.getElementById("dateOfBirth").addEventListener("blur", dobBlur);
+document.getElementById("dateOfBirth").addEventListener("onFocus",dobFocus);
+
+document.getElementById("phone").addEventListener("blur", phoneBlur);
+document.getElementById("phone").addEventListener("onFocus", phoneFocus);
+
+document.getElementById("address").addEventListener("blur", addressBlur);
+document.getElementById("address").addEventListener("onFocus", addressFocus);
+
+document.getElementById("city").addEventListener("blur", cityBlur);
+document.getElementById("city").addEventListener("onFocus", cityFocus);
+
+document.getElementById("zipCode").addEventListener("blur", zipBlur);
+document.getElementById("zipCode").addEventListener("onFocus", zipFocus);
+
+document.getElementById("email").addEventListener("blur", emailBlur);
+document.getElementById("email").addEventListener("onFocus", emailFocus);
+
+document.getElementById("password").addEventListener("blur", passwordBlur);
+document.getElementById("password").addEventListener("onFocus", passwordFocus);
+
+document.getElementById("passwordConfirm").addEventListener("blur", passwordConfirmBLur);
+document.getElementById("passwordConfirm").addEventListener("onFocus", passwordConfirmFocus);
+
+
+function nameBlur() {
     var firstName = document.getElementById('firstName').value;
     var specialChart = ["[", "?", "!", ",", "'", "(",")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     
@@ -56,19 +90,18 @@ document.getElementById("firstName").onblur = () => {
             removerError('firstName', 0);
             nameValidation = true;
         } else {
-            console.log(firstName.length)
             validationError('firstName', 0, 'Invalid Name. Use only letters.')
             nameValidation = false;
         };
     };
-};
+}
 
-document.getElementById("firstName").onfocus = () => {
-        removerError('firstName', 0);
-        nameValidation = true;
-};
+function nameFocus() {
+    removerError('firstName', 0);
+    nameValidation = true;
+}
 
-document.getElementById("lastName").onblur = () => {
+function lastNameBlur() {
     var lastName = document.getElementById('lastName').value;
     var number = false;
     for (var i = 0; i < lastName.length; i++) {
@@ -90,12 +123,12 @@ document.getElementById("lastName").onblur = () => {
     };
 };
 
-document.getElementById("lastName").onfocus = () => {
+function lastNameFocus() {
     removerError('lastName', 1)
     lastNameValidation = true;
 };
 
-document.getElementById("dni").onblur = () => {
+function dniBlur() {
     var dni = document.getElementById('dni').value;
     if (dni.length < 1) {
         validationError('dni', 2, 'DNI is required.');
@@ -111,12 +144,12 @@ document.getElementById("dni").onblur = () => {
     };
 };
 
-document.getElementById("dni").onfocus = () => {
+function dniFocus() {
     removerError('dni', 2);
     dniValidation = true;
 };
 
-document.getElementById("dateOfBirth").onblur = () => {
+function dobBlur() {
     var dateOfBirth = document.getElementById('dateOfBirth').value;
     var date = dateOfBirth.replace(/[/]/g, '');
     var day = date.substr(2,2);
@@ -154,12 +187,12 @@ document.getElementById("dateOfBirth").onblur = () => {
     };
 };
 
-document.getElementById("dateOfBirth").onfocus = () => {
+function dobFocus() {
     removerError('dateOfBirth', 3)
     dateOfBirthValidation = true;
 };
 
-document.getElementById("phone").onblur = () => {
+function phoneBlur() {
     var phone = document.getElementById('phone').value;
     if (phone.length < 1) {
         validationError('phone', 4, 'Phone is required.');
@@ -174,12 +207,13 @@ document.getElementById("phone").onblur = () => {
         };
     };
 };
-document.getElementById("phone").onfocus = () => {
+
+function phoneFocus() {
     removerError('phone', 4);
     phoneValidation = true;
 };
 
-document.getElementById("address").onblur = () => {
+function addressBlur() {
     var address = document.getElementById('address').value;
     var addressSpaces = address.replaceAll(' ','');
     var number = false;
@@ -209,7 +243,7 @@ document.getElementById("address").onblur = () => {
             if (address.length > 5 && number == true && letter == true) {
                 removerError('address', 5);    
                 addressValidation = true;
-             } else {
+            } else {
                 validationError('address', 5, 'Invalid format. Use: Street 1234.');
                 addressValidation = false;
             };
@@ -217,12 +251,12 @@ document.getElementById("address").onblur = () => {
     };
 };
 
-document.getElementById("address").onfocus = () => {
+function addressFocus() {
     removerError('address', 5);
     addressValidation = true;
 };
 
-document.getElementById("city").onblur = () => {
+function cityBlur() {
     var city = document.getElementById('city').value;
     if (city.length < 1) {
         validationError('city', 6, 'City is required.');
@@ -238,12 +272,12 @@ document.getElementById("city").onblur = () => {
     };
 };
 
-document.getElementById("city").onfocus = () => {
+function cityFocus() {
     removerError('city', 6);
     cityValidation = true;
 };
 
-document.getElementById("zipCode").onblur = () => {
+function zipBlur() {
     var zipCode = document.getElementById('zipCode').value;
     if (zipCode.length < 1) {
         validationError('zipCode', 7, 'Zip code is required.');
@@ -259,13 +293,12 @@ document.getElementById("zipCode").onblur = () => {
     };
 };
 
-document.getElementById("zipCode").onfocus = () => {
+function zipFocus() {
     removerError('zipCode', 7);
     zipCodeValidation = true;
-
 };
 
-document.getElementById("email").onblur = () => {
+function emailBlur() {
     var email = document.getElementById('email').value;
     if (email.length < 1) {
         validationError('email', 8, 'Email is required.');
@@ -273,7 +306,7 @@ document.getElementById("email").onblur = () => {
     } else {
         if (/[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(email)) {
             removerError('email', 8);
-           emailValidation = true;
+            emailValidation = true;
         } else {
             validationError('email', 8, 'Wrong email format.');
             emailValidation = false;
@@ -281,12 +314,12 @@ document.getElementById("email").onblur = () => {
     };
 };
 
-document.getElementById("email").onfocus = () => {
+function emailFocus() {
     removerError('email', 8);
     emailValidation = true;
 };
 
-document.getElementById("password").onblur = () => {
+function passwordBlur() {
     var password = document.getElementById('password').value;
     var specialChart = ["[", "?", "!", ",", "'", "(", ")", "$", "&", ".", "!", "@", "-", "_", "]", "{", "}"];
     var passwordConfirm = document.getElementById('passwordConfirm').value;
@@ -325,12 +358,13 @@ document.getElementById("password").onblur = () => {
         };
     };
 };
-document.getElementById("password").onfocus = () => {
+
+function passwordFocus() {
     removerError('password', 9);
     passwordValidation = true;
 };
 
-document.getElementById("passwordConfirm").onblur = () => {
+function passwordConfirmBLur() {
     var passwordConfirm = document.getElementById('passwordConfirm').value;
     var password = document.getElementById('password').value;
 
@@ -348,26 +382,35 @@ document.getElementById("passwordConfirm").onblur = () => {
     };
 };
 
-document.getElementById("passwordConfirm").onfocus = () => {
+function passwordConfirmFocus() {
     removerError('passwordConfirm', 10);
     passwordConfirmValidation = true;
+};
 
+function cleanModal() {
+    var modalContent = document.getElementById('modalContentRemove');  
+    if (modalContent.hasChildNodes() === true){
+        while (modalContent.firstChild) {
+            modalContent.removeChild(modalContent.firstChild);
+        };
+    };
 };
 
 function openModal() {
     var modal = document.getElementById("myModal");
-    var btn = document.getElementById("btnModal");
     var span = document.getElementsByClassName("close")[0];
     var body = document.getElementsByTagName("body")[0];  
+
     modal.style.display = "block";
     body.style.position = "static";
     body.style.height = "100%";
     body.style.overflow = "hidden"; 
     span.onclick = function() {
-    modal.style.display = "none";
-    body.style.position = "inherit";
-    body.style.height = "auto";
-    body.style.overflow = "visible";
+        cleanModal();
+        modal.style.display = "none";
+        body.style.position = "inherit";
+        body.style.height = "auto";
+        body.style.overflow = "visible";
     };
     window.onclick = function(event) {
         if (event.target == modal) {
@@ -375,12 +418,24 @@ function openModal() {
             body.style.position = "inherit";
             body.style.height = "auto";
             body.style.overflow = "visible";
+            var texto = '';
         };
     };
 };
 var btnSignUp = document.getElementsByClassName('btn-l');
 btnSignUp[0].addEventListener('click', function(e) {
     e.preventDefault(e);
+    nameBlur();
+    lastNameBlur();
+    dniBlur();
+    dobBlur();
+    phoneBlur();
+    addressBlur();
+    cityBlur();
+    zipBlur();
+    emailBlur();
+    passwordBlur();
+    passwordConfirmBLur();
     // console.log(nameValidation, lastNameValidation, dniValidation, dateOfBirthValidation, phoneValidation, addressValidation, 
     //     cityValidation, zipCodeValidation, emailValidation, passwordValidation, passwordConfirmValidation)
     if (nameValidation == true && lastNameValidation == true && dniValidation == true 
@@ -421,7 +476,17 @@ btnSignUp[0].addEventListener('click', function(e) {
             if (jsonResponse.success == true) {
                 openModal();
                 var texto = '';
-                let valores = Object.values(jsonResponse.data);
+                var info = document.getElementById("alertInfo");
+                info.innerHTML = '';
+                var tittle = document.createElement("h4");
+                tittle.setAttribute("id", 'tittle');
+                tittle.innerText = jsonResponse.msg;
+                document.getElementById("modalContentRemove").appendChild(tittle);
+                //creamos el div info
+                var div = document.createElement('div');
+                div.setAttribute("id", 'info');
+                document.getElementById("tittle").appendChild(div);
+
                 for (var key in jsonResponse.data) {
                     if (jsonResponse.data.hasOwnProperty(key)) {
                         localStorage.setItem(key, jsonResponse.data[key]);
@@ -430,9 +495,7 @@ btnSignUp[0].addEventListener('click', function(e) {
                         document.getElementById("info").appendChild(para);
                     };
                 };
-                var tittle = document.createElement("h4");
-                tittle.innerText = jsonResponse.msg;
-                document.getElementById("tittle").appendChild(tittle);
+
             } else {
                 if (jsonResponse["msg"] == undefined) {
                 for (x of jsonResponse.errors) {
@@ -456,12 +519,12 @@ btnSignUp[0].addEventListener('click', function(e) {
     } else {
         openModal();
         texto = 'Log In validation Failed. Check all the fields first.';
-        var info = document.getElementById("info");
+        var info = document.getElementById("alertInfo");
         info.innerHTML = texto;
     };
 });
 
-window.onload = function() {
+window.onload = function() {    
     if (localStorage.getItem('name') === null){
         console.log('no hay datos en el Local Storage');
     } else { 
@@ -488,4 +551,4 @@ window.onload = function() {
         var passwordConfirm = document.getElementById('passwordConfirm');
         passwordConfirm.value = localStorage.getItem('password');        
     };
-  };
+};
